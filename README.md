@@ -26,4 +26,4 @@ Include a `README.md` inside each subfolder with:
 
 ## Questions
 
-Ping @Henry Bassey in the Submission channel on Discord.
+Ping @Henry Bassey (henrybassey.com)in the Submission channel on Discord.
