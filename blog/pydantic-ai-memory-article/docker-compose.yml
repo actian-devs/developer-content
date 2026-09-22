@@ -1,0 +1,16 @@
+services:
+  vectorai:
+    image: actian/vectorai:latest
+    platform: linux/amd64
+    container_name: vectorai_db
+    ports:
+      - "6573:6573" # REST
+      - "6574:6574" # gRPC
+    volumes:
+      # vector data persists across restarts
+      - ./data:/var/lib/actian-vectorai
+    environment:
+      - VECTORAI_LOG_LEVEL=info
+      - ACTIAN_VECTORAI_ACCEPT_EULA=YES
+    restart: unless-stopped
+  
