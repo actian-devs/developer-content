@@ -1,0 +1,19 @@
+[project]
+name = "visual-defect"
+version = "0.1.0"
+description = "Visual defect search with CLIP and Actian VectorAI"
+requires-python = ">=3.12"
+dependencies = [
+    "actian-vectorai-client>=1.0.1",
+    "pillow>=12.2.0",
+    "torch>=2.11.0",
+    "transformers>=5.5.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
