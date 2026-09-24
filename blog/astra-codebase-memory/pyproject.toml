@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astra-codebase-memory"
+version = "0.1.0"
+description = "Astra coding agent with local VectorAI DB memory of confirmed fixes"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "actian-vectorai-client==1.0.2",
+    "python-dotenv==1.2.3",
+    "requests==2.34.2",
+]
+
+# Install the local-embedding stack through requirements.txt so pip can select
+# the pinned CPU-only PyTorch wheel from its dedicated index.
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.4.2",
+    "ruff==0.16.7",
+]
+
+[tool.setuptools]
+py-modules = [
+    "astra_agent",
+    "coding_tools",
+    "cost_guard",
+    "demo_support",
+    "session_demo",
+    "settings",
+    "vectoraidb_memory_tools",
+    "video_demo",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"

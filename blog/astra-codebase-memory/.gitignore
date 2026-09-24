@@ -1,0 +1,48 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local models and databases
+.cache/
+vectorai_data/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+
+# Generated run state and potentially sensitive evidence
+runs/
+evidence/usage.jsonl
+evidence/private/
+*.log
+*.tmp
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

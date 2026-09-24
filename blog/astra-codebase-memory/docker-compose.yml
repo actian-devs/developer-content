@@ -1,0 +1,38 @@
+name: astra-codebase-memory
+
+services:
+  vectorai:
+    # Verified from RepoDigests, distinct from the separately recorded local image ID.
+    image: actian/vectorai@sha256:b01cbb6b407129e722fe7017d6d93afa8648729b625946cf0e546858b8edc6c0
+    container_name: astra-codebase-memory-vectorai
+    environment:
+      ACTIAN_VECTORAI_ACCEPT_EULA: "YES"
+    ports:
+      - "127.0.0.1:16573:6573"
+      - "127.0.0.1:16574:6574"
+      - "127.0.0.1:16575:6575"
+    volumes:
+      # Image history creates this user home and its data/ directory before USER switch.
+      - astra_vectorai_data:/var/lib/actian-vectorai
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          const net=require('net');const s=net.createConnection(6574,'127.0.0.1',
+          ()=>{s.end();process.exit(0)});s.on('error',()=>process.exit(1));
+          setTimeout(()=>process.exit(1),2000)
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 20s
+    restart: unless-stopped
+    labels:
+      com.astra-codebase-memory.owner: astra-codebase-memory
+
+volumes:
+  astra_vectorai_data:
+    name: astra-codebase-memory-vectorai-data
+    labels:
+      com.astra-codebase-memory.owner: astra-codebase-memory

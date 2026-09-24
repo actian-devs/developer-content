@@ -1,0 +1,13 @@
+# The extra index supplies the exact CPU-only Torch build. PyPI remains the
+# primary index for every other dependency.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.14.0+cpu
+sentence-transformers==5.7.0
+actian-vectorai-client==1.0.2
+python-dotenv==1.2.3
+requests==2.34.2
+
+# Local verification tools used by the documented setup and CI-equivalent checks.
+pytest==8.4.2
+ruff==0.16.7
