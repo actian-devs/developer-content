@@ -73,18 +73,11 @@ uv run vectoraidb_memory_store.py
 
 You should see `Collection 'agent_memory' is ready`. The command is safe to run again.
 
-### 5. Set your Together AI key
+
+### 5. Run both sessions
 
 ```bash
-export TOGETHER_API_KEY=your-together-key
-```
-
-On Windows, use `set TOGETHER_API_KEY=your-together-key`.
-
-### 6. Run both sessions
-
-```bash
-uv run session_1.py && uv run session_2.py
+uv run --env-file .env session_1.py && uv run --env-file .env session_2.py
 ```
 
 The `&&` starts session 2 only after session 1 finishes. Expect output like this:
