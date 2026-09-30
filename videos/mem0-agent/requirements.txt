@@ -1,0 +1,5 @@
+mem0ai==2.0.19
+actian-vectorai-client==1.0.2
+langchain-core==1.6.1
+langchain-community==0.4.2
+ollama==0.6.2
