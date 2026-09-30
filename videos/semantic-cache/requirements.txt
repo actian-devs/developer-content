@@ -1,0 +1,5 @@
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+actian-vectorai-client==1.0.2
+fastembed==0.8.0
+httpx==0.28.1

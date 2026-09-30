@@ -1,0 +1,30 @@
+{"a": "How do I reset my password?", "b": "I forgot my password, how do I get back in?", "same": true}
+{"a": "How do I reset my password?", "b": "How do I change my email address?", "same": false}
+{"a": "How do I cancel my order?", "b": "How do I cancel my subscription?", "same": false}
+{"a": "How do I cancel my order?", "b": "I want to cancel an order I placed yesterday", "same": true}
+{"a": "Where is my refund?", "b": "I still haven't received my refund", "same": true}
+{"a": "Where is my refund?", "b": "Where is my parcel?", "same": false}
+{"a": "What are your opening hours?", "b": "When are you open?", "same": true}
+{"a": "What are your opening hours?", "b": "Where are you based?", "same": false}
+{"a": "How do I add a team member?", "b": "How do I invite someone to my workspace?", "same": true}
+{"a": "How do I add a team member?", "b": "How do I remove a team member?", "same": false}
+{"a": "Do you offer student discounts?", "b": "Is there a discount for students?", "same": true}
+{"a": "Do you offer student discounts?", "b": "Do you offer a free trial?", "same": false}
+{"a": "How do I export my data?", "b": "Can I download everything I've got stored?", "same": true}
+{"a": "How do I export my data?", "b": "How do I delete my data?", "same": false}
+{"a": "My login link expired", "b": "The magic link you sent me no longer works", "same": true}
+{"a": "My login link expired", "b": "My subscription expired", "same": false}
+{"a": "How do I upgrade my plan?", "b": "I want to move to the bigger plan", "same": true}
+{"a": "How do I upgrade my plan?", "b": "How do I downgrade my plan?", "same": false}
+{"a": "Is my data encrypted?", "b": "Do you encrypt data at rest?", "same": true}
+{"a": "Is my data encrypted?", "b": "Where is my data stored?", "same": false}
+{"a": "How do I contact support?", "b": "How do I reach a human?", "same": true}
+{"a": "How do I contact support?", "b": "How do I contact sales?", "same": false}
+{"a": "Can I change my billing date?", "b": "Is it possible to move when I get charged?", "same": true}
+{"a": "Can I change my billing date?", "b": "Can I change my billing address?", "same": false}
+{"a": "The app crashes on startup", "b": "It closes as soon as I open it", "same": true}
+{"a": "The app crashes on startup", "b": "The app is slow to start", "same": false}
+{"a": "How do I enable two-factor?", "b": "How do I turn on 2FA?", "same": true}
+{"a": "How do I enable two-factor?", "b": "How do I disable two-factor?", "same": false}
+{"a": "Do you have an API?", "b": "Is there a REST API I can use?", "same": true}
+{"a": "Do you have an API?", "b": "Do you have a mobile app?", "same": false}
