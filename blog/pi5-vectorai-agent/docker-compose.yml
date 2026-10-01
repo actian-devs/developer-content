@@ -1,0 +1,27 @@
+services:
+  vectorai:
+    image: actian/vectorai:latest
+    container_name: vectorai
+    # the licence is tied to the host identity; a fixed hostname keeps it valid when the container is recreated
+    hostname: vectorai
+    ports:
+      - "6573:6573" # REST
+      - "6574:6574" # gRPC
+    volumes:
+      # vector data persists across restarts
+      - ./data:/var/lib/actian-vectorai
+    environment:
+      - VECTORAI_LOG_LEVEL=info
+      - ACTIAN_VECTORAI_ACCEPT_EULA=YES
+    mem_limit: 2g
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama:/root/.ollama
+    mem_limit: 4g
+    restart: unless-stopped
