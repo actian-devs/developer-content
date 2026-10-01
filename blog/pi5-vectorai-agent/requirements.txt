@@ -1,0 +1,4 @@
+requests
+actian-vectorai-client
+numpy
+matplotlib
