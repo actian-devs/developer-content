@@ -22,14 +22,16 @@ No Pi? The same arm64 images run on Apple Silicon Macs. The commands are the sam
 
 ## Quickstart
 
+Clone onto the NVMe drive (for example under `/mnt/nvme`): `setup.sh` creates `data/` and `ollama/` next to the code, so the database and the models land on the fast drive.
+
 ```bash
-git clone <this-repo> && cd pi5-vectorai-agent
+git clone https://github.com/actian-devs/developer-content.git
+cd developer-content/blog/pi5-vectorai-agent
 chmod +x setup.sh && ./setup.sh
-source .venv/bin/activate
-python agent.py
+uv run agent.py
 ```
 
-The setup script installs Docker, starts both containers, pulls the models, runs smoke tests and prints the RAM split.
+The setup script installs Docker and uv, starts both containers, pulls the models and runs smoke tests. `uv run` reads `pyproject.toml`, creates `.venv` and installs the dependencies on first use, so there is no separate install step.
 
 ## Memory budget
 
@@ -52,11 +54,11 @@ After the reboot, recreate the containers once (`docker compose up -d --force-re
 ## Benchmark
 
 ```bash
-python benchmark.py            # 1K / 10K / 100K vectors, 100 queries each
-python plot_benchmark.py       # writes results/benchmark.png
+uv run benchmark.py            # 1K / 10K / 100K vectors, 100 queries each
+uv run plot_benchmark.py       # writes results/benchmark.png
 ```
 
-The free Community edition caps VectorAI DB at 5,000 vectors. Without a licence, run `python benchmark.py --sizes 1000 2000 4000`.
+The free Community edition caps VectorAI DB at 5,000 vectors. Without a licence, run `uv run benchmark.py --sizes 1000 2000 4000`.
 
 The benchmark reports p50, p95 and p99 search latency for 768-dim cosine search with top-5 results. The script records the board, RAM, storage device holding `data/`, CPU temperature and throttle state in the CSV.
 
@@ -69,6 +71,7 @@ The vectors are synthetic, unit-normalized random data. Random vectors are harde
 | `docker-compose.yml` | VectorAI DB + Ollama with memory caps |
 | `setup.sh` | From a fresh Pi to running services and smoke tests |
 | `agent.py` | Agent loop: embed, retrieve, inject, infer, write back |
+| `pyproject.toml` | Python dependencies, read by `uv run` |
 | `benchmark.py` | Retrieval latency at 1K / 10K / 100K vectors |
 | `plot_benchmark.py` | p50/p99 chart from the benchmark CSV |
 
