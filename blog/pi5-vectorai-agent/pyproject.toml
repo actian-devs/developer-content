@@ -1,0 +1,12 @@
+[project]
+name = "pi5-vectorai-agent"
+version = "0.1.0"
+description = "Offline AI agent with semantic memory on a Raspberry Pi 5: Ollama + Actian VectorAI DB"
+requires-python = ">=3.11"
+# `uv run agent.py` reads this, creates .venv and installs these on first run
+dependencies = [
+    "requests",                # Ollama's HTTP API
+    "actian-vectorai-client",  # VectorAI DB client (gRPC); brings numpy, protobuf, grpcio
+    "numpy",                   # benchmark vectors
+    "matplotlib",              # benchmark chart only
+]

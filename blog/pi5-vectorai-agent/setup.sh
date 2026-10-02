@@ -22,8 +22,7 @@ if ! command -v uv &> /dev/null; then
     curl -LsSf https://astral.sh/uv/install.sh | sh
     export PATH="$HOME/.local/bin:$PATH"
 fi
-uv venv
-uv pip install -r requirements.txt
+uv sync   # creates .venv from pyproject.toml
 
 # ── Start services ───────────────────────────────────────────────────────────
 echo "Starting VectorAI DB and Ollama..."
@@ -66,4 +65,4 @@ sudo docker exec ollama ollama list
 echo ""
 echo "=== Setup complete ==="
 echo "Log out and back in once so docker works without sudo, then:"
-echo "  source .venv/bin/activate && python agent.py"
+echo "  uv run agent.py"

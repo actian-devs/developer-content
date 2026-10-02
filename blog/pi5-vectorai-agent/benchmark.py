@@ -43,13 +43,16 @@ def hardware() -> dict:
             return "unknown"
 
     mem_kb = next((line.split()[1] for line in read("/proc/meminfo").splitlines() if line.startswith("MemTotal")), "0")
+    # ask Docker where the vectorai container keeps its data, so the CSV names the drive
+    # the database actually writes to (the NVMe), wherever this script was cloned
+    data_dir = cmd("docker", "inspect", "-f", '{{range .Mounts}}{{if eq .Destination "/var/lib/actian-vectorai"}}'
+                   '{{.Source}}{{end}}{{end}}', "vectorai") or str(Path(__file__).resolve().parent / "data")
     return {
         "board": read("/proc/device-tree/model"),
         "arch": platform.machine(),
         "kernel": platform.release(),
         "ram_gb": round(int(mem_kb) / 1024 / 1024, 1),
-        # device holding the VectorAI DB bind mount (NVMe), not the boot drive
-        "storage": cmd("findmnt", "-no", "SOURCE", "-T", str(Path(__file__).resolve().parent / "data")),
+        "storage": cmd("findmnt", "-no", "SOURCE", "-T", data_dir) or "unknown",
         # vcgencmd prints "temp=48.3'C" / "throttled=0x0"; keep only the value
         "temp": cmd("vcgencmd", "measure_temp").split("=")[-1],
         "throttled": cmd("vcgencmd", "get_throttled").split("=")[-1],  # 0x0 means no throttling since boot
