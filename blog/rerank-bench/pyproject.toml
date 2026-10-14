@@ -1,0 +1,17 @@
+[project]
+name = "rerank-bench"
+version = "0.1.0"
+description = "Is Jev any good for reranking? A quick benchmark on BEIR with Actian VectorAI DB."
+requires-python = ">=3.11"
+dependencies = [
+    "actian-vectorai-client>=1.0.3",
+    "jev-reranker>=0.1.2",
+    "sentence-transformers>=3.0",
+    "transformers>=4.44",
+    "torch>=2.3",
+    "rank-bm25>=0.2.2",
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+    "requests>=2.31",
+    "tqdm>=4.66",
+]
