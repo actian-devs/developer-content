@@ -381,6 +381,6 @@ The network controls blocked the remaining attempt. The result applies to this w
 
 The experiment captures **outbound IPv4 activity from the `br-rag` Docker network** while the test workload runs. We also retain DNS and firewall logs to identify attempted connections that a packet capture alone might miss. The firewall allows established or related replies, so each restricted run starts with fresh service connections.
 
-Host processes, traffic on other interfaces, and browser requests outside this bridge are outside the capture. **IPv6 verification is still pending** and can be added once tested. The logs identify attempted destinations, although encrypted request contents and calls outside the observation window remain unknown.
+The capture excludes host processes, traffic on other interfaces, and browser requests outside this bridge. We confirmed that IPv6 is disabled on the Docker network (`EnableIPv6: false`), so this audit focuses on IPv4 traffic. The logs identify attempted destinations, but cannot show encrypted request contents or activity outside the observation window.
 
 This setup tests firewall-enforced isolation. A physical air gap also requires controls over other network paths and software transfers. If you adapt the audit to another environment, document the interfaces and protocols you monitor.
