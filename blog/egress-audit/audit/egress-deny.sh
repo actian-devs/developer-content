@@ -11,8 +11,7 @@
 # fails immediately instead of waiting for a timeout.
 #
 # The firewall log is one of three records the audit keeps, alongside the
-# DNS sinkhole log and the packet capture. Each one misses things the others
-# catch, so no single record is treated as complete.
+# DNS sinkhole log and the packet capture.
 
 set -euo pipefail
 
