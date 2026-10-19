@@ -1,0 +1,592 @@
+{
+  "test": 1,
+  "threshold": 0.8,
+  "fp_target": 0.05,
+  "at_operating_threshold": {
+    "threshold": 0.8,
+    "queries": 770,
+    "hits": 610,
+    "hit_rate": 0.7922077922077922,
+    "wrong_hits": 39,
+    "fp_rate": 0.06393442622950819,
+    "wrong_hits_per_100_queries": 5.064935064935065
+  },
+  "threshold_for_target": 0.83,
+  "eval_at_target_threshold": {
+    "threshold": 0.83,
+    "queries": 385,
+    "hits": 270,
+    "hit_rate": 0.7012987012987013,
+    "wrong_hits": 13,
+    "fp_rate": 0.04814814814814815,
+    "wrong_hits_per_100_queries": 3.3766233766233764
+  },
+  "wrong_hit_examples": [
+    {
+      "query": "When will my transfer be available in my account.",
+      "query_intent": "balance_not_updated_after_bank_transfer",
+      "cached": "When will my transfer be in my account?",
+      "cached_intent": "transfer_timing",
+      "score": 0.9588
+    },
+    {
+      "query": "Why was I unable to do a transfer?",
+      "query_intent": "declined_transfer",
+      "cached": "Why was I not able to complete my transfer?",
+      "cached_intent": "failed_transfer",
+      "score": 0.9211
+    },
+    {
+      "query": "Where can I view my PIN?",
+      "query_intent": "pin_blocked",
+      "cached": "Show me where I can see the PIN?",
+      "cached_intent": "get_physical_card",
+      "score": 0.9088
+    },
+    {
+      "query": "What is needed to prove my identity?",
+      "query_intent": "verify_my_identity",
+      "cached": "I am unable to prove my identity",
+      "cached_intent": "unable_to_verify_identity",
+      "score": 0.9046
+    },
+    {
+      "query": "I made a transfer and am still waiting.",
+      "query_intent": "balance_not_updated_after_bank_transfer",
+      "cached": "I have a transfer waiting.",
+      "cached_intent": "pending_transfer",
+      "score": 0.9046
+    },
+    {
+      "query": "Can I order a virtual card?",
+      "query_intent": "getting_virtual_card",
+      "cached": "can i get a virtual card",
+      "cached_intent": "get_disposable_virtual_card",
+      "score": 0.9008
+    },
+    {
+      "query": "can I have a non virtual card?",
+      "query_intent": "order_physical_card",
+      "cached": "can i get a virtual card",
+      "cached_intent": "get_disposable_virtual_card",
+      "score": 0.8953
+    },
+    {
+      "query": "My card's frozen, what can I do?",
+      "query_intent": "pin_blocked",
+      "cached": "Is my card frozen?",
+      "cached_intent": "card_not_working",
+      "score": 0.8912
+    },
+    {
+      "query": "whats your exchange rate",
+      "query_intent": "exchange_charge",
+      "cached": "What exchange rate will I receive?",
+      "cached_intent": "exchange_rate",
+      "score": 0.8835
+    },
+    {
+      "query": "Where can I get my card at?",
+      "query_intent": "order_physical_card",
+      "cached": "How will I get my card?",
+      "cached_intent": "card_delivery_estimate",
+      "score": 0.8801
+    },
+    {
+      "query": "I need a new Pin how do I go about that?",
+      "query_intent": "change_pin",
+      "cached": "How do I find my new pin?",
+      "cached_intent": "get_physical_card",
+      "score": 0.8735
+    },
+    {
+      "query": "I asked for a refund last week but nothing has happened yet, can you help me please?",
+      "query_intent": "Refund_not_showing_up",
+      "cached": "Please help me get a refund?",
+      "cached_intent": "request_refund",
+      "score": 0.8729
+    },
+    {
+      "query": "Do I have to do the identity check?",
+      "query_intent": "why_verify_identity",
+      "cached": "Can you tell me what i need for the identity check?",
+      "cached_intent": "verify_my_identity",
+      "score": 0.8651
+    },
+    {
+      "query": "The exchange rates are?",
+      "query_intent": "exchange_rate",
+      "cached": "Please provide currency exchange rates",
+      "cached_intent": "exchange_charge",
+      "score": 0.863
+    },
+    {
+      "query": "Do I have to do an identity check?",
+      "query_intent": "why_verify_identity",
+      "cached": "Can you tell me what i need for the identity check?",
+      "cached_intent": "verify_my_identity",
+      "score": 0.8591
+    }
+  ],
+  "sweep": [
+    {
+      "threshold": 0.5,
+      "queries": 770,
+      "hits": 769,
+      "hit_rate": 0.9987012987012988,
+      "wrong_hits": 83,
+      "fp_rate": 0.10793237971391417,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.51,
+      "queries": 770,
+      "hits": 769,
+      "hit_rate": 0.9987012987012988,
+      "wrong_hits": 83,
+      "fp_rate": 0.10793237971391417,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.52,
+      "queries": 770,
+      "hits": 769,
+      "hit_rate": 0.9987012987012988,
+      "wrong_hits": 83,
+      "fp_rate": 0.10793237971391417,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.53,
+      "queries": 770,
+      "hits": 769,
+      "hit_rate": 0.9987012987012988,
+      "wrong_hits": 83,
+      "fp_rate": 0.10793237971391417,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.54,
+      "queries": 770,
+      "hits": 769,
+      "hit_rate": 0.9987012987012988,
+      "wrong_hits": 83,
+      "fp_rate": 0.10793237971391417,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.55,
+      "queries": 770,
+      "hits": 769,
+      "hit_rate": 0.9987012987012988,
+      "wrong_hits": 83,
+      "fp_rate": 0.10793237971391417,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.56,
+      "queries": 770,
+      "hits": 768,
+      "hit_rate": 0.9974025974025974,
+      "wrong_hits": 83,
+      "fp_rate": 0.10807291666666667,
+      "wrong_hits_per_100_queries": 10.779220779220779
+    },
+    {
+      "threshold": 0.57,
+      "queries": 770,
+      "hits": 767,
+      "hit_rate": 0.9961038961038962,
+      "wrong_hits": 82,
+      "fp_rate": 0.10691003911342895,
+      "wrong_hits_per_100_queries": 10.64935064935065
+    },
+    {
+      "threshold": 0.58,
+      "queries": 770,
+      "hits": 765,
+      "hit_rate": 0.9935064935064936,
+      "wrong_hits": 80,
+      "fp_rate": 0.10457516339869281,
+      "wrong_hits_per_100_queries": 10.38961038961039
+    },
+    {
+      "threshold": 0.59,
+      "queries": 770,
+      "hits": 764,
+      "hit_rate": 0.9922077922077922,
+      "wrong_hits": 80,
+      "fp_rate": 0.10471204188481675,
+      "wrong_hits_per_100_queries": 10.38961038961039
+    },
+    {
+      "threshold": 0.6,
+      "queries": 770,
+      "hits": 763,
+      "hit_rate": 0.990909090909091,
+      "wrong_hits": 79,
+      "fp_rate": 0.10353866317169069,
+      "wrong_hits_per_100_queries": 10.25974025974026
+    },
+    {
+      "threshold": 0.61,
+      "queries": 770,
+      "hits": 761,
+      "hit_rate": 0.9883116883116884,
+      "wrong_hits": 78,
+      "fp_rate": 0.10249671484888305,
+      "wrong_hits_per_100_queries": 10.12987012987013
+    },
+    {
+      "threshold": 0.62,
+      "queries": 770,
+      "hits": 760,
+      "hit_rate": 0.987012987012987,
+      "wrong_hits": 78,
+      "fp_rate": 0.10263157894736842,
+      "wrong_hits_per_100_queries": 10.12987012987013
+    },
+    {
+      "threshold": 0.63,
+      "queries": 770,
+      "hits": 760,
+      "hit_rate": 0.987012987012987,
+      "wrong_hits": 78,
+      "fp_rate": 0.10263157894736842,
+      "wrong_hits_per_100_queries": 10.12987012987013
+    },
+    {
+      "threshold": 0.64,
+      "queries": 770,
+      "hits": 758,
+      "hit_rate": 0.9844155844155844,
+      "wrong_hits": 78,
+      "fp_rate": 0.10290237467018469,
+      "wrong_hits_per_100_queries": 10.12987012987013
+    },
+    {
+      "threshold": 0.65,
+      "queries": 770,
+      "hits": 757,
+      "hit_rate": 0.9831168831168832,
+      "wrong_hits": 77,
+      "fp_rate": 0.10171730515191546,
+      "wrong_hits_per_100_queries": 10.0
+    },
+    {
+      "threshold": 0.66,
+      "queries": 770,
+      "hits": 753,
+      "hit_rate": 0.977922077922078,
+      "wrong_hits": 77,
+      "fp_rate": 0.10225763612217796,
+      "wrong_hits_per_100_queries": 10.0
+    },
+    {
+      "threshold": 0.67,
+      "queries": 770,
+      "hits": 748,
+      "hit_rate": 0.9714285714285714,
+      "wrong_hits": 75,
+      "fp_rate": 0.10026737967914438,
+      "wrong_hits_per_100_queries": 9.74025974025974
+    },
+    {
+      "threshold": 0.68,
+      "queries": 770,
+      "hits": 740,
+      "hit_rate": 0.961038961038961,
+      "wrong_hits": 71,
+      "fp_rate": 0.09594594594594595,
+      "wrong_hits_per_100_queries": 9.220779220779221
+    },
+    {
+      "threshold": 0.69,
+      "queries": 770,
+      "hits": 736,
+      "hit_rate": 0.9558441558441558,
+      "wrong_hits": 71,
+      "fp_rate": 0.09646739130434782,
+      "wrong_hits_per_100_queries": 9.220779220779221
+    },
+    {
+      "threshold": 0.7,
+      "queries": 770,
+      "hits": 730,
+      "hit_rate": 0.948051948051948,
+      "wrong_hits": 69,
+      "fp_rate": 0.09452054794520548,
+      "wrong_hits_per_100_queries": 8.96103896103896
+    },
+    {
+      "threshold": 0.71,
+      "queries": 770,
+      "hits": 723,
+      "hit_rate": 0.938961038961039,
+      "wrong_hits": 66,
+      "fp_rate": 0.0912863070539419,
+      "wrong_hits_per_100_queries": 8.571428571428571
+    },
+    {
+      "threshold": 0.72,
+      "queries": 770,
+      "hits": 717,
+      "hit_rate": 0.9311688311688312,
+      "wrong_hits": 65,
+      "fp_rate": 0.09065550906555091,
+      "wrong_hits_per_100_queries": 8.441558441558442
+    },
+    {
+      "threshold": 0.73,
+      "queries": 770,
+      "hits": 714,
+      "hit_rate": 0.9272727272727272,
+      "wrong_hits": 64,
+      "fp_rate": 0.0896358543417367,
+      "wrong_hits_per_100_queries": 8.311688311688311
+    },
+    {
+      "threshold": 0.74,
+      "queries": 770,
+      "hits": 703,
+      "hit_rate": 0.912987012987013,
+      "wrong_hits": 59,
+      "fp_rate": 0.08392603129445235,
+      "wrong_hits_per_100_queries": 7.662337662337662
+    },
+    {
+      "threshold": 0.75,
+      "queries": 770,
+      "hits": 684,
+      "hit_rate": 0.8883116883116883,
+      "wrong_hits": 55,
+      "fp_rate": 0.0804093567251462,
+      "wrong_hits_per_100_queries": 7.142857142857143
+    },
+    {
+      "threshold": 0.76,
+      "queries": 770,
+      "hits": 667,
+      "hit_rate": 0.8662337662337662,
+      "wrong_hits": 49,
+      "fp_rate": 0.0734632683658171,
+      "wrong_hits_per_100_queries": 6.363636363636363
+    },
+    {
+      "threshold": 0.77,
+      "queries": 770,
+      "hits": 655,
+      "hit_rate": 0.8506493506493507,
+      "wrong_hits": 47,
+      "fp_rate": 0.0717557251908397,
+      "wrong_hits_per_100_queries": 6.103896103896104
+    },
+    {
+      "threshold": 0.78,
+      "queries": 770,
+      "hits": 643,
+      "hit_rate": 0.8350649350649351,
+      "wrong_hits": 46,
+      "fp_rate": 0.07153965785381027,
+      "wrong_hits_per_100_queries": 5.974025974025974
+    },
+    {
+      "threshold": 0.79,
+      "queries": 770,
+      "hits": 629,
+      "hit_rate": 0.8168831168831169,
+      "wrong_hits": 42,
+      "fp_rate": 0.06677265500794913,
+      "wrong_hits_per_100_queries": 5.454545454545454
+    },
+    {
+      "threshold": 0.8,
+      "queries": 770,
+      "hits": 610,
+      "hit_rate": 0.7922077922077922,
+      "wrong_hits": 39,
+      "fp_rate": 0.06393442622950819,
+      "wrong_hits_per_100_queries": 5.064935064935065
+    },
+    {
+      "threshold": 0.81,
+      "queries": 770,
+      "hits": 591,
+      "hit_rate": 0.7675324675324675,
+      "wrong_hits": 34,
+      "fp_rate": 0.05752961082910321,
+      "wrong_hits_per_100_queries": 4.415584415584416
+    },
+    {
+      "threshold": 0.82,
+      "queries": 770,
+      "hits": 571,
+      "hit_rate": 0.7415584415584415,
+      "wrong_hits": 32,
+      "fp_rate": 0.05604203152364273,
+      "wrong_hits_per_100_queries": 4.1558441558441555
+    },
+    {
+      "threshold": 0.83,
+      "queries": 770,
+      "hits": 538,
+      "hit_rate": 0.6987012987012987,
+      "wrong_hits": 26,
+      "fp_rate": 0.048327137546468404,
+      "wrong_hits_per_100_queries": 3.3766233766233764
+    },
+    {
+      "threshold": 0.84,
+      "queries": 770,
+      "hits": 511,
+      "hit_rate": 0.6636363636363637,
+      "wrong_hits": 22,
+      "fp_rate": 0.043052837573385516,
+      "wrong_hits_per_100_queries": 2.857142857142857
+    },
+    {
+      "threshold": 0.85,
+      "queries": 770,
+      "hits": 483,
+      "hit_rate": 0.6272727272727273,
+      "wrong_hits": 17,
+      "fp_rate": 0.035196687370600416,
+      "wrong_hits_per_100_queries": 2.207792207792208
+    },
+    {
+      "threshold": 0.86,
+      "queries": 770,
+      "hits": 450,
+      "hit_rate": 0.5844155844155844,
+      "wrong_hits": 14,
+      "fp_rate": 0.03111111111111111,
+      "wrong_hits_per_100_queries": 1.8181818181818181
+    },
+    {
+      "threshold": 0.87,
+      "queries": 770,
+      "hits": 422,
+      "hit_rate": 0.548051948051948,
+      "wrong_hits": 12,
+      "fp_rate": 0.02843601895734597,
+      "wrong_hits_per_100_queries": 1.5584415584415585
+    },
+    {
+      "threshold": 0.88,
+      "queries": 770,
+      "hits": 383,
+      "hit_rate": 0.4974025974025974,
+      "wrong_hits": 10,
+      "fp_rate": 0.02610966057441253,
+      "wrong_hits_per_100_queries": 1.2987012987012987
+    },
+    {
+      "threshold": 0.89,
+      "queries": 770,
+      "hits": 343,
+      "hit_rate": 0.44545454545454544,
+      "wrong_hits": 8,
+      "fp_rate": 0.023323615160349854,
+      "wrong_hits_per_100_queries": 1.0389610389610389
+    },
+    {
+      "threshold": 0.9,
+      "queries": 770,
+      "hits": 302,
+      "hit_rate": 0.3922077922077922,
+      "wrong_hits": 6,
+      "fp_rate": 0.019867549668874173,
+      "wrong_hits_per_100_queries": 0.7792207792207793
+    },
+    {
+      "threshold": 0.91,
+      "queries": 770,
+      "hits": 267,
+      "hit_rate": 0.34675324675324676,
+      "wrong_hits": 2,
+      "fp_rate": 0.00749063670411985,
+      "wrong_hits_per_100_queries": 0.2597402597402597
+    },
+    {
+      "threshold": 0.92,
+      "queries": 770,
+      "hits": 230,
+      "hit_rate": 0.2987012987012987,
+      "wrong_hits": 2,
+      "fp_rate": 0.008695652173913044,
+      "wrong_hits_per_100_queries": 0.2597402597402597
+    },
+    {
+      "threshold": 0.93,
+      "queries": 770,
+      "hits": 183,
+      "hit_rate": 0.23766233766233766,
+      "wrong_hits": 1,
+      "fp_rate": 0.00546448087431694,
+      "wrong_hits_per_100_queries": 0.12987012987012986
+    },
+    {
+      "threshold": 0.94,
+      "queries": 770,
+      "hits": 143,
+      "hit_rate": 0.18571428571428572,
+      "wrong_hits": 1,
+      "fp_rate": 0.006993006993006993,
+      "wrong_hits_per_100_queries": 0.12987012987012986
+    },
+    {
+      "threshold": 0.95,
+      "queries": 770,
+      "hits": 113,
+      "hit_rate": 0.14675324675324675,
+      "wrong_hits": 1,
+      "fp_rate": 0.008849557522123894,
+      "wrong_hits_per_100_queries": 0.12987012987012986
+    },
+    {
+      "threshold": 0.96,
+      "queries": 770,
+      "hits": 71,
+      "hit_rate": 0.09220779220779221,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0
+    },
+    {
+      "threshold": 0.97,
+      "queries": 770,
+      "hits": 51,
+      "hit_rate": 0.06623376623376623,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0
+    },
+    {
+      "threshold": 0.98,
+      "queries": 770,
+      "hits": 27,
+      "hit_rate": 0.03506493506493506,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0
+    },
+    {
+      "threshold": 0.99,
+      "queries": 770,
+      "hits": 8,
+      "hit_rate": 0.01038961038961039,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0
+    }
+  ],
+  "row": {
+    "test": "1. Threshold sweep",
+    "stresses": "One global threshold: hit rate and wrong answers rise together",
+    "fp_before": 0.06393442622950819,
+    "fp_before_detail": "hit rate 79.2% at 0.8",
+    "fp_after": 0.04814814814814815,
+    "mitigation": "Threshold set against a 5.0% FP target (0.83, hit rate 70.1%)"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+}

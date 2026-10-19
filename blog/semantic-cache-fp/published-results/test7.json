@@ -1,0 +1,50 @@
+{
+  "test": 7,
+  "threshold": 0.8,
+  "change_fraction": 0.2,
+  "changed_sources": [
+    "atm_support",
+    "balance_not_updated_after_bank_transfer",
+    "balance_not_updated_after_cheque_or_cash_deposit",
+    "cancel_transfer",
+    "card_acceptance",
+    "card_arrival",
+    "card_swallowed",
+    "declined_card_payment",
+    "declined_cash_withdrawal",
+    "getting_virtual_card",
+    "pending_card_payment",
+    "pin_blocked",
+    "terminate_account",
+    "transfer_fee_charged",
+    "unable_to_verify_identity"
+  ],
+  "entries_marked_stale": 600,
+  "before": {
+    "threshold": 0.8,
+    "queries": 770,
+    "hits": 610,
+    "hit_rate": 0.7922077922077922,
+    "wrong_hits": 152,
+    "fp_rate": 0.24918032786885247,
+    "wrong_hits_per_100_queries": 19.74025974025974,
+    "stale_hits_right_intent": 113
+  },
+  "after": {
+    "threshold": 0.8,
+    "queries": 770,
+    "hits": 519,
+    "hit_rate": 0.674025974025974,
+    "wrong_hits": 59,
+    "fp_rate": 0.11368015414258188,
+    "wrong_hits_per_100_queries": 7.662337662337662
+  },
+  "row": {
+    "test": "7. Stale answers after the source changes",
+    "stresses": "Hits on answers whose source changed (20.0% of sources)",
+    "fp_before": 0.24918032786885247,
+    "fp_after": 0.11368015414258188,
+    "mitigation": "Filtered set_payload marks a changed source's entries stale; lookups add MUST NOT is_stale"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+}

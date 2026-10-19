@@ -1,0 +1,2270 @@
+{
+  "test": 4,
+  "threshold": 0.8,
+  "fp_target": 0.05,
+  "classifier_top1_accuracy": 0.8844155844155844,
+  "classifier_top2_accuracy": 0.951948051948052,
+  "configs": {
+    "A_global": {
+      "at_operating_threshold": {
+        "threshold": 0.8,
+        "queries": 770,
+        "hits": 610,
+        "hit_rate": 0.7922077922077922,
+        "wrong_hits": 425,
+        "fp_rate": 0.6967213114754098,
+        "wrong_hits_per_100_queries": 55.1948051948052,
+        "cross_tenant_hits": 409,
+        "cross_intent_hits": 39,
+        "intent_fp_rate": 0.06393442622950819,
+        "cross_tenant_share": 0.6704918032786885
+      },
+      "sweep": [
+        {
+          "threshold": 0.5,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 548,
+          "fp_rate": 0.7126137841352406,
+          "wrong_hits_per_100_queries": 71.16883116883118
+        },
+        {
+          "threshold": 0.51,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 548,
+          "fp_rate": 0.7126137841352406,
+          "wrong_hits_per_100_queries": 71.16883116883118
+        },
+        {
+          "threshold": 0.52,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 548,
+          "fp_rate": 0.7126137841352406,
+          "wrong_hits_per_100_queries": 71.16883116883118
+        },
+        {
+          "threshold": 0.53,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 548,
+          "fp_rate": 0.7126137841352406,
+          "wrong_hits_per_100_queries": 71.16883116883118
+        },
+        {
+          "threshold": 0.54,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 548,
+          "fp_rate": 0.7126137841352406,
+          "wrong_hits_per_100_queries": 71.16883116883118
+        },
+        {
+          "threshold": 0.55,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 548,
+          "fp_rate": 0.7126137841352406,
+          "wrong_hits_per_100_queries": 71.16883116883118
+        },
+        {
+          "threshold": 0.56,
+          "queries": 770,
+          "hits": 768,
+          "hit_rate": 0.9974025974025974,
+          "wrong_hits": 547,
+          "fp_rate": 0.7122395833333334,
+          "wrong_hits_per_100_queries": 71.03896103896103
+        },
+        {
+          "threshold": 0.57,
+          "queries": 770,
+          "hits": 767,
+          "hit_rate": 0.9961038961038962,
+          "wrong_hits": 546,
+          "fp_rate": 0.711864406779661,
+          "wrong_hits_per_100_queries": 70.9090909090909
+        },
+        {
+          "threshold": 0.58,
+          "queries": 770,
+          "hits": 765,
+          "hit_rate": 0.9935064935064936,
+          "wrong_hits": 544,
+          "fp_rate": 0.7111111111111111,
+          "wrong_hits_per_100_queries": 70.64935064935065
+        },
+        {
+          "threshold": 0.59,
+          "queries": 770,
+          "hits": 764,
+          "hit_rate": 0.9922077922077922,
+          "wrong_hits": 543,
+          "fp_rate": 0.7107329842931938,
+          "wrong_hits_per_100_queries": 70.51948051948052
+        },
+        {
+          "threshold": 0.6,
+          "queries": 770,
+          "hits": 763,
+          "hit_rate": 0.990909090909091,
+          "wrong_hits": 542,
+          "fp_rate": 0.7103538663171691,
+          "wrong_hits_per_100_queries": 70.3896103896104
+        },
+        {
+          "threshold": 0.61,
+          "queries": 770,
+          "hits": 761,
+          "hit_rate": 0.9883116883116884,
+          "wrong_hits": 540,
+          "fp_rate": 0.709592641261498,
+          "wrong_hits_per_100_queries": 70.12987012987013
+        },
+        {
+          "threshold": 0.62,
+          "queries": 770,
+          "hits": 760,
+          "hit_rate": 0.987012987012987,
+          "wrong_hits": 539,
+          "fp_rate": 0.7092105263157895,
+          "wrong_hits_per_100_queries": 70.0
+        },
+        {
+          "threshold": 0.63,
+          "queries": 770,
+          "hits": 760,
+          "hit_rate": 0.987012987012987,
+          "wrong_hits": 539,
+          "fp_rate": 0.7092105263157895,
+          "wrong_hits_per_100_queries": 70.0
+        },
+        {
+          "threshold": 0.64,
+          "queries": 770,
+          "hits": 758,
+          "hit_rate": 0.9844155844155844,
+          "wrong_hits": 538,
+          "fp_rate": 0.7097625329815304,
+          "wrong_hits_per_100_queries": 69.87012987012987
+        },
+        {
+          "threshold": 0.65,
+          "queries": 770,
+          "hits": 757,
+          "hit_rate": 0.9831168831168832,
+          "wrong_hits": 537,
+          "fp_rate": 0.7093791281373845,
+          "wrong_hits_per_100_queries": 69.74025974025975
+        },
+        {
+          "threshold": 0.66,
+          "queries": 770,
+          "hits": 753,
+          "hit_rate": 0.977922077922078,
+          "wrong_hits": 534,
+          "fp_rate": 0.7091633466135459,
+          "wrong_hits_per_100_queries": 69.35064935064935
+        },
+        {
+          "threshold": 0.67,
+          "queries": 770,
+          "hits": 748,
+          "hit_rate": 0.9714285714285714,
+          "wrong_hits": 531,
+          "fp_rate": 0.7098930481283422,
+          "wrong_hits_per_100_queries": 68.96103896103897
+        },
+        {
+          "threshold": 0.68,
+          "queries": 770,
+          "hits": 740,
+          "hit_rate": 0.961038961038961,
+          "wrong_hits": 523,
+          "fp_rate": 0.7067567567567568,
+          "wrong_hits_per_100_queries": 67.92207792207792
+        },
+        {
+          "threshold": 0.69,
+          "queries": 770,
+          "hits": 736,
+          "hit_rate": 0.9558441558441558,
+          "wrong_hits": 520,
+          "fp_rate": 0.7065217391304348,
+          "wrong_hits_per_100_queries": 67.53246753246754
+        },
+        {
+          "threshold": 0.7,
+          "queries": 770,
+          "hits": 730,
+          "hit_rate": 0.948051948051948,
+          "wrong_hits": 515,
+          "fp_rate": 0.7054794520547946,
+          "wrong_hits_per_100_queries": 66.88311688311688
+        },
+        {
+          "threshold": 0.71,
+          "queries": 770,
+          "hits": 723,
+          "hit_rate": 0.938961038961039,
+          "wrong_hits": 510,
+          "fp_rate": 0.7053941908713693,
+          "wrong_hits_per_100_queries": 66.23376623376623
+        },
+        {
+          "threshold": 0.72,
+          "queries": 770,
+          "hits": 717,
+          "hit_rate": 0.9311688311688312,
+          "wrong_hits": 504,
+          "fp_rate": 0.702928870292887,
+          "wrong_hits_per_100_queries": 65.45454545454545
+        },
+        {
+          "threshold": 0.73,
+          "queries": 770,
+          "hits": 714,
+          "hit_rate": 0.9272727272727272,
+          "wrong_hits": 501,
+          "fp_rate": 0.7016806722689075,
+          "wrong_hits_per_100_queries": 65.06493506493507
+        },
+        {
+          "threshold": 0.74,
+          "queries": 770,
+          "hits": 703,
+          "hit_rate": 0.912987012987013,
+          "wrong_hits": 493,
+          "fp_rate": 0.701280227596017,
+          "wrong_hits_per_100_queries": 64.02597402597402
+        },
+        {
+          "threshold": 0.75,
+          "queries": 770,
+          "hits": 684,
+          "hit_rate": 0.8883116883116883,
+          "wrong_hits": 478,
+          "fp_rate": 0.6988304093567251,
+          "wrong_hits_per_100_queries": 62.077922077922075
+        },
+        {
+          "threshold": 0.76,
+          "queries": 770,
+          "hits": 667,
+          "hit_rate": 0.8662337662337662,
+          "wrong_hits": 465,
+          "fp_rate": 0.697151424287856,
+          "wrong_hits_per_100_queries": 60.38961038961039
+        },
+        {
+          "threshold": 0.77,
+          "queries": 770,
+          "hits": 655,
+          "hit_rate": 0.8506493506493507,
+          "wrong_hits": 458,
+          "fp_rate": 0.6992366412213741,
+          "wrong_hits_per_100_queries": 59.48051948051948
+        },
+        {
+          "threshold": 0.78,
+          "queries": 770,
+          "hits": 643,
+          "hit_rate": 0.8350649350649351,
+          "wrong_hits": 451,
+          "fp_rate": 0.7013996889580093,
+          "wrong_hits_per_100_queries": 58.57142857142857
+        },
+        {
+          "threshold": 0.79,
+          "queries": 770,
+          "hits": 629,
+          "hit_rate": 0.8168831168831169,
+          "wrong_hits": 438,
+          "fp_rate": 0.6963434022257552,
+          "wrong_hits_per_100_queries": 56.883116883116884
+        },
+        {
+          "threshold": 0.8,
+          "queries": 770,
+          "hits": 610,
+          "hit_rate": 0.7922077922077922,
+          "wrong_hits": 425,
+          "fp_rate": 0.6967213114754098,
+          "wrong_hits_per_100_queries": 55.1948051948052
+        },
+        {
+          "threshold": 0.81,
+          "queries": 770,
+          "hits": 591,
+          "hit_rate": 0.7675324675324675,
+          "wrong_hits": 413,
+          "fp_rate": 0.6988155668358714,
+          "wrong_hits_per_100_queries": 53.63636363636363
+        },
+        {
+          "threshold": 0.82,
+          "queries": 770,
+          "hits": 571,
+          "hit_rate": 0.7415584415584415,
+          "wrong_hits": 402,
+          "fp_rate": 0.7040280210157618,
+          "wrong_hits_per_100_queries": 52.20779220779221
+        },
+        {
+          "threshold": 0.83,
+          "queries": 770,
+          "hits": 538,
+          "hit_rate": 0.6987012987012987,
+          "wrong_hits": 379,
+          "fp_rate": 0.7044609665427509,
+          "wrong_hits_per_100_queries": 49.22077922077922
+        },
+        {
+          "threshold": 0.84,
+          "queries": 770,
+          "hits": 511,
+          "hit_rate": 0.6636363636363637,
+          "wrong_hits": 358,
+          "fp_rate": 0.700587084148728,
+          "wrong_hits_per_100_queries": 46.493506493506494
+        },
+        {
+          "threshold": 0.85,
+          "queries": 770,
+          "hits": 483,
+          "hit_rate": 0.6272727272727273,
+          "wrong_hits": 336,
+          "fp_rate": 0.6956521739130435,
+          "wrong_hits_per_100_queries": 43.63636363636363
+        },
+        {
+          "threshold": 0.86,
+          "queries": 770,
+          "hits": 450,
+          "hit_rate": 0.5844155844155844,
+          "wrong_hits": 315,
+          "fp_rate": 0.7,
+          "wrong_hits_per_100_queries": 40.90909090909091
+        },
+        {
+          "threshold": 0.87,
+          "queries": 770,
+          "hits": 422,
+          "hit_rate": 0.548051948051948,
+          "wrong_hits": 296,
+          "fp_rate": 0.7014218009478673,
+          "wrong_hits_per_100_queries": 38.44155844155844
+        },
+        {
+          "threshold": 0.88,
+          "queries": 770,
+          "hits": 383,
+          "hit_rate": 0.4974025974025974,
+          "wrong_hits": 272,
+          "fp_rate": 0.7101827676240209,
+          "wrong_hits_per_100_queries": 35.324675324675326
+        },
+        {
+          "threshold": 0.89,
+          "queries": 770,
+          "hits": 343,
+          "hit_rate": 0.44545454545454544,
+          "wrong_hits": 242,
+          "fp_rate": 0.7055393586005831,
+          "wrong_hits_per_100_queries": 31.428571428571427
+        },
+        {
+          "threshold": 0.9,
+          "queries": 770,
+          "hits": 302,
+          "hit_rate": 0.3922077922077922,
+          "wrong_hits": 214,
+          "fp_rate": 0.7086092715231788,
+          "wrong_hits_per_100_queries": 27.792207792207794
+        },
+        {
+          "threshold": 0.91,
+          "queries": 770,
+          "hits": 267,
+          "hit_rate": 0.34675324675324676,
+          "wrong_hits": 190,
+          "fp_rate": 0.7116104868913857,
+          "wrong_hits_per_100_queries": 24.675324675324674
+        },
+        {
+          "threshold": 0.92,
+          "queries": 770,
+          "hits": 230,
+          "hit_rate": 0.2987012987012987,
+          "wrong_hits": 164,
+          "fp_rate": 0.7130434782608696,
+          "wrong_hits_per_100_queries": 21.2987012987013
+        },
+        {
+          "threshold": 0.93,
+          "queries": 770,
+          "hits": 183,
+          "hit_rate": 0.23766233766233766,
+          "wrong_hits": 128,
+          "fp_rate": 0.6994535519125683,
+          "wrong_hits_per_100_queries": 16.623376623376622
+        },
+        {
+          "threshold": 0.94,
+          "queries": 770,
+          "hits": 143,
+          "hit_rate": 0.18571428571428572,
+          "wrong_hits": 99,
+          "fp_rate": 0.6923076923076923,
+          "wrong_hits_per_100_queries": 12.857142857142858
+        },
+        {
+          "threshold": 0.95,
+          "queries": 770,
+          "hits": 113,
+          "hit_rate": 0.14675324675324675,
+          "wrong_hits": 76,
+          "fp_rate": 0.672566371681416,
+          "wrong_hits_per_100_queries": 9.87012987012987
+        },
+        {
+          "threshold": 0.96,
+          "queries": 770,
+          "hits": 71,
+          "hit_rate": 0.09220779220779221,
+          "wrong_hits": 45,
+          "fp_rate": 0.6338028169014085,
+          "wrong_hits_per_100_queries": 5.8441558441558445
+        },
+        {
+          "threshold": 0.97,
+          "queries": 770,
+          "hits": 51,
+          "hit_rate": 0.06623376623376623,
+          "wrong_hits": 34,
+          "fp_rate": 0.6666666666666666,
+          "wrong_hits_per_100_queries": 4.415584415584416
+        },
+        {
+          "threshold": 0.98,
+          "queries": 770,
+          "hits": 27,
+          "hit_rate": 0.03506493506493506,
+          "wrong_hits": 18,
+          "fp_rate": 0.6666666666666666,
+          "wrong_hits_per_100_queries": 2.3376623376623376
+        },
+        {
+          "threshold": 0.99,
+          "queries": 770,
+          "hits": 8,
+          "hit_rate": 0.01038961038961039,
+          "wrong_hits": 6,
+          "fp_rate": 0.75,
+          "wrong_hits_per_100_queries": 0.7792207792207793
+        }
+      ],
+      "global_threshold_for_target": null,
+      "global_threshold_eval_half": null,
+      "per_intent_eval_half": {
+        "threshold": null,
+        "queries": 385,
+        "hits": 5,
+        "hit_rate": 0.012987012987012988,
+        "wrong_hits": 4,
+        "fp_rate": 0.8,
+        "wrong_hits_per_100_queries": 1.0389610389610389
+      },
+      "per_intent_thresholds": {
+        "Refund_not_showing_up": 0.99,
+        "activate_my_card": 0.99,
+        "age_limit": 0.99,
+        "apple_pay_or_google_pay": 0.99,
+        "atm_support": 0.99,
+        "automatic_top_up": 0.99,
+        "balance_not_updated_after_bank_transfer": 0.99,
+        "balance_not_updated_after_cheque_or_cash_deposit": 0.99,
+        "beneficiary_not_allowed": 0.99,
+        "cancel_transfer": 0.99,
+        "card_about_to_expire": 0.99,
+        "card_acceptance": 0.99,
+        "card_arrival": 0.99,
+        "card_delivery_estimate": 0.99,
+        "card_linking": 0.99,
+        "card_not_working": 0.99,
+        "card_payment_fee_charged": 0.99,
+        "card_payment_not_recognised": 0.99,
+        "card_payment_wrong_exchange_rate": 0.99,
+        "card_swallowed": 0.99,
+        "cash_withdrawal_charge": 0.99,
+        "cash_withdrawal_not_recognised": 0.99,
+        "change_pin": 0.99,
+        "compromised_card": 0.99,
+        "contactless_not_working": 0.99,
+        "country_support": 0.99,
+        "declined_card_payment": 0.99,
+        "declined_cash_withdrawal": 0.99,
+        "declined_transfer": 0.99,
+        "direct_debit_payment_not_recognised": 0.99,
+        "disposable_card_limits": 0.99,
+        "edit_personal_details": 0.99,
+        "exchange_charge": 0.99,
+        "exchange_rate": 0.99,
+        "exchange_via_app": 0.99,
+        "extra_charge_on_statement": 0.99,
+        "failed_transfer": 0.99,
+        "fiat_currency_support": 0.99,
+        "get_disposable_virtual_card": 0.99,
+        "get_physical_card": 0.99,
+        "getting_spare_card": 0.99,
+        "getting_virtual_card": 0.99,
+        "lost_or_stolen_card": 0.99,
+        "lost_or_stolen_phone": 0.99,
+        "order_physical_card": 0.99,
+        "passcode_forgotten": 0.99,
+        "pending_card_payment": 0.99,
+        "pending_cash_withdrawal": 0.99,
+        "pending_top_up": 0.99,
+        "pending_transfer": 0.99,
+        "pin_blocked": 0.99,
+        "receiving_money": 0.99,
+        "request_refund": 0.99,
+        "reverted_card_payment?": 0.99,
+        "supported_cards_and_currencies": 0.99,
+        "terminate_account": 0.99,
+        "top_up_by_bank_transfer_charge": 0.99,
+        "top_up_by_card_charge": 0.99,
+        "top_up_by_cash_or_cheque": 0.99,
+        "top_up_failed": 0.99,
+        "top_up_limits": 0.99,
+        "top_up_reverted": 0.99,
+        "topping_up_by_card": 0.99,
+        "transaction_charged_twice": 0.99,
+        "transfer_fee_charged": 0.99,
+        "transfer_into_account": 0.99,
+        "transfer_not_received_by_recipient": 0.99,
+        "transfer_timing": 0.99,
+        "unable_to_verify_identity": 0.99,
+        "verify_my_identity": 0.99,
+        "verify_source_of_funds": 0.99,
+        "verify_top_up": 0.99,
+        "virtual_card_not_working": 0.99,
+        "visa_or_mastercard": 0.99,
+        "why_verify_identity": 0.99,
+        "wrong_amount_of_cash_received": 0.99,
+        "wrong_exchange_rate_for_cash_withdrawal": 0.99
+      }
+    },
+    "B_tenant": {
+      "at_operating_threshold": {
+        "threshold": 0.8,
+        "queries": 770,
+        "hits": 473,
+        "hit_rate": 0.6142857142857143,
+        "wrong_hits": 43,
+        "fp_rate": 0.09090909090909091,
+        "wrong_hits_per_100_queries": 5.584415584415584,
+        "cross_tenant_hits": 0,
+        "cross_intent_hits": 43,
+        "intent_fp_rate": 0.09090909090909091,
+        "cross_tenant_share": 0.0
+      },
+      "sweep": [
+        {
+          "threshold": 0.5,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 135,
+          "fp_rate": 0.1755526657997399,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.51,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 135,
+          "fp_rate": 0.1755526657997399,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.52,
+          "queries": 770,
+          "hits": 769,
+          "hit_rate": 0.9987012987012988,
+          "wrong_hits": 135,
+          "fp_rate": 0.1755526657997399,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.53,
+          "queries": 770,
+          "hits": 767,
+          "hit_rate": 0.9961038961038962,
+          "wrong_hits": 135,
+          "fp_rate": 0.1760104302477184,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.54,
+          "queries": 770,
+          "hits": 766,
+          "hit_rate": 0.9948051948051948,
+          "wrong_hits": 135,
+          "fp_rate": 0.1762402088772846,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.55,
+          "queries": 770,
+          "hits": 764,
+          "hit_rate": 0.9922077922077922,
+          "wrong_hits": 135,
+          "fp_rate": 0.17670157068062828,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.56,
+          "queries": 770,
+          "hits": 764,
+          "hit_rate": 0.9922077922077922,
+          "wrong_hits": 135,
+          "fp_rate": 0.17670157068062828,
+          "wrong_hits_per_100_queries": 17.532467532467532
+        },
+        {
+          "threshold": 0.57,
+          "queries": 770,
+          "hits": 763,
+          "hit_rate": 0.990909090909091,
+          "wrong_hits": 134,
+          "fp_rate": 0.17562254259501967,
+          "wrong_hits_per_100_queries": 17.4025974025974
+        },
+        {
+          "threshold": 0.58,
+          "queries": 770,
+          "hits": 759,
+          "hit_rate": 0.9857142857142858,
+          "wrong_hits": 130,
+          "fp_rate": 0.1712779973649539,
+          "wrong_hits_per_100_queries": 16.883116883116884
+        },
+        {
+          "threshold": 0.59,
+          "queries": 770,
+          "hits": 757,
+          "hit_rate": 0.9831168831168832,
+          "wrong_hits": 128,
+          "fp_rate": 0.1690885072655218,
+          "wrong_hits_per_100_queries": 16.623376623376622
+        },
+        {
+          "threshold": 0.6,
+          "queries": 770,
+          "hits": 753,
+          "hit_rate": 0.977922077922078,
+          "wrong_hits": 126,
+          "fp_rate": 0.16733067729083664,
+          "wrong_hits_per_100_queries": 16.363636363636363
+        },
+        {
+          "threshold": 0.61,
+          "queries": 770,
+          "hits": 748,
+          "hit_rate": 0.9714285714285714,
+          "wrong_hits": 121,
+          "fp_rate": 0.16176470588235295,
+          "wrong_hits_per_100_queries": 15.714285714285714
+        },
+        {
+          "threshold": 0.62,
+          "queries": 770,
+          "hits": 746,
+          "hit_rate": 0.9688311688311688,
+          "wrong_hits": 120,
+          "fp_rate": 0.16085790884718498,
+          "wrong_hits_per_100_queries": 15.584415584415584
+        },
+        {
+          "threshold": 0.63,
+          "queries": 770,
+          "hits": 740,
+          "hit_rate": 0.961038961038961,
+          "wrong_hits": 118,
+          "fp_rate": 0.15945945945945947,
+          "wrong_hits_per_100_queries": 15.324675324675324
+        },
+        {
+          "threshold": 0.64,
+          "queries": 770,
+          "hits": 734,
+          "hit_rate": 0.9532467532467532,
+          "wrong_hits": 115,
+          "fp_rate": 0.1566757493188011,
+          "wrong_hits_per_100_queries": 14.935064935064934
+        },
+        {
+          "threshold": 0.65,
+          "queries": 770,
+          "hits": 730,
+          "hit_rate": 0.948051948051948,
+          "wrong_hits": 113,
+          "fp_rate": 0.1547945205479452,
+          "wrong_hits_per_100_queries": 14.675324675324676
+        },
+        {
+          "threshold": 0.66,
+          "queries": 770,
+          "hits": 721,
+          "hit_rate": 0.9363636363636364,
+          "wrong_hits": 108,
+          "fp_rate": 0.14979195561719832,
+          "wrong_hits_per_100_queries": 14.025974025974026
+        },
+        {
+          "threshold": 0.67,
+          "queries": 770,
+          "hits": 712,
+          "hit_rate": 0.9246753246753247,
+          "wrong_hits": 106,
+          "fp_rate": 0.14887640449438203,
+          "wrong_hits_per_100_queries": 13.766233766233766
+        },
+        {
+          "threshold": 0.68,
+          "queries": 770,
+          "hits": 700,
+          "hit_rate": 0.9090909090909091,
+          "wrong_hits": 101,
+          "fp_rate": 0.1442857142857143,
+          "wrong_hits_per_100_queries": 13.116883116883116
+        },
+        {
+          "threshold": 0.69,
+          "queries": 770,
+          "hits": 693,
+          "hit_rate": 0.9,
+          "wrong_hits": 99,
+          "fp_rate": 0.14285714285714285,
+          "wrong_hits_per_100_queries": 12.857142857142858
+        },
+        {
+          "threshold": 0.7,
+          "queries": 770,
+          "hits": 674,
+          "hit_rate": 0.8753246753246753,
+          "wrong_hits": 92,
+          "fp_rate": 0.13649851632047477,
+          "wrong_hits_per_100_queries": 11.948051948051948
+        },
+        {
+          "threshold": 0.71,
+          "queries": 770,
+          "hits": 658,
+          "hit_rate": 0.8545454545454545,
+          "wrong_hits": 82,
+          "fp_rate": 0.12462006079027356,
+          "wrong_hits_per_100_queries": 10.64935064935065
+        },
+        {
+          "threshold": 0.72,
+          "queries": 770,
+          "hits": 646,
+          "hit_rate": 0.8389610389610389,
+          "wrong_hits": 78,
+          "fp_rate": 0.12074303405572756,
+          "wrong_hits_per_100_queries": 10.12987012987013
+        },
+        {
+          "threshold": 0.73,
+          "queries": 770,
+          "hits": 628,
+          "hit_rate": 0.8155844155844156,
+          "wrong_hits": 73,
+          "fp_rate": 0.11624203821656051,
+          "wrong_hits_per_100_queries": 9.480519480519481
+        },
+        {
+          "threshold": 0.74,
+          "queries": 770,
+          "hits": 608,
+          "hit_rate": 0.7896103896103897,
+          "wrong_hits": 67,
+          "fp_rate": 0.11019736842105263,
+          "wrong_hits_per_100_queries": 8.7012987012987
+        },
+        {
+          "threshold": 0.75,
+          "queries": 770,
+          "hits": 588,
+          "hit_rate": 0.7636363636363637,
+          "wrong_hits": 64,
+          "fp_rate": 0.10884353741496598,
+          "wrong_hits_per_100_queries": 8.311688311688311
+        },
+        {
+          "threshold": 0.76,
+          "queries": 770,
+          "hits": 566,
+          "hit_rate": 0.7350649350649351,
+          "wrong_hits": 60,
+          "fp_rate": 0.10600706713780919,
+          "wrong_hits_per_100_queries": 7.792207792207792
+        },
+        {
+          "threshold": 0.77,
+          "queries": 770,
+          "hits": 542,
+          "hit_rate": 0.7038961038961039,
+          "wrong_hits": 54,
+          "fp_rate": 0.0996309963099631,
+          "wrong_hits_per_100_queries": 7.012987012987013
+        },
+        {
+          "threshold": 0.78,
+          "queries": 770,
+          "hits": 516,
+          "hit_rate": 0.6701298701298701,
+          "wrong_hits": 49,
+          "fp_rate": 0.09496124031007752,
+          "wrong_hits_per_100_queries": 6.363636363636363
+        },
+        {
+          "threshold": 0.79,
+          "queries": 770,
+          "hits": 500,
+          "hit_rate": 0.6493506493506493,
+          "wrong_hits": 45,
+          "fp_rate": 0.09,
+          "wrong_hits_per_100_queries": 5.8441558441558445
+        },
+        {
+          "threshold": 0.8,
+          "queries": 770,
+          "hits": 473,
+          "hit_rate": 0.6142857142857143,
+          "wrong_hits": 43,
+          "fp_rate": 0.09090909090909091,
+          "wrong_hits_per_100_queries": 5.584415584415584
+        },
+        {
+          "threshold": 0.81,
+          "queries": 770,
+          "hits": 445,
+          "hit_rate": 0.577922077922078,
+          "wrong_hits": 35,
+          "fp_rate": 0.07865168539325842,
+          "wrong_hits_per_100_queries": 4.545454545454546
+        },
+        {
+          "threshold": 0.82,
+          "queries": 770,
+          "hits": 414,
+          "hit_rate": 0.5376623376623376,
+          "wrong_hits": 33,
+          "fp_rate": 0.07971014492753623,
+          "wrong_hits_per_100_queries": 4.285714285714286
+        },
+        {
+          "threshold": 0.83,
+          "queries": 770,
+          "hits": 377,
+          "hit_rate": 0.4896103896103896,
+          "wrong_hits": 27,
+          "fp_rate": 0.07161803713527852,
+          "wrong_hits_per_100_queries": 3.5064935064935066
+        },
+        {
+          "threshold": 0.84,
+          "queries": 770,
+          "hits": 346,
+          "hit_rate": 0.44935064935064933,
+          "wrong_hits": 20,
+          "fp_rate": 0.057803468208092484,
+          "wrong_hits_per_100_queries": 2.5974025974025974
+        },
+        {
+          "threshold": 0.85,
+          "queries": 770,
+          "hits": 315,
+          "hit_rate": 0.4090909090909091,
+          "wrong_hits": 17,
+          "fp_rate": 0.05396825396825397,
+          "wrong_hits_per_100_queries": 2.207792207792208
+        },
+        {
+          "threshold": 0.86,
+          "queries": 770,
+          "hits": 274,
+          "hit_rate": 0.35584415584415585,
+          "wrong_hits": 14,
+          "fp_rate": 0.051094890510948905,
+          "wrong_hits_per_100_queries": 1.8181818181818181
+        },
+        {
+          "threshold": 0.87,
+          "queries": 770,
+          "hits": 251,
+          "hit_rate": 0.32597402597402597,
+          "wrong_hits": 13,
+          "fp_rate": 0.05179282868525897,
+          "wrong_hits_per_100_queries": 1.6883116883116882
+        },
+        {
+          "threshold": 0.88,
+          "queries": 770,
+          "hits": 216,
+          "hit_rate": 0.2805194805194805,
+          "wrong_hits": 9,
+          "fp_rate": 0.041666666666666664,
+          "wrong_hits_per_100_queries": 1.1688311688311688
+        },
+        {
+          "threshold": 0.89,
+          "queries": 770,
+          "hits": 185,
+          "hit_rate": 0.24025974025974026,
+          "wrong_hits": 6,
+          "fp_rate": 0.032432432432432434,
+          "wrong_hits_per_100_queries": 0.7792207792207793
+        },
+        {
+          "threshold": 0.9,
+          "queries": 770,
+          "hits": 155,
+          "hit_rate": 0.2012987012987013,
+          "wrong_hits": 5,
+          "fp_rate": 0.03225806451612903,
+          "wrong_hits_per_100_queries": 0.6493506493506493
+        },
+        {
+          "threshold": 0.91,
+          "queries": 770,
+          "hits": 131,
+          "hit_rate": 0.17012987012987013,
+          "wrong_hits": 4,
+          "fp_rate": 0.030534351145038167,
+          "wrong_hits_per_100_queries": 0.5194805194805194
+        },
+        {
+          "threshold": 0.92,
+          "queries": 770,
+          "hits": 108,
+          "hit_rate": 0.14025974025974025,
+          "wrong_hits": 1,
+          "fp_rate": 0.009259259259259259,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.93,
+          "queries": 770,
+          "hits": 88,
+          "hit_rate": 0.11428571428571428,
+          "wrong_hits": 1,
+          "fp_rate": 0.011363636363636364,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.94,
+          "queries": 770,
+          "hits": 69,
+          "hit_rate": 0.08961038961038961,
+          "wrong_hits": 1,
+          "fp_rate": 0.014492753623188406,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.95,
+          "queries": 770,
+          "hits": 52,
+          "hit_rate": 0.06753246753246753,
+          "wrong_hits": 1,
+          "fp_rate": 0.019230769230769232,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.96,
+          "queries": 770,
+          "hits": 34,
+          "hit_rate": 0.04415584415584416,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.97,
+          "queries": 770,
+          "hits": 21,
+          "hit_rate": 0.02727272727272727,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.98,
+          "queries": 770,
+          "hits": 10,
+          "hit_rate": 0.012987012987012988,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.99,
+          "queries": 770,
+          "hits": 2,
+          "hit_rate": 0.0025974025974025974,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        }
+      ],
+      "global_threshold_for_target": 0.88,
+      "global_threshold_eval_half": {
+        "threshold": 0.88,
+        "queries": 385,
+        "hits": 115,
+        "hit_rate": 0.2987012987012987,
+        "wrong_hits": 4,
+        "fp_rate": 0.034782608695652174,
+        "wrong_hits_per_100_queries": 1.0389610389610389
+      },
+      "per_intent_eval_half": {
+        "threshold": null,
+        "queries": 385,
+        "hits": 250,
+        "hit_rate": 0.6493506493506493,
+        "wrong_hits": 25,
+        "fp_rate": 0.1,
+        "wrong_hits_per_100_queries": 6.4935064935064934
+      },
+      "per_intent_thresholds": {
+        "Refund_not_showing_up": 0.71,
+        "activate_my_card": 0.88,
+        "age_limit": 0.5,
+        "apple_pay_or_google_pay": 0.75,
+        "atm_support": 0.5,
+        "automatic_top_up": 0.71,
+        "balance_not_updated_after_bank_transfer": 0.88,
+        "balance_not_updated_after_cheque_or_cash_deposit": 0.63,
+        "beneficiary_not_allowed": 0.88,
+        "cancel_transfer": 0.73,
+        "card_about_to_expire": 0.5,
+        "card_acceptance": 0.76,
+        "card_arrival": 0.88,
+        "card_delivery_estimate": 0.88,
+        "card_linking": 0.81,
+        "card_not_working": 0.5,
+        "card_payment_fee_charged": 0.5,
+        "card_payment_not_recognised": 0.88,
+        "card_payment_wrong_exchange_rate": 0.5,
+        "card_swallowed": 0.7,
+        "cash_withdrawal_charge": 0.63,
+        "cash_withdrawal_not_recognised": 0.88,
+        "change_pin": 0.66,
+        "compromised_card": 0.88,
+        "contactless_not_working": 0.5,
+        "country_support": 0.5,
+        "declined_card_payment": 0.88,
+        "declined_cash_withdrawal": 0.88,
+        "declined_transfer": 0.88,
+        "direct_debit_payment_not_recognised": 0.71,
+        "disposable_card_limits": 0.83,
+        "edit_personal_details": 0.5,
+        "exchange_charge": 0.88,
+        "exchange_rate": 0.88,
+        "exchange_via_app": 0.5,
+        "extra_charge_on_statement": 0.5,
+        "failed_transfer": 0.88,
+        "fiat_currency_support": 0.88,
+        "get_disposable_virtual_card": 0.5,
+        "get_physical_card": 0.88,
+        "getting_spare_card": 0.5,
+        "getting_virtual_card": 0.88,
+        "lost_or_stolen_card": 0.82,
+        "lost_or_stolen_phone": 0.5,
+        "order_physical_card": 0.88,
+        "passcode_forgotten": 0.5,
+        "pending_card_payment": 0.71,
+        "pending_cash_withdrawal": 0.5,
+        "pending_top_up": 0.88,
+        "pending_transfer": 0.88,
+        "pin_blocked": 0.88,
+        "receiving_money": 0.65,
+        "request_refund": 0.88,
+        "reverted_card_payment?": 0.88,
+        "supported_cards_and_currencies": 0.5,
+        "terminate_account": 0.5,
+        "top_up_by_bank_transfer_charge": 0.5,
+        "top_up_by_card_charge": 0.5,
+        "top_up_by_cash_or_cheque": 0.57,
+        "top_up_failed": 0.79,
+        "top_up_limits": 0.5,
+        "top_up_reverted": 0.61,
+        "topping_up_by_card": 0.88,
+        "transaction_charged_twice": 0.5,
+        "transfer_fee_charged": 0.88,
+        "transfer_into_account": 0.71,
+        "transfer_not_received_by_recipient": 0.6,
+        "transfer_timing": 0.88,
+        "unable_to_verify_identity": 0.88,
+        "verify_my_identity": 0.88,
+        "verify_source_of_funds": 0.5,
+        "verify_top_up": 0.5,
+        "virtual_card_not_working": 0.5,
+        "visa_or_mastercard": 0.5,
+        "why_verify_identity": 0.5,
+        "wrong_amount_of_cash_received": 0.66,
+        "wrong_exchange_rate_for_cash_withdrawal": 0.5
+      }
+    },
+    "C_tenant_intent": {
+      "at_operating_threshold": {
+        "threshold": 0.8,
+        "queries": 770,
+        "hits": 450,
+        "hit_rate": 0.5844155844155844,
+        "wrong_hits": 21,
+        "fp_rate": 0.04666666666666667,
+        "wrong_hits_per_100_queries": 2.727272727272727,
+        "cross_tenant_hits": 0,
+        "cross_intent_hits": 21,
+        "intent_fp_rate": 0.04666666666666667,
+        "cross_tenant_share": 0.0
+      },
+      "sweep": [
+        {
+          "threshold": 0.5,
+          "queries": 770,
+          "hits": 764,
+          "hit_rate": 0.9922077922077922,
+          "wrong_hits": 84,
+          "fp_rate": 0.1099476439790576,
+          "wrong_hits_per_100_queries": 10.909090909090908
+        },
+        {
+          "threshold": 0.51,
+          "queries": 770,
+          "hits": 763,
+          "hit_rate": 0.990909090909091,
+          "wrong_hits": 84,
+          "fp_rate": 0.11009174311926606,
+          "wrong_hits_per_100_queries": 10.909090909090908
+        },
+        {
+          "threshold": 0.52,
+          "queries": 770,
+          "hits": 762,
+          "hit_rate": 0.9896103896103896,
+          "wrong_hits": 83,
+          "fp_rate": 0.1089238845144357,
+          "wrong_hits_per_100_queries": 10.779220779220779
+        },
+        {
+          "threshold": 0.53,
+          "queries": 770,
+          "hits": 759,
+          "hit_rate": 0.9857142857142858,
+          "wrong_hits": 83,
+          "fp_rate": 0.10935441370223979,
+          "wrong_hits_per_100_queries": 10.779220779220779
+        },
+        {
+          "threshold": 0.54,
+          "queries": 770,
+          "hits": 756,
+          "hit_rate": 0.9818181818181818,
+          "wrong_hits": 82,
+          "fp_rate": 0.10846560846560846,
+          "wrong_hits_per_100_queries": 10.64935064935065
+        },
+        {
+          "threshold": 0.55,
+          "queries": 770,
+          "hits": 752,
+          "hit_rate": 0.9766233766233766,
+          "wrong_hits": 81,
+          "fp_rate": 0.1077127659574468,
+          "wrong_hits_per_100_queries": 10.519480519480519
+        },
+        {
+          "threshold": 0.56,
+          "queries": 770,
+          "hits": 747,
+          "hit_rate": 0.9701298701298702,
+          "wrong_hits": 80,
+          "fp_rate": 0.107095046854083,
+          "wrong_hits_per_100_queries": 10.38961038961039
+        },
+        {
+          "threshold": 0.57,
+          "queries": 770,
+          "hits": 744,
+          "hit_rate": 0.9662337662337662,
+          "wrong_hits": 78,
+          "fp_rate": 0.10483870967741936,
+          "wrong_hits_per_100_queries": 10.12987012987013
+        },
+        {
+          "threshold": 0.58,
+          "queries": 770,
+          "hits": 741,
+          "hit_rate": 0.9623376623376624,
+          "wrong_hits": 77,
+          "fp_rate": 0.1039136302294197,
+          "wrong_hits_per_100_queries": 10.0
+        },
+        {
+          "threshold": 0.59,
+          "queries": 770,
+          "hits": 739,
+          "hit_rate": 0.9597402597402598,
+          "wrong_hits": 76,
+          "fp_rate": 0.10284167794316644,
+          "wrong_hits_per_100_queries": 9.87012987012987
+        },
+        {
+          "threshold": 0.6,
+          "queries": 770,
+          "hits": 734,
+          "hit_rate": 0.9532467532467532,
+          "wrong_hits": 75,
+          "fp_rate": 0.10217983651226158,
+          "wrong_hits_per_100_queries": 9.74025974025974
+        },
+        {
+          "threshold": 0.61,
+          "queries": 770,
+          "hits": 732,
+          "hit_rate": 0.9506493506493506,
+          "wrong_hits": 75,
+          "fp_rate": 0.10245901639344263,
+          "wrong_hits_per_100_queries": 9.74025974025974
+        },
+        {
+          "threshold": 0.62,
+          "queries": 770,
+          "hits": 729,
+          "hit_rate": 0.9467532467532468,
+          "wrong_hits": 74,
+          "fp_rate": 0.10150891632373114,
+          "wrong_hits_per_100_queries": 9.61038961038961
+        },
+        {
+          "threshold": 0.63,
+          "queries": 770,
+          "hits": 720,
+          "hit_rate": 0.935064935064935,
+          "wrong_hits": 71,
+          "fp_rate": 0.09861111111111111,
+          "wrong_hits_per_100_queries": 9.220779220779221
+        },
+        {
+          "threshold": 0.64,
+          "queries": 770,
+          "hits": 713,
+          "hit_rate": 0.925974025974026,
+          "wrong_hits": 68,
+          "fp_rate": 0.09537166900420757,
+          "wrong_hits_per_100_queries": 8.831168831168831
+        },
+        {
+          "threshold": 0.65,
+          "queries": 770,
+          "hits": 705,
+          "hit_rate": 0.9155844155844156,
+          "wrong_hits": 66,
+          "fp_rate": 0.09361702127659574,
+          "wrong_hits_per_100_queries": 8.571428571428571
+        },
+        {
+          "threshold": 0.66,
+          "queries": 770,
+          "hits": 696,
+          "hit_rate": 0.9038961038961039,
+          "wrong_hits": 64,
+          "fp_rate": 0.09195402298850575,
+          "wrong_hits_per_100_queries": 8.311688311688311
+        },
+        {
+          "threshold": 0.67,
+          "queries": 770,
+          "hits": 685,
+          "hit_rate": 0.8896103896103896,
+          "wrong_hits": 63,
+          "fp_rate": 0.09197080291970802,
+          "wrong_hits_per_100_queries": 8.181818181818182
+        },
+        {
+          "threshold": 0.68,
+          "queries": 770,
+          "hits": 672,
+          "hit_rate": 0.8727272727272727,
+          "wrong_hits": 59,
+          "fp_rate": 0.08779761904761904,
+          "wrong_hits_per_100_queries": 7.662337662337662
+        },
+        {
+          "threshold": 0.69,
+          "queries": 770,
+          "hits": 664,
+          "hit_rate": 0.8623376623376623,
+          "wrong_hits": 57,
+          "fp_rate": 0.0858433734939759,
+          "wrong_hits_per_100_queries": 7.402597402597403
+        },
+        {
+          "threshold": 0.7,
+          "queries": 770,
+          "hits": 646,
+          "hit_rate": 0.8389610389610389,
+          "wrong_hits": 52,
+          "fp_rate": 0.0804953560371517,
+          "wrong_hits_per_100_queries": 6.753246753246753
+        },
+        {
+          "threshold": 0.71,
+          "queries": 770,
+          "hits": 627,
+          "hit_rate": 0.8142857142857143,
+          "wrong_hits": 44,
+          "fp_rate": 0.07017543859649122,
+          "wrong_hits_per_100_queries": 5.714285714285714
+        },
+        {
+          "threshold": 0.72,
+          "queries": 770,
+          "hits": 613,
+          "hit_rate": 0.7961038961038961,
+          "wrong_hits": 41,
+          "fp_rate": 0.06688417618270799,
+          "wrong_hits_per_100_queries": 5.324675324675325
+        },
+        {
+          "threshold": 0.73,
+          "queries": 770,
+          "hits": 594,
+          "hit_rate": 0.7714285714285715,
+          "wrong_hits": 37,
+          "fp_rate": 0.06228956228956229,
+          "wrong_hits_per_100_queries": 4.805194805194805
+        },
+        {
+          "threshold": 0.74,
+          "queries": 770,
+          "hits": 577,
+          "hit_rate": 0.7493506493506493,
+          "wrong_hits": 35,
+          "fp_rate": 0.060658578856152515,
+          "wrong_hits_per_100_queries": 4.545454545454546
+        },
+        {
+          "threshold": 0.75,
+          "queries": 770,
+          "hits": 554,
+          "hit_rate": 0.7194805194805195,
+          "wrong_hits": 33,
+          "fp_rate": 0.05956678700361011,
+          "wrong_hits_per_100_queries": 4.285714285714286
+        },
+        {
+          "threshold": 0.76,
+          "queries": 770,
+          "hits": 534,
+          "hit_rate": 0.6935064935064935,
+          "wrong_hits": 30,
+          "fp_rate": 0.056179775280898875,
+          "wrong_hits_per_100_queries": 3.896103896103896
+        },
+        {
+          "threshold": 0.77,
+          "queries": 770,
+          "hits": 513,
+          "hit_rate": 0.6662337662337663,
+          "wrong_hits": 28,
+          "fp_rate": 0.05458089668615984,
+          "wrong_hits_per_100_queries": 3.6363636363636362
+        },
+        {
+          "threshold": 0.78,
+          "queries": 770,
+          "hits": 490,
+          "hit_rate": 0.6363636363636364,
+          "wrong_hits": 25,
+          "fp_rate": 0.05102040816326531,
+          "wrong_hits_per_100_queries": 3.2467532467532467
+        },
+        {
+          "threshold": 0.79,
+          "queries": 770,
+          "hits": 476,
+          "hit_rate": 0.6181818181818182,
+          "wrong_hits": 23,
+          "fp_rate": 0.04831932773109244,
+          "wrong_hits_per_100_queries": 2.987012987012987
+        },
+        {
+          "threshold": 0.8,
+          "queries": 770,
+          "hits": 450,
+          "hit_rate": 0.5844155844155844,
+          "wrong_hits": 21,
+          "fp_rate": 0.04666666666666667,
+          "wrong_hits_per_100_queries": 2.727272727272727
+        },
+        {
+          "threshold": 0.81,
+          "queries": 770,
+          "hits": 425,
+          "hit_rate": 0.551948051948052,
+          "wrong_hits": 18,
+          "fp_rate": 0.042352941176470586,
+          "wrong_hits_per_100_queries": 2.3376623376623376
+        },
+        {
+          "threshold": 0.82,
+          "queries": 770,
+          "hits": 396,
+          "hit_rate": 0.5142857142857142,
+          "wrong_hits": 16,
+          "fp_rate": 0.04040404040404041,
+          "wrong_hits_per_100_queries": 2.0779220779220777
+        },
+        {
+          "threshold": 0.83,
+          "queries": 770,
+          "hits": 362,
+          "hit_rate": 0.4701298701298701,
+          "wrong_hits": 12,
+          "fp_rate": 0.03314917127071823,
+          "wrong_hits_per_100_queries": 1.5584415584415585
+        },
+        {
+          "threshold": 0.84,
+          "queries": 770,
+          "hits": 334,
+          "hit_rate": 0.43376623376623374,
+          "wrong_hits": 7,
+          "fp_rate": 0.020958083832335328,
+          "wrong_hits_per_100_queries": 0.9090909090909091
+        },
+        {
+          "threshold": 0.85,
+          "queries": 770,
+          "hits": 304,
+          "hit_rate": 0.3948051948051948,
+          "wrong_hits": 6,
+          "fp_rate": 0.019736842105263157,
+          "wrong_hits_per_100_queries": 0.7792207792207793
+        },
+        {
+          "threshold": 0.86,
+          "queries": 770,
+          "hits": 265,
+          "hit_rate": 0.34415584415584416,
+          "wrong_hits": 5,
+          "fp_rate": 0.018867924528301886,
+          "wrong_hits_per_100_queries": 0.6493506493506493
+        },
+        {
+          "threshold": 0.87,
+          "queries": 770,
+          "hits": 243,
+          "hit_rate": 0.3155844155844156,
+          "wrong_hits": 5,
+          "fp_rate": 0.0205761316872428,
+          "wrong_hits_per_100_queries": 0.6493506493506493
+        },
+        {
+          "threshold": 0.88,
+          "queries": 770,
+          "hits": 212,
+          "hit_rate": 0.2753246753246753,
+          "wrong_hits": 4,
+          "fp_rate": 0.018867924528301886,
+          "wrong_hits_per_100_queries": 0.5194805194805194
+        },
+        {
+          "threshold": 0.89,
+          "queries": 770,
+          "hits": 183,
+          "hit_rate": 0.23766233766233766,
+          "wrong_hits": 3,
+          "fp_rate": 0.01639344262295082,
+          "wrong_hits_per_100_queries": 0.38961038961038963
+        },
+        {
+          "threshold": 0.9,
+          "queries": 770,
+          "hits": 154,
+          "hit_rate": 0.2,
+          "wrong_hits": 3,
+          "fp_rate": 0.01948051948051948,
+          "wrong_hits_per_100_queries": 0.38961038961038963
+        },
+        {
+          "threshold": 0.91,
+          "queries": 770,
+          "hits": 129,
+          "hit_rate": 0.16753246753246753,
+          "wrong_hits": 2,
+          "fp_rate": 0.015503875968992248,
+          "wrong_hits_per_100_queries": 0.2597402597402597
+        },
+        {
+          "threshold": 0.92,
+          "queries": 770,
+          "hits": 106,
+          "hit_rate": 0.13766233766233765,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.93,
+          "queries": 770,
+          "hits": 86,
+          "hit_rate": 0.11168831168831168,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.94,
+          "queries": 770,
+          "hits": 68,
+          "hit_rate": 0.08831168831168831,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.95,
+          "queries": 770,
+          "hits": 51,
+          "hit_rate": 0.06623376623376623,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.96,
+          "queries": 770,
+          "hits": 34,
+          "hit_rate": 0.04415584415584416,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.97,
+          "queries": 770,
+          "hits": 21,
+          "hit_rate": 0.02727272727272727,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.98,
+          "queries": 770,
+          "hits": 10,
+          "hit_rate": 0.012987012987012988,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.99,
+          "queries": 770,
+          "hits": 2,
+          "hit_rate": 0.0025974025974025974,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        }
+      ],
+      "global_threshold_for_target": 0.78,
+      "global_threshold_eval_half": {
+        "threshold": 0.78,
+        "queries": 385,
+        "hits": 248,
+        "hit_rate": 0.6441558441558441,
+        "wrong_hits": 14,
+        "fp_rate": 0.056451612903225805,
+        "wrong_hits_per_100_queries": 3.6363636363636362
+      },
+      "per_intent_eval_half": {
+        "threshold": null,
+        "queries": 385,
+        "hits": 335,
+        "hit_rate": 0.8701298701298701,
+        "wrong_hits": 32,
+        "fp_rate": 0.0955223880597015,
+        "wrong_hits_per_100_queries": 8.311688311688311
+      },
+      "per_intent_thresholds": {
+        "Refund_not_showing_up": 0.5,
+        "activate_my_card": 0.78,
+        "age_limit": 0.5,
+        "apple_pay_or_google_pay": 0.5,
+        "atm_support": 0.5,
+        "automatic_top_up": 0.5,
+        "balance_not_updated_after_bank_transfer": 0.59,
+        "balance_not_updated_after_cheque_or_cash_deposit": 0.63,
+        "beneficiary_not_allowed": 0.62,
+        "cancel_transfer": 0.73,
+        "card_about_to_expire": 0.71,
+        "card_acceptance": 0.76,
+        "card_arrival": 0.78,
+        "card_delivery_estimate": 0.5,
+        "card_linking": 0.81,
+        "card_not_working": 0.71,
+        "card_payment_fee_charged": 0.75,
+        "card_payment_not_recognised": 0.5,
+        "card_payment_wrong_exchange_rate": 0.5,
+        "card_swallowed": 0.5,
+        "cash_withdrawal_charge": 0.78,
+        "cash_withdrawal_not_recognised": 0.78,
+        "change_pin": 0.5,
+        "compromised_card": 0.5,
+        "contactless_not_working": 0.5,
+        "country_support": 0.5,
+        "declined_card_payment": 0.78,
+        "declined_cash_withdrawal": 0.78,
+        "declined_transfer": 0.5,
+        "direct_debit_payment_not_recognised": 0.5,
+        "disposable_card_limits": 0.78,
+        "edit_personal_details": 0.5,
+        "exchange_charge": 0.78,
+        "exchange_rate": 0.78,
+        "exchange_via_app": 0.5,
+        "extra_charge_on_statement": 0.5,
+        "failed_transfer": 0.78,
+        "fiat_currency_support": 0.78,
+        "get_disposable_virtual_card": 0.5,
+        "get_physical_card": 0.5,
+        "getting_spare_card": 0.76,
+        "getting_virtual_card": 0.78,
+        "lost_or_stolen_card": 0.81,
+        "lost_or_stolen_phone": 0.5,
+        "order_physical_card": 0.5,
+        "passcode_forgotten": 0.5,
+        "pending_card_payment": 0.5,
+        "pending_cash_withdrawal": 0.5,
+        "pending_top_up": 0.5,
+        "pending_transfer": 0.78,
+        "pin_blocked": 0.5,
+        "receiving_money": 0.5,
+        "request_refund": 0.5,
+        "reverted_card_payment?": 0.78,
+        "supported_cards_and_currencies": 0.78,
+        "terminate_account": 0.58,
+        "top_up_by_bank_transfer_charge": 0.5,
+        "top_up_by_card_charge": 0.5,
+        "top_up_by_cash_or_cheque": 0.57,
+        "top_up_failed": 0.5,
+        "top_up_limits": 0.5,
+        "top_up_reverted": 0.5,
+        "topping_up_by_card": 0.78,
+        "transaction_charged_twice": 0.5,
+        "transfer_fee_charged": 0.5,
+        "transfer_into_account": 0.5,
+        "transfer_not_received_by_recipient": 0.78,
+        "transfer_timing": 0.5,
+        "unable_to_verify_identity": 0.5,
+        "verify_my_identity": 0.86,
+        "verify_source_of_funds": 0.5,
+        "verify_top_up": 0.5,
+        "virtual_card_not_working": 0.5,
+        "visa_or_mastercard": 0.5,
+        "why_verify_identity": 0.5,
+        "wrong_amount_of_cash_received": 0.5,
+        "wrong_exchange_rate_for_cash_withdrawal": 0.5
+      }
+    },
+    "D_tenant_intent_top2": {
+      "at_operating_threshold": {
+        "threshold": 0.8,
+        "queries": 770,
+        "hits": 467,
+        "hit_rate": 0.6064935064935065,
+        "wrong_hits": 37,
+        "fp_rate": 0.07922912205567452,
+        "wrong_hits_per_100_queries": 4.805194805194805,
+        "cross_tenant_hits": 0,
+        "cross_intent_hits": 37,
+        "intent_fp_rate": 0.07922912205567452,
+        "cross_tenant_share": 0.0
+      },
+      "sweep": [
+        {
+          "threshold": 0.5,
+          "queries": 770,
+          "hits": 768,
+          "hit_rate": 0.9974025974025974,
+          "wrong_hits": 121,
+          "fp_rate": 0.15755208333333334,
+          "wrong_hits_per_100_queries": 15.714285714285714
+        },
+        {
+          "threshold": 0.51,
+          "queries": 770,
+          "hits": 768,
+          "hit_rate": 0.9974025974025974,
+          "wrong_hits": 121,
+          "fp_rate": 0.15755208333333334,
+          "wrong_hits_per_100_queries": 15.714285714285714
+        },
+        {
+          "threshold": 0.52,
+          "queries": 770,
+          "hits": 768,
+          "hit_rate": 0.9974025974025974,
+          "wrong_hits": 121,
+          "fp_rate": 0.15755208333333334,
+          "wrong_hits_per_100_queries": 15.714285714285714
+        },
+        {
+          "threshold": 0.53,
+          "queries": 770,
+          "hits": 766,
+          "hit_rate": 0.9948051948051948,
+          "wrong_hits": 121,
+          "fp_rate": 0.15796344647519583,
+          "wrong_hits_per_100_queries": 15.714285714285714
+        },
+        {
+          "threshold": 0.54,
+          "queries": 770,
+          "hits": 761,
+          "hit_rate": 0.9883116883116884,
+          "wrong_hits": 118,
+          "fp_rate": 0.15505913272010513,
+          "wrong_hits_per_100_queries": 15.324675324675324
+        },
+        {
+          "threshold": 0.55,
+          "queries": 770,
+          "hits": 759,
+          "hit_rate": 0.9857142857142858,
+          "wrong_hits": 118,
+          "fp_rate": 0.155467720685112,
+          "wrong_hits_per_100_queries": 15.324675324675324
+        },
+        {
+          "threshold": 0.56,
+          "queries": 770,
+          "hits": 757,
+          "hit_rate": 0.9831168831168832,
+          "wrong_hits": 117,
+          "fp_rate": 0.154557463672391,
+          "wrong_hits_per_100_queries": 15.194805194805195
+        },
+        {
+          "threshold": 0.57,
+          "queries": 770,
+          "hits": 753,
+          "hit_rate": 0.977922077922078,
+          "wrong_hits": 113,
+          "fp_rate": 0.150066401062417,
+          "wrong_hits_per_100_queries": 14.675324675324676
+        },
+        {
+          "threshold": 0.58,
+          "queries": 770,
+          "hits": 750,
+          "hit_rate": 0.974025974025974,
+          "wrong_hits": 110,
+          "fp_rate": 0.14666666666666667,
+          "wrong_hits_per_100_queries": 14.285714285714286
+        },
+        {
+          "threshold": 0.59,
+          "queries": 770,
+          "hits": 747,
+          "hit_rate": 0.9701298701298702,
+          "wrong_hits": 107,
+          "fp_rate": 0.14323962516733602,
+          "wrong_hits_per_100_queries": 13.896103896103897
+        },
+        {
+          "threshold": 0.6,
+          "queries": 770,
+          "hits": 745,
+          "hit_rate": 0.9675324675324676,
+          "wrong_hits": 107,
+          "fp_rate": 0.1436241610738255,
+          "wrong_hits_per_100_queries": 13.896103896103897
+        },
+        {
+          "threshold": 0.61,
+          "queries": 770,
+          "hits": 740,
+          "hit_rate": 0.961038961038961,
+          "wrong_hits": 104,
+          "fp_rate": 0.14054054054054055,
+          "wrong_hits_per_100_queries": 13.506493506493506
+        },
+        {
+          "threshold": 0.62,
+          "queries": 770,
+          "hits": 739,
+          "hit_rate": 0.9597402597402598,
+          "wrong_hits": 104,
+          "fp_rate": 0.14073071718538566,
+          "wrong_hits_per_100_queries": 13.506493506493506
+        },
+        {
+          "threshold": 0.63,
+          "queries": 770,
+          "hits": 734,
+          "hit_rate": 0.9532467532467532,
+          "wrong_hits": 103,
+          "fp_rate": 0.14032697547683923,
+          "wrong_hits_per_100_queries": 13.376623376623376
+        },
+        {
+          "threshold": 0.64,
+          "queries": 770,
+          "hits": 726,
+          "hit_rate": 0.9428571428571428,
+          "wrong_hits": 100,
+          "fp_rate": 0.13774104683195593,
+          "wrong_hits_per_100_queries": 12.987012987012987
+        },
+        {
+          "threshold": 0.65,
+          "queries": 770,
+          "hits": 720,
+          "hit_rate": 0.935064935064935,
+          "wrong_hits": 97,
+          "fp_rate": 0.13472222222222222,
+          "wrong_hits_per_100_queries": 12.597402597402597
+        },
+        {
+          "threshold": 0.66,
+          "queries": 770,
+          "hits": 711,
+          "hit_rate": 0.9233766233766234,
+          "wrong_hits": 93,
+          "fp_rate": 0.1308016877637131,
+          "wrong_hits_per_100_queries": 12.077922077922079
+        },
+        {
+          "threshold": 0.67,
+          "queries": 770,
+          "hits": 700,
+          "hit_rate": 0.9090909090909091,
+          "wrong_hits": 90,
+          "fp_rate": 0.12857142857142856,
+          "wrong_hits_per_100_queries": 11.688311688311689
+        },
+        {
+          "threshold": 0.68,
+          "queries": 770,
+          "hits": 687,
+          "hit_rate": 0.8922077922077922,
+          "wrong_hits": 84,
+          "fp_rate": 0.1222707423580786,
+          "wrong_hits_per_100_queries": 10.909090909090908
+        },
+        {
+          "threshold": 0.69,
+          "queries": 770,
+          "hits": 679,
+          "hit_rate": 0.8818181818181818,
+          "wrong_hits": 82,
+          "fp_rate": 0.12076583210603829,
+          "wrong_hits_per_100_queries": 10.64935064935065
+        },
+        {
+          "threshold": 0.7,
+          "queries": 770,
+          "hits": 659,
+          "hit_rate": 0.8558441558441559,
+          "wrong_hits": 76,
+          "fp_rate": 0.11532625189681335,
+          "wrong_hits_per_100_queries": 9.87012987012987
+        },
+        {
+          "threshold": 0.71,
+          "queries": 770,
+          "hits": 647,
+          "hit_rate": 0.8402597402597403,
+          "wrong_hits": 71,
+          "fp_rate": 0.10973724884080371,
+          "wrong_hits_per_100_queries": 9.220779220779221
+        },
+        {
+          "threshold": 0.72,
+          "queries": 770,
+          "hits": 635,
+          "hit_rate": 0.8246753246753247,
+          "wrong_hits": 67,
+          "fp_rate": 0.10551181102362205,
+          "wrong_hits_per_100_queries": 8.7012987012987
+        },
+        {
+          "threshold": 0.73,
+          "queries": 770,
+          "hits": 617,
+          "hit_rate": 0.8012987012987013,
+          "wrong_hits": 63,
+          "fp_rate": 0.10210696920583469,
+          "wrong_hits_per_100_queries": 8.181818181818182
+        },
+        {
+          "threshold": 0.74,
+          "queries": 770,
+          "hits": 599,
+          "hit_rate": 0.7779220779220779,
+          "wrong_hits": 59,
+          "fp_rate": 0.09849749582637729,
+          "wrong_hits_per_100_queries": 7.662337662337662
+        },
+        {
+          "threshold": 0.75,
+          "queries": 770,
+          "hits": 580,
+          "hit_rate": 0.7532467532467533,
+          "wrong_hits": 57,
+          "fp_rate": 0.09827586206896552,
+          "wrong_hits_per_100_queries": 7.402597402597403
+        },
+        {
+          "threshold": 0.76,
+          "queries": 770,
+          "hits": 561,
+          "hit_rate": 0.7285714285714285,
+          "wrong_hits": 54,
+          "fp_rate": 0.0962566844919786,
+          "wrong_hits_per_100_queries": 7.012987012987013
+        },
+        {
+          "threshold": 0.77,
+          "queries": 770,
+          "hits": 538,
+          "hit_rate": 0.6987012987012987,
+          "wrong_hits": 49,
+          "fp_rate": 0.09107806691449814,
+          "wrong_hits_per_100_queries": 6.363636363636363
+        },
+        {
+          "threshold": 0.78,
+          "queries": 770,
+          "hits": 511,
+          "hit_rate": 0.6636363636363637,
+          "wrong_hits": 43,
+          "fp_rate": 0.08414872798434442,
+          "wrong_hits_per_100_queries": 5.584415584415584
+        },
+        {
+          "threshold": 0.79,
+          "queries": 770,
+          "hits": 495,
+          "hit_rate": 0.6428571428571429,
+          "wrong_hits": 39,
+          "fp_rate": 0.07878787878787878,
+          "wrong_hits_per_100_queries": 5.064935064935065
+        },
+        {
+          "threshold": 0.8,
+          "queries": 770,
+          "hits": 467,
+          "hit_rate": 0.6064935064935065,
+          "wrong_hits": 37,
+          "fp_rate": 0.07922912205567452,
+          "wrong_hits_per_100_queries": 4.805194805194805
+        },
+        {
+          "threshold": 0.81,
+          "queries": 770,
+          "hits": 439,
+          "hit_rate": 0.5701298701298702,
+          "wrong_hits": 30,
+          "fp_rate": 0.0683371298405467,
+          "wrong_hits_per_100_queries": 3.896103896103896
+        },
+        {
+          "threshold": 0.82,
+          "queries": 770,
+          "hits": 409,
+          "hit_rate": 0.5311688311688312,
+          "wrong_hits": 29,
+          "fp_rate": 0.07090464547677261,
+          "wrong_hits_per_100_queries": 3.7662337662337664
+        },
+        {
+          "threshold": 0.83,
+          "queries": 770,
+          "hits": 372,
+          "hit_rate": 0.4831168831168831,
+          "wrong_hits": 23,
+          "fp_rate": 0.06182795698924731,
+          "wrong_hits_per_100_queries": 2.987012987012987
+        },
+        {
+          "threshold": 0.84,
+          "queries": 770,
+          "hits": 341,
+          "hit_rate": 0.44285714285714284,
+          "wrong_hits": 16,
+          "fp_rate": 0.0469208211143695,
+          "wrong_hits_per_100_queries": 2.0779220779220777
+        },
+        {
+          "threshold": 0.85,
+          "queries": 770,
+          "hits": 311,
+          "hit_rate": 0.4038961038961039,
+          "wrong_hits": 14,
+          "fp_rate": 0.04501607717041801,
+          "wrong_hits_per_100_queries": 1.8181818181818181
+        },
+        {
+          "threshold": 0.86,
+          "queries": 770,
+          "hits": 271,
+          "hit_rate": 0.35194805194805195,
+          "wrong_hits": 12,
+          "fp_rate": 0.04428044280442804,
+          "wrong_hits_per_100_queries": 1.5584415584415585
+        },
+        {
+          "threshold": 0.87,
+          "queries": 770,
+          "hits": 248,
+          "hit_rate": 0.3220779220779221,
+          "wrong_hits": 11,
+          "fp_rate": 0.04435483870967742,
+          "wrong_hits_per_100_queries": 1.4285714285714286
+        },
+        {
+          "threshold": 0.88,
+          "queries": 770,
+          "hits": 214,
+          "hit_rate": 0.2779220779220779,
+          "wrong_hits": 7,
+          "fp_rate": 0.03271028037383177,
+          "wrong_hits_per_100_queries": 0.9090909090909091
+        },
+        {
+          "threshold": 0.89,
+          "queries": 770,
+          "hits": 184,
+          "hit_rate": 0.23896103896103896,
+          "wrong_hits": 5,
+          "fp_rate": 0.02717391304347826,
+          "wrong_hits_per_100_queries": 0.6493506493506493
+        },
+        {
+          "threshold": 0.9,
+          "queries": 770,
+          "hits": 155,
+          "hit_rate": 0.2012987012987013,
+          "wrong_hits": 5,
+          "fp_rate": 0.03225806451612903,
+          "wrong_hits_per_100_queries": 0.6493506493506493
+        },
+        {
+          "threshold": 0.91,
+          "queries": 770,
+          "hits": 131,
+          "hit_rate": 0.17012987012987013,
+          "wrong_hits": 4,
+          "fp_rate": 0.030534351145038167,
+          "wrong_hits_per_100_queries": 0.5194805194805194
+        },
+        {
+          "threshold": 0.92,
+          "queries": 770,
+          "hits": 108,
+          "hit_rate": 0.14025974025974025,
+          "wrong_hits": 1,
+          "fp_rate": 0.009259259259259259,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.93,
+          "queries": 770,
+          "hits": 88,
+          "hit_rate": 0.11428571428571428,
+          "wrong_hits": 1,
+          "fp_rate": 0.011363636363636364,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.94,
+          "queries": 770,
+          "hits": 69,
+          "hit_rate": 0.08961038961038961,
+          "wrong_hits": 1,
+          "fp_rate": 0.014492753623188406,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.95,
+          "queries": 770,
+          "hits": 52,
+          "hit_rate": 0.06753246753246753,
+          "wrong_hits": 1,
+          "fp_rate": 0.019230769230769232,
+          "wrong_hits_per_100_queries": 0.12987012987012986
+        },
+        {
+          "threshold": 0.96,
+          "queries": 770,
+          "hits": 34,
+          "hit_rate": 0.04415584415584416,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.97,
+          "queries": 770,
+          "hits": 21,
+          "hit_rate": 0.02727272727272727,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.98,
+          "queries": 770,
+          "hits": 10,
+          "hit_rate": 0.012987012987012988,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        },
+        {
+          "threshold": 0.99,
+          "queries": 770,
+          "hits": 2,
+          "hit_rate": 0.0025974025974025974,
+          "wrong_hits": 0,
+          "fp_rate": 0.0,
+          "wrong_hits_per_100_queries": 0.0
+        }
+      ],
+      "global_threshold_for_target": 0.84,
+      "global_threshold_eval_half": {
+        "threshold": 0.84,
+        "queries": 385,
+        "hits": 177,
+        "hit_rate": 0.4597402597402597,
+        "wrong_hits": 8,
+        "fp_rate": 0.04519774011299435,
+        "wrong_hits_per_100_queries": 2.0779220779220777
+      },
+      "per_intent_eval_half": {
+        "threshold": null,
+        "queries": 385,
+        "hits": 285,
+        "hit_rate": 0.7402597402597403,
+        "wrong_hits": 32,
+        "fp_rate": 0.11228070175438597,
+        "wrong_hits_per_100_queries": 8.311688311688311
+      },
+      "per_intent_thresholds": {
+        "Refund_not_showing_up": 0.71,
+        "activate_my_card": 0.84,
+        "age_limit": 0.5,
+        "apple_pay_or_google_pay": 0.5,
+        "atm_support": 0.5,
+        "automatic_top_up": 0.5,
+        "balance_not_updated_after_bank_transfer": 0.84,
+        "balance_not_updated_after_cheque_or_cash_deposit": 0.63,
+        "beneficiary_not_allowed": 0.78,
+        "cancel_transfer": 0.73,
+        "card_about_to_expire": 0.5,
+        "card_acceptance": 0.84,
+        "card_arrival": 0.84,
+        "card_delivery_estimate": 0.5,
+        "card_linking": 0.81,
+        "card_not_working": 0.5,
+        "card_payment_fee_charged": 0.5,
+        "card_payment_not_recognised": 0.84,
+        "card_payment_wrong_exchange_rate": 0.5,
+        "card_swallowed": 0.5,
+        "cash_withdrawal_charge": 0.78,
+        "cash_withdrawal_not_recognised": 0.84,
+        "change_pin": 0.65,
+        "compromised_card": 0.84,
+        "contactless_not_working": 0.5,
+        "country_support": 0.5,
+        "declined_card_payment": 0.84,
+        "declined_cash_withdrawal": 0.84,
+        "declined_transfer": 0.7,
+        "direct_debit_payment_not_recognised": 0.5,
+        "disposable_card_limits": 0.83,
+        "edit_personal_details": 0.5,
+        "exchange_charge": 0.84,
+        "exchange_rate": 0.84,
+        "exchange_via_app": 0.5,
+        "extra_charge_on_statement": 0.5,
+        "failed_transfer": 0.84,
+        "fiat_currency_support": 0.84,
+        "get_disposable_virtual_card": 0.5,
+        "get_physical_card": 0.84,
+        "getting_spare_card": 0.5,
+        "getting_virtual_card": 0.84,
+        "lost_or_stolen_card": 0.82,
+        "lost_or_stolen_phone": 0.5,
+        "order_physical_card": 0.84,
+        "passcode_forgotten": 0.5,
+        "pending_card_payment": 0.71,
+        "pending_cash_withdrawal": 0.5,
+        "pending_top_up": 0.84,
+        "pending_transfer": 0.84,
+        "pin_blocked": 0.5,
+        "receiving_money": 0.5,
+        "request_refund": 0.84,
+        "reverted_card_payment?": 0.84,
+        "supported_cards_and_currencies": 0.5,
+        "terminate_account": 0.5,
+        "top_up_by_bank_transfer_charge": 0.5,
+        "top_up_by_card_charge": 0.5,
+        "top_up_by_cash_or_cheque": 0.57,
+        "top_up_failed": 0.79,
+        "top_up_limits": 0.5,
+        "top_up_reverted": 0.5,
+        "topping_up_by_card": 0.84,
+        "transaction_charged_twice": 0.5,
+        "transfer_fee_charged": 0.84,
+        "transfer_into_account": 0.5,
+        "transfer_not_received_by_recipient": 0.5,
+        "transfer_timing": 0.84,
+        "unable_to_verify_identity": 0.84,
+        "verify_my_identity": 0.84,
+        "verify_source_of_funds": 0.5,
+        "verify_top_up": 0.5,
+        "virtual_card_not_working": 0.5,
+        "visa_or_mastercard": 0.5,
+        "why_verify_identity": 0.5,
+        "wrong_amount_of_cash_received": 0.5,
+        "wrong_exchange_rate_for_cash_withdrawal": 0.5
+      }
+    }
+  },
+  "row": {
+    "test": "4. Partitions and per-intent thresholds",
+    "stresses": "Hits crossing tenant and intent boundaries under one global threshold",
+    "fp_before": 0.06393442622950819,
+    "fp_before_detail": "plus 67.0% of hits cross-tenant",
+    "fp_after": 0.0955223880597015,
+    "mitigation": "MUST filters on tenant and predicted intent in VectorAI DB, per-intent thresholds fitted to the correctness target"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+}

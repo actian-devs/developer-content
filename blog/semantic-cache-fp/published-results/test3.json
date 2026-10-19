@@ -1,0 +1,681 @@
+{
+  "test": 3,
+  "threshold": 0.8,
+  "pairs": 82,
+  "flip_pairs": 38,
+  "pair_cosine_median": {
+    "flips": 0.9061457514762878,
+    "paraphrases": 0.9110395908355713
+  },
+  "before": {
+    "threshold": 0.8,
+    "queries": 82,
+    "hits": 80,
+    "hit_rate": 0.975609756097561,
+    "wrong_hits": 38,
+    "fp_rate": 0.475,
+    "wrong_hits_per_100_queries": 46.34146341463415,
+    "flips_served": 1.0,
+    "paraphrases_served_correctly": 0.9545454545454546
+  },
+  "after_guard": {
+    "threshold": 0.8,
+    "queries": 82,
+    "hits": 42,
+    "hit_rate": 0.5121951219512195,
+    "wrong_hits": 0,
+    "fp_rate": 0.0,
+    "wrong_hits_per_100_queries": 0.0,
+    "flips_served": 0.0,
+    "paraphrases_served_correctly": 0.9545454545454546
+  },
+  "threshold_to_block_95pct_flips": {
+    "threshold": 0.97,
+    "queries": 82,
+    "hits": 6,
+    "hit_rate": 0.07317073170731707,
+    "wrong_hits": 0,
+    "fp_rate": 0.0,
+    "wrong_hits_per_100_queries": 0.0,
+    "flips_served": 0.0,
+    "paraphrases_served_correctly": 0.13636363636363635
+  },
+  "served_flip_examples": [
+    {
+      "cached": "Was I charged on 21 July?",
+      "incoming": "Was I charged on 21 June?",
+      "score": 0.9641
+    },
+    {
+      "cached": "Set my daily card limit to $250",
+      "incoming": "Set my daily card limit to $200",
+      "score": 0.9632
+    },
+    {
+      "cached": "Set my daily card limit to $250",
+      "incoming": "Set my daily card limit to $2500",
+      "score": 0.962
+    },
+    {
+      "cached": "Set my daily card limit to $150",
+      "incoming": "Set my daily card limit to $750",
+      "score": 0.9532
+    },
+    {
+      "cached": "Schedule my rent payment for 21 July",
+      "incoming": "Schedule my rent payment for 21 June",
+      "score": 0.951
+    },
+    {
+      "cached": "Schedule my rent payment for 2 October",
+      "incoming": "Schedule my rent payment for 12 October",
+      "score": 0.9445
+    },
+    {
+      "cached": "Was I charged on 2 October?",
+      "incoming": "Was I charged on 12 October?",
+      "score": 0.9418
+    },
+    {
+      "cached": "Was I charged on 5 August?",
+      "incoming": "Was I charged on 15 August?",
+      "score": 0.9395
+    },
+    {
+      "cached": "Set my daily card limit to $250",
+      "incoming": "Set my daily card limit to $500",
+      "score": 0.9389
+    },
+    {
+      "cached": "Set my daily card limit to $150",
+      "incoming": "Set my daily card limit to $1500",
+      "score": 0.9359
+    },
+    {
+      "cached": "Schedule my rent payment for 5 August",
+      "incoming": "Schedule my rent payment for 15 August",
+      "score": 0.9354
+    },
+    {
+      "cached": "Freeze my card for 7 days",
+      "incoming": "Freeze my card for 70 days",
+      "score": 0.9352
+    },
+    {
+      "cached": "Set my daily card limit to $100",
+      "incoming": "Set my daily card limit to $1000",
+      "score": 0.929
+    },
+    {
+      "cached": "Can I withdraw $250 today?",
+      "incoming": "Can I withdraw $200 today?",
+      "score": 0.9285
+    },
+    {
+      "cached": "Freeze my card for 3 days",
+      "incoming": "Freeze my card for 30 days",
+      "score": 0.9241
+    }
+  ],
+  "sweep": [
+    {
+      "threshold": 0.5,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.51,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.52,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.53,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.54,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.55,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.56,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.57,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.58,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.59,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.6,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.61,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.62,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.63,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.64,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.65,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.66,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.67,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.68,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.69,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.7,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.71,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.72,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.73,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.74,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.75,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.76,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.77,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.78,
+      "queries": 82,
+      "hits": 82,
+      "hit_rate": 1.0,
+      "wrong_hits": 38,
+      "fp_rate": 0.4634146341463415,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 1.0
+    },
+    {
+      "threshold": 0.79,
+      "queries": 82,
+      "hits": 81,
+      "hit_rate": 0.9878048780487805,
+      "wrong_hits": 38,
+      "fp_rate": 0.4691358024691358,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.9772727272727273
+    },
+    {
+      "threshold": 0.8,
+      "queries": 82,
+      "hits": 80,
+      "hit_rate": 0.975609756097561,
+      "wrong_hits": 38,
+      "fp_rate": 0.475,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.9545454545454546
+    },
+    {
+      "threshold": 0.81,
+      "queries": 82,
+      "hits": 79,
+      "hit_rate": 0.9634146341463414,
+      "wrong_hits": 38,
+      "fp_rate": 0.4810126582278481,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.9318181818181818
+    },
+    {
+      "threshold": 0.82,
+      "queries": 82,
+      "hits": 78,
+      "hit_rate": 0.9512195121951219,
+      "wrong_hits": 38,
+      "fp_rate": 0.48717948717948717,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.9090909090909091
+    },
+    {
+      "threshold": 0.83,
+      "queries": 82,
+      "hits": 77,
+      "hit_rate": 0.9390243902439024,
+      "wrong_hits": 38,
+      "fp_rate": 0.4935064935064935,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.8863636363636364
+    },
+    {
+      "threshold": 0.84,
+      "queries": 82,
+      "hits": 73,
+      "hit_rate": 0.8902439024390244,
+      "wrong_hits": 38,
+      "fp_rate": 0.5205479452054794,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.7954545454545454
+    },
+    {
+      "threshold": 0.85,
+      "queries": 82,
+      "hits": 72,
+      "hit_rate": 0.8780487804878049,
+      "wrong_hits": 38,
+      "fp_rate": 0.5277777777777778,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.7727272727272727
+    },
+    {
+      "threshold": 0.86,
+      "queries": 82,
+      "hits": 72,
+      "hit_rate": 0.8780487804878049,
+      "wrong_hits": 38,
+      "fp_rate": 0.5277777777777778,
+      "wrong_hits_per_100_queries": 46.34146341463415,
+      "flips_served": 1.0,
+      "paraphrases_served_correctly": 0.7727272727272727
+    },
+    {
+      "threshold": 0.87,
+      "queries": 82,
+      "hits": 70,
+      "hit_rate": 0.8536585365853658,
+      "wrong_hits": 36,
+      "fp_rate": 0.5142857142857142,
+      "wrong_hits_per_100_queries": 43.90243902439025,
+      "flips_served": 0.9473684210526315,
+      "paraphrases_served_correctly": 0.7727272727272727
+    },
+    {
+      "threshold": 0.88,
+      "queries": 82,
+      "hits": 69,
+      "hit_rate": 0.8414634146341463,
+      "wrong_hits": 35,
+      "fp_rate": 0.5072463768115942,
+      "wrong_hits_per_100_queries": 42.68292682926829,
+      "flips_served": 0.9210526315789473,
+      "paraphrases_served_correctly": 0.7727272727272727
+    },
+    {
+      "threshold": 0.89,
+      "queries": 82,
+      "hits": 65,
+      "hit_rate": 0.7926829268292683,
+      "wrong_hits": 31,
+      "fp_rate": 0.47692307692307695,
+      "wrong_hits_per_100_queries": 37.80487804878049,
+      "flips_served": 0.8157894736842105,
+      "paraphrases_served_correctly": 0.7727272727272727
+    },
+    {
+      "threshold": 0.9,
+      "queries": 82,
+      "hits": 56,
+      "hit_rate": 0.6829268292682927,
+      "wrong_hits": 28,
+      "fp_rate": 0.5,
+      "wrong_hits_per_100_queries": 34.146341463414636,
+      "flips_served": 0.7368421052631579,
+      "paraphrases_served_correctly": 0.6363636363636364
+    },
+    {
+      "threshold": 0.91,
+      "queries": 82,
+      "hits": 44,
+      "hit_rate": 0.5365853658536586,
+      "wrong_hits": 22,
+      "fp_rate": 0.5,
+      "wrong_hits_per_100_queries": 26.829268292682926,
+      "flips_served": 0.5789473684210527,
+      "paraphrases_served_correctly": 0.5
+    },
+    {
+      "threshold": 0.92,
+      "queries": 82,
+      "hits": 34,
+      "hit_rate": 0.4146341463414634,
+      "wrong_hits": 16,
+      "fp_rate": 0.47058823529411764,
+      "wrong_hits_per_100_queries": 19.51219512195122,
+      "flips_served": 0.42105263157894735,
+      "paraphrases_served_correctly": 0.4090909090909091
+    },
+    {
+      "threshold": 0.93,
+      "queries": 82,
+      "hits": 30,
+      "hit_rate": 0.36585365853658536,
+      "wrong_hits": 12,
+      "fp_rate": 0.4,
+      "wrong_hits_per_100_queries": 14.634146341463415,
+      "flips_served": 0.3157894736842105,
+      "paraphrases_served_correctly": 0.4090909090909091
+    },
+    {
+      "threshold": 0.94,
+      "queries": 82,
+      "hits": 23,
+      "hit_rate": 0.2804878048780488,
+      "wrong_hits": 7,
+      "fp_rate": 0.30434782608695654,
+      "wrong_hits_per_100_queries": 8.536585365853659,
+      "flips_served": 0.18421052631578946,
+      "paraphrases_served_correctly": 0.36363636363636365
+    },
+    {
+      "threshold": 0.95,
+      "queries": 82,
+      "hits": 17,
+      "hit_rate": 0.2073170731707317,
+      "wrong_hits": 5,
+      "fp_rate": 0.29411764705882354,
+      "wrong_hits_per_100_queries": 6.097560975609756,
+      "flips_served": 0.13157894736842105,
+      "paraphrases_served_correctly": 0.2727272727272727
+    },
+    {
+      "threshold": 0.96,
+      "queries": 82,
+      "hits": 9,
+      "hit_rate": 0.10975609756097561,
+      "wrong_hits": 3,
+      "fp_rate": 0.3333333333333333,
+      "wrong_hits_per_100_queries": 3.658536585365854,
+      "flips_served": 0.07894736842105263,
+      "paraphrases_served_correctly": 0.13636363636363635
+    },
+    {
+      "threshold": 0.97,
+      "queries": 82,
+      "hits": 6,
+      "hit_rate": 0.07317073170731707,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0,
+      "flips_served": 0.0,
+      "paraphrases_served_correctly": 0.13636363636363635
+    },
+    {
+      "threshold": 0.98,
+      "queries": 82,
+      "hits": 6,
+      "hit_rate": 0.07317073170731707,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0,
+      "flips_served": 0.0,
+      "paraphrases_served_correctly": 0.13636363636363635
+    },
+    {
+      "threshold": 0.99,
+      "queries": 82,
+      "hits": 0,
+      "hit_rate": 0.0,
+      "wrong_hits": 0,
+      "fp_rate": 0.0,
+      "wrong_hits_per_100_queries": 0.0,
+      "flips_served": 0.0,
+      "paraphrases_served_correctly": 0.0
+    }
+  ],
+  "row": {
+    "test": "3. Numbers against dates",
+    "stresses": "Questions that differ only in an amount, a count or a date",
+    "fp_before": 0.475,
+    "fp_before_detail": "100.0% of flips served",
+    "fp_after": 0.0,
+    "mitigation": "Exact-match check on numbers, amounts and dates before serving a hit"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+}

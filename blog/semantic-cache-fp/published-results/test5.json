@@ -1,0 +1,195 @@
+{
+  "test": 5,
+  "threshold": 0.8,
+  "model": "Mapika/decider-0.8b",
+  "question": "Are these two customer questions asking for the same thing, so that one answer would correctly serve both?",
+  "hits_verified": 100,
+  "before": {
+    "threshold": 0.8,
+    "queries": 100,
+    "hits": 100,
+    "hit_rate": 1.0,
+    "wrong_hits": 6,
+    "fp_rate": 0.06,
+    "wrong_hits_per_100_queries": 6.0
+  },
+  "by_tau": [
+    {
+      "tau": 0.1,
+      "wrong_hits_caught": 0,
+      "wrong_hits_caught_rate": 0.0,
+      "good_hits_rejected": 0,
+      "good_hits_rejected_rate": 0.0,
+      "fp_rate_after": 0.06,
+      "hits_kept": 100
+    },
+    {
+      "tau": 0.15,
+      "wrong_hits_caught": 0,
+      "wrong_hits_caught_rate": 0.0,
+      "good_hits_rejected": 0,
+      "good_hits_rejected_rate": 0.0,
+      "fp_rate_after": 0.06,
+      "hits_kept": 100
+    },
+    {
+      "tau": 0.2,
+      "wrong_hits_caught": 0,
+      "wrong_hits_caught_rate": 0.0,
+      "good_hits_rejected": 0,
+      "good_hits_rejected_rate": 0.0,
+      "fp_rate_after": 0.06,
+      "hits_kept": 100
+    },
+    {
+      "tau": 0.25,
+      "wrong_hits_caught": 1,
+      "wrong_hits_caught_rate": 0.16666666666666666,
+      "good_hits_rejected": 0,
+      "good_hits_rejected_rate": 0.0,
+      "fp_rate_after": 0.050505050505050504,
+      "hits_kept": 99
+    },
+    {
+      "tau": 0.3,
+      "wrong_hits_caught": 1,
+      "wrong_hits_caught_rate": 0.16666666666666666,
+      "good_hits_rejected": 2,
+      "good_hits_rejected_rate": 0.02127659574468085,
+      "fp_rate_after": 0.05154639175257732,
+      "hits_kept": 97
+    },
+    {
+      "tau": 0.35,
+      "wrong_hits_caught": 1,
+      "wrong_hits_caught_rate": 0.16666666666666666,
+      "good_hits_rejected": 5,
+      "good_hits_rejected_rate": 0.05319148936170213,
+      "fp_rate_after": 0.05319148936170213,
+      "hits_kept": 94
+    },
+    {
+      "tau": 0.4,
+      "wrong_hits_caught": 1,
+      "wrong_hits_caught_rate": 0.16666666666666666,
+      "good_hits_rejected": 10,
+      "good_hits_rejected_rate": 0.10638297872340426,
+      "fp_rate_after": 0.056179775280898875,
+      "hits_kept": 89
+    },
+    {
+      "tau": 0.45,
+      "wrong_hits_caught": 2,
+      "wrong_hits_caught_rate": 0.3333333333333333,
+      "good_hits_rejected": 17,
+      "good_hits_rejected_rate": 0.18085106382978725,
+      "fp_rate_after": 0.04938271604938271,
+      "hits_kept": 81
+    },
+    {
+      "tau": 0.5,
+      "wrong_hits_caught": 4,
+      "wrong_hits_caught_rate": 0.6666666666666666,
+      "good_hits_rejected": 25,
+      "good_hits_rejected_rate": 0.26595744680851063,
+      "fp_rate_after": 0.028169014084507043,
+      "hits_kept": 71
+    },
+    {
+      "tau": 0.55,
+      "wrong_hits_caught": 5,
+      "wrong_hits_caught_rate": 0.8333333333333334,
+      "good_hits_rejected": 34,
+      "good_hits_rejected_rate": 0.3617021276595745,
+      "fp_rate_after": 0.01639344262295082,
+      "hits_kept": 61
+    },
+    {
+      "tau": 0.6,
+      "wrong_hits_caught": 5,
+      "wrong_hits_caught_rate": 0.8333333333333334,
+      "good_hits_rejected": 49,
+      "good_hits_rejected_rate": 0.5212765957446809,
+      "fp_rate_after": 0.021739130434782608,
+      "hits_kept": 46
+    },
+    {
+      "tau": 0.65,
+      "wrong_hits_caught": 5,
+      "wrong_hits_caught_rate": 0.8333333333333334,
+      "good_hits_rejected": 62,
+      "good_hits_rejected_rate": 0.6595744680851063,
+      "fp_rate_after": 0.030303030303030304,
+      "hits_kept": 33
+    },
+    {
+      "tau": 0.7,
+      "wrong_hits_caught": 5,
+      "wrong_hits_caught_rate": 0.8333333333333334,
+      "good_hits_rejected": 71,
+      "good_hits_rejected_rate": 0.7553191489361702,
+      "fp_rate_after": 0.041666666666666664,
+      "hits_kept": 24
+    },
+    {
+      "tau": 0.75,
+      "wrong_hits_caught": 5,
+      "wrong_hits_caught_rate": 0.8333333333333334,
+      "good_hits_rejected": 84,
+      "good_hits_rejected_rate": 0.8936170212765957,
+      "fp_rate_after": 0.09090909090909091,
+      "hits_kept": 11
+    },
+    {
+      "tau": 0.8,
+      "wrong_hits_caught": 6,
+      "wrong_hits_caught_rate": 1.0,
+      "good_hits_rejected": 92,
+      "good_hits_rejected_rate": 0.9787234042553191,
+      "fp_rate_after": 0.0,
+      "hits_kept": 2
+    },
+    {
+      "tau": 0.85,
+      "wrong_hits_caught": 6,
+      "wrong_hits_caught_rate": 1.0,
+      "good_hits_rejected": 94,
+      "good_hits_rejected_rate": 1.0,
+      "fp_rate_after": 0.0,
+      "hits_kept": 0
+    },
+    {
+      "tau": 0.9,
+      "wrong_hits_caught": 6,
+      "wrong_hits_caught_rate": 1.0,
+      "good_hits_rejected": 94,
+      "good_hits_rejected_rate": 1.0,
+      "fp_rate_after": 0.0,
+      "hits_kept": 0
+    }
+  ],
+  "chosen_tau": {
+    "tau": 0.5,
+    "wrong_hits_caught": 4,
+    "wrong_hits_caught_rate": 0.6666666666666666,
+    "good_hits_rejected": 25,
+    "good_hits_rejected_rate": 0.26595744680851063,
+    "fp_rate_after": 0.028169014084507043,
+    "hits_kept": 71
+  },
+  "latency": {
+    "p50_ms": 106.16731201298535,
+    "p95_ms": 116.41787462867796,
+    "mean_ms": 98.77402871381491,
+    "hardware": "Apple MPS (arm64)",
+    "batch_size": 1
+  },
+  "row": {
+    "test": "5. Local verification with decider-4b",
+    "stresses": "Wrong hits that pass the threshold; cost of checking them",
+    "fp_before": 0.06,
+    "fp_after": 0.028169014084507043,
+    "mitigation": "decider-4b yes/no check on each hit (tau 0.5), p50 106 ms on Apple MPS (arm64)"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+}
