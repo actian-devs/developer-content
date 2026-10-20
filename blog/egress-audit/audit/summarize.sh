@@ -9,8 +9,6 @@
 #   <run-name>.kernel.log    the kernel log with firewall entries (what was blocked)
 # plus <run-name>.tcpdump.txt for the capture's drop counters.
 #
-# Each record has blind spots the others cover, so the report ends with a
-# coverage section stating what each one contained.
 
 set -euo pipefail
 
