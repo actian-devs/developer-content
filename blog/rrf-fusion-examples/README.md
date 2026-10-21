@@ -59,7 +59,3 @@ fused score. RRF also supports source weights; the article's compact implementat
 With these inputs both methods produce the same document order, but their scores have different
 meanings. That agreement is specific to the illustrative distributions and is not a promise that
 DBSF will favor the exact-match guide—or that RRF and DBSF generally agree.
-
-No VectorAI DB endpoint or credentials are used: the fusion helpers are local SDK utilities. The
-comparison therefore verifies client-side integration, not live retrieval, database connectivity,
-or server behavior.
