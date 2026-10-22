@@ -32,6 +32,7 @@ python scripts/01_score_scale_example.py
 python scripts/02_k_sensitivity.py
 python scripts/03_parent_deduplication.py
 python scripts/04_rrf_vs_dbsf.py
+python scripts/05_fusion_ranking_difference.py
 python -m pytest -q
 python -m ruff check .
 ```
@@ -59,3 +60,17 @@ fused score. RRF also supports source weights; the article's compact implementat
 With these inputs both methods produce the same document order, but their scores have different
 meanings. That agreement is specific to the illustrative distributions and is not a promise that
 DBSF will favor the exact-match guide—or that RRF and DBSF generally agree.
+
+## Controlled ranking difference
+
+`scripts/05_fusion_ranking_difference.py` keeps the same illustrative query but uses six
+candidates. The exact error guide is a large keyword-score outlier at rank 1 and remains
+semantically related at vector rank 6. The pooling guide ranks second in keyword search and first
+in vector search. Both SDK functions receive the exact same ordered source lists and scores.
+
+RRF ranks the pooling guide, timeout FAQ, and exact error guide first through third because it uses
+only their positions. DBSF ranks the pooling guide, exact error guide, and timeout FAQ first through
+third because it retains how unusual the exact guide's keyword score is after per-source
+normalization. This controlled result demonstrates different behavior, not that either method is
+universally better; ranking quality still depends on the query, retrievers, data, and relevance
+criteria.

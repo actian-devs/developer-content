@@ -67,3 +67,74 @@ RRF scores. Different source distributions can produce different rankings.
 The initial combined dependency-install command ended after downloading several wheels and before
 installing the Actian client and pytest. Re-running installation completed successfully. There
 were no implementation, test, lint, or script failures in the recorded verification pass.
+
+## Controlled ranking-difference experiment
+
+Added and verified on 2026-10-22. The query and all scores remain illustrative. A small controlled
+sensitivity check kept five candidates fixed and varied only the exact guide's keyword strength
+and low-ranked vector score. Cases with vector scores from `0.70` through `0.78` retained the same
+top-three order. At a plausible `0.79` vector score, the exact guide remains sixth in that source,
+but DBSF moves it above the timeout FAQ while RRF does not. This is the recorded demonstration,
+not a random search or a claim that DBSF is better.
+
+Keyword input:
+
+```text
+1. exact-error-guide: 42.0
+2. pooling-guide: 14.0
+3. timeout-faq: 12.0
+4. retry-policy: 10.5
+5. connection-limits: 9.5
+6. network-diagnostics: 8.5
+```
+
+Vector input:
+
+```text
+1. pooling-guide: 0.91
+2. timeout-faq: 0.89
+3. retry-policy: 0.87
+4. connection-limits: 0.85
+5. network-diagnostics: 0.83
+6. exact-error-guide: 0.79
+```
+
+Actual SDK output:
+
+```text
+RRF (ranking_constant_k=60)
+1. pooling-guide: 0.03252247
+2. timeout-faq: 0.03200205
+3. exact-error-guide: 0.03154496
+4. retry-policy: 0.03149802
+5. connection-limits: 0.03100962
+6. network-diagnostics: 0.03053613
+
+DBSF
+1. pooling-guide: 0.59787901
+2. exact-error-guide: 0.54335525
+3. timeout-faq: 0.54140540
+4. retry-policy: 0.48848577
+5. connection-limits: 0.43912011
+6. network-diagnostics: 0.38975445
+```
+
+RRF ignores the raw `42.0` versus `14.0` keyword gap: it sees only keyword ranks 1 and 2, then
+combines them with vector ranks 6 and 1. DBSF normalizes the two score distributions separately,
+so it retains the exact guide's unusually large keyword advantage as well as its weaker vector
+position. That retained magnitude is enough to swap the exact guide and timeout FAQ. No independent
+relevance assessment was performed, so the experiment supports no claim that either order is
+better.
+
+Verification after adding the experiment:
+
+```text
+python -m pytest -q
+15 passed
+
+python -m ruff check .
+All checks passed!
+```
+
+All five scripts completed successfully. The fifth script reproduced the inputs and fused scores
+shown above.
