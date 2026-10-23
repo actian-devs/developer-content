@@ -1,0 +1,32 @@
+[
+    {
+        "query_modality": "text",
+        "query": "What API documentation and SDK guide experience is listed?",
+        "target_modality": "manual_text",
+        "relevant": ["pump-a12"]
+    },
+    {
+        "query_modality": "text",
+        "query": "Which technologies and developer tools does the resume mention?",
+        "target_modality": "manual_text",
+        "relevant": ["pump-a12"]
+    },
+    {
+        "query_modality": "text",
+        "query": "Show the resume page describing Web3 writing experience.",
+        "target_modality": "manual_page",
+        "relevant": ["pump-a12"]
+    },
+    {
+        "query_modality": "photo",
+        "query": "queries/photos/resume_page_1.png",
+        "target_modality": "manual_page",
+        "relevant": ["pump-a12"]
+    },
+    {
+        "query_modality": "voice",
+        "query": "queries/voice/file_example.wav",
+        "target_modality": "voice",
+        "relevant": ["pump-a12"]
+    }
+]

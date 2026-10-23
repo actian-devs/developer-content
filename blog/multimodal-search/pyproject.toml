@@ -1,0 +1,18 @@
+[project]
+name = "multimodal-search"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "actian-vectorai-client>=1.0.3",
+    "faiss-cpu==1.15.1",
+    "pymupdf>=1.27.2.3",
+    "sentence-transformers[audio,image,video]==6.1.0",
+    "soundfile>=0.14.0",
+    "torchcodec>=0.16.0",
+    "transformers>=5.18.0",
+]
+
+[project.optional-dependencies]
+colpali = ["colpali-engine==0.3.18"]
