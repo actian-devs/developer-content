@@ -1,6 +1,6 @@
-"""Controlled SDK experiment in which RRF and DBSF rank candidates differently."""
+"""Run the Actian client's RRF and DBSF over the same six-document result lists."""
 
-from typing import Final
+from dataclasses import dataclass
 
 from actian_vectorai.hybrid.fusion import (
     distribution_based_score_fusion,
@@ -8,9 +8,8 @@ from actian_vectorai.hybrid.fusion import (
 )
 from actian_vectorai.models import ScoredPoint
 
-from rrf_examples.comparison import ComparisonResult, to_scored_points
-
-DIFFERENCE_KEYWORD_RESULTS: Final = [
+# Exact-error guide: keyword score 42.0 (vs 14.0), vector rank 6.
+keyword_results = [
     {"id": "exact-error-guide", "score": 42.0},
     {"id": "pooling-guide", "score": 14.0},
     {"id": "timeout-faq", "score": 12.0},
@@ -19,7 +18,7 @@ DIFFERENCE_KEYWORD_RESULTS: Final = [
     {"id": "network-diagnostics", "score": 8.5},
 ]
 
-DIFFERENCE_VECTOR_RESULTS: Final = [
+vector_results = [
     {"id": "pooling-guide", "score": 0.91},
     {"id": "timeout-faq", "score": 0.89},
     {"id": "retry-policy", "score": 0.87},
@@ -29,20 +28,21 @@ DIFFERENCE_VECTOR_RESULTS: Final = [
 ]
 
 
-def ranking_difference_inputs() -> tuple[list[ScoredPoint], list[ScoredPoint]]:
-    """Return fresh SDK inputs for the controlled ranking-difference experiment."""
-    return (
-        to_scored_points(DIFFERENCE_KEYWORD_RESULTS),
-        to_scored_points(DIFFERENCE_VECTOR_RESULTS),
-    )
+@dataclass(frozen=True)
+class Comparison:
+    method: str
+    ranking: list[ScoredPoint]
 
 
-def compare_ranking_difference() -> tuple[ComparisonResult, ComparisonResult]:
-    """Run both official SDK fusion methods over the same source lists."""
-    keyword, vector = ranking_difference_inputs()
-    responses = [keyword, vector]
-    limit = len({point.id for response in responses for point in response})
-    rrf = reciprocal_rank_fusion(responses, limit=limit, ranking_constant_k=60)
-    dbsf = distribution_based_score_fusion(responses, limit=limit)
-    return ComparisonResult("RRF", tuple(rrf)), ComparisonResult("DBSF", tuple(dbsf))
+def to_scored_points(results):
+    return [ScoredPoint(id=result["id"], score=result["score"]) for result in results]
 
+
+def compare_ranking_difference():
+    responses = [to_scored_points(keyword_results), to_scored_points(vector_results)]
+    limit = len(keyword_results)
+
+    return [
+        Comparison("RRF", reciprocal_rank_fusion(responses, limit=limit, ranking_constant_k=60)),
+        Comparison("DBSF", distribution_based_score_fusion(responses, limit=limit)),
+    ]

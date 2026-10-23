@@ -1,17 +1,33 @@
-"""Example 2: changing k changes how strongly top ranks matter."""
+"""Section 2: the default k=60 can bury a strong match."""
 
-from rrf_examples.examples import K_KEYWORD_RANKING, K_VECTOR_RANKING
 from rrf_examples.rrf import reciprocal_rank_fusion
 
-targets = ("exact-error-guide", "general-pooling-guide")
-for k in (60, 10, 2, 1):
-    results = reciprocal_rank_fusion([K_KEYWORD_RANKING, K_VECTOR_RANKING], k=k)
-    scores = {result.id: result.score for result in results}
-    relation = "tie" if scores[targets[0]] == scores[targets[1]] else " > ".join(
-        target for target in targets if scores[target] == max(scores[name] for name in targets)
-    )
-    print(
-        f"k={k:>2}: exact={scores[targets[0]]:.5f}, "
-        f"general={scores[targets[1]]:.5f}; leader={relation}"
-    )
+# Exact guide: keyword rank 1, not returned by vector search.
+# General guide: rank 4 in both lists.
+keyword_results = [
+    {"id": "exact-error-guide"},
+    {"id": "keyword-only-a"},
+    {"id": "keyword-only-b"},
+    {"id": "general-pooling-guide"},
+]
 
+vector_results = [
+    {"id": "vector-only-a"},
+    {"id": "vector-only-b"},
+    {"id": "vector-only-c"},
+    {"id": "general-pooling-guide"},
+]
+
+for k in [60, 10, 2, 1]:
+    scores = dict(reciprocal_rank_fusion([keyword_results, vector_results], k=k))
+    exact = scores["exact-error-guide"]
+    general = scores["general-pooling-guide"]
+
+    if round(exact, 5) == round(general, 5):
+        leader = "Tie"
+    elif exact > general:
+        leader = "Exact error guide"
+    else:
+        leader = "General guide"
+
+    print(f"k={k:<2}  exact: {exact:.5f}  general: {general:.5f}  higher: {leader}")
