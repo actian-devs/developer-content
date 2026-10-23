@@ -138,3 +138,22 @@ All checks passed!
 
 All five scripts completed successfully. The fifth script reproduced the inputs and fused scores
 shown above.
+
+## Update: scripts aligned with the article
+
+Updated on 2026-10-23. Scripts 01, 02, 03 and 05 now use the article's code snippets, and
+`src/rrf_examples/rrf.py` uses the article's `reciprocal_rank_fusion()`. Rankings and scores are
+unchanged. Output formatting changed in three places:
+
+- `02_k_sensitivity.py` prints the article's k table, one row per k value.
+- `03_parent_deduplication.py` prints the article's chunk and parent rankings with scores. The
+  limit-after-fusion case is still covered by `limit_chunks_per_parent()` and its test.
+- `05_fusion_ranking_difference.py` prints the fused rankings to five decimals, as in the article.
+
+```text
+python -m pytest -q
+19 passed
+
+python -m ruff check .
+All checks passed!
+```

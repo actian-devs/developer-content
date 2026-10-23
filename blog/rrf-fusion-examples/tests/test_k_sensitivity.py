@@ -14,9 +14,15 @@ from rrf_examples.rrf import reciprocal_rank_fusion
     ],
 )
 def test_k_values(k: int, exact: float, general: float, relative_order: list[str]) -> None:
-    results = reciprocal_rank_fusion([K_KEYWORD_RANKING, K_VECTOR_RANKING], k=k)
-    scores = {item.id: item.score for item in results}
-    target_order = [item.id for item in results if item.id in relative_order]
+    results = reciprocal_rank_fusion(
+        [
+            [{"id": doc_id} for doc_id in ranking]
+            for ranking in (K_KEYWORD_RANKING, K_VECTOR_RANKING)
+        ],
+        k=k,
+    )
+    scores = dict(results)
+    target_order = [doc_id for doc_id, _ in results if doc_id in relative_order]
 
     assert scores["exact-error-guide"] == pytest.approx(exact, abs=0.000005)
     assert scores["general-pooling-guide"] == pytest.approx(general, abs=0.000005)
