@@ -1,0 +1,18 @@
+[project]
+name = "entity-resolution-vectorai"
+version = "0.1.0"
+description = "Entity resolution with VectorAI DB blocking and Gemini 4 Argon on the ambiguous band"
+requires-python = ">=3.11,<3.14"
+# `uv run resolve.py` reads this, creates .venv and installs these on first run
+dependencies = [
+    "actian-vectorai-client",  # VectorAI DB client (gRPC)
+    "google-genai",            # Gemini API, for the Argon pass
+    "pandas",
+    "numpy",
+    "pydantic",                # Argon's structured-output schema
+    "requests",                # benchmark download
+    "matplotlib",              # score-distribution chart
+]
+
+[project.optional-dependencies]
+st = ["sentence-transformers"]   # in-process embedding models: uv sync --extra st, then --embed-backend sentence-transformers
