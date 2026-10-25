@@ -1,11 +1,8 @@
-# Hardened overlay for the egress audit.
+# Offline configuration for the hardened audit.
+# VectorAI DB's nonessential usage notification remains blocked
+# by the network policy.
 #
-# Switches off every outbound call the earlier runs found that has a
-# documented setting. VectorAI DB keeps its defaults: its deployment ping has
-# no setting, and the network controls close it.
-#
-# Use it on top of the base file and the audit overlay:
-#   export COMPOSE_FILE=docker-compose.yml:docker-compose.audit.yml:docker-compose.hardened.yml
+# Use with docker-compose.yml and docker-compose.audit.yml.
 
 services:
   ollama:
