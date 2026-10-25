@@ -1,17 +1,11 @@
-"""Minimal local RAG pipeline used as the test fixture for the egress audit.
+"""Local RAG application for the egress audit.
 
-Components:
-    - Ollama serves the LLM (http://localhost:11434).
-    - A Hugging Face embedding model runs in-process through sentence-transformers.
-    - Actian VectorAI DB stores and retrieves the vectors (localhost:6574).
-    - Arize Phoenix collects traces of every pipeline step (http://localhost:6006).
+Uses Ollama for inference, Hugging Face for embeddings,
+VectorAI DB for retrieval, and Phoenix for tracing.
 
-Every library runs with its defaults on purpose. The audit measures what a
-day-one local stack does on the network, so this script sets no telemetry,
-offline, or update flags.
-
-Usage:
-    python rag.py --docs ./docs --question "What is the data retention period?"
+The application explicitly configures local models and tracing.
+Offline restrictions are applied through the hardened
+Docker Compose configuration.
 """
 
 from __future__ import annotations
