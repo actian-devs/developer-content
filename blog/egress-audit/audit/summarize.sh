@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
-# Summarize one capture run.
+# Summarize DNS queries, packet captures, and firewall blocks for one audit run.
 #
 # Usage: sudo ./audit/summarize.sh capture/<run-name>
-#
-# Reads three independent records of the same run:
-#   <run-name>.dns.log       the sinkhole's query log (what components wanted)
-#   <run-name>.pcap          the packet capture on br-rag (what they sent)
-#   <run-name>.kernel.log    the kernel log with firewall entries (what was blocked)
-# plus <run-name>.tcpdump.txt for the capture's drop counters.
 
 
 set -euo pipefail
