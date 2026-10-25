@@ -1,12 +1,6 @@
-# Exact versions that produced the egress audit capture.
-# Generated with `pip freeze` inside the app container (Python 3.12).
-#
-# Direct dependencies: actian-vectorai-client, llama-index-core,
-# llama-index-vector-stores-actian-vectorai, llama-index-llms-ollama,
-# llama-index-embeddings-huggingface, arize-phoenix-otel,
-# openinference-instrumentation-llama-index. Everything else is transitive.
-#
-# torch is the CPU-only build, which lives on the PyTorch package index.
+# Dependency versions used for the original egress audit.
+# Generated with pip freeze inside the Python 3.12 app container.
+# Use the PyTorch package index for the CPU-only build.
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 actian-vectorai-client==1.0.3
