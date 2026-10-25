@@ -73,8 +73,7 @@ networks:
     driver: bridge
     driver_opts:
       com.docker.network.bridge.name: br-rag
-    # Fixed addresses let the capture attribute every packet to a component:
-    # 10.77.0.10 vectorai, .11 ollama, .12 phoenix, .20 app, .53 dns sinkhole.
+    # Fixed IPv4 addresses identify each component in the audit logs.
     ipam:
       config:
         - subnet: 10.77.0.0/24
