@@ -1,17 +1,9 @@
 #!/usr/bin/env bash
-# Deny-all egress for the RAG stack's Docker network.
+# Block outbound IPv4 traffic from the RAG Docker bridge.
+# Allow internal container traffic and established or related replies.
+# Log rejected packets with the EGRESS-BLOCK prefix when supported.
 #
 # Usage: sudo ./audit/egress-deny.sh on|off|status
-#
-# The rules live in DOCKER-USER, the chain Docker evaluates before its own
-# forwarding rules. Traffic between containers on the stack network is
-# allowed, and so are replies to connections that started outside it, such
-# as your browser opening the Phoenix UI. Every other packet leaving the
-# network is logged with the prefix EGRESS-BLOCK and rejected, so the sender
-# fails immediately instead of waiting for a timeout.
-#
-# The firewall log is one of three records the audit keeps, alongside the
-# DNS sinkhole log and the packet capture.
 
 set -euo pipefail
 
