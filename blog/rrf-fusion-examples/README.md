@@ -39,9 +39,8 @@ python -m ruff check .
 
 The first script reproduces the article's five-decimal RRF scores. The second shows the general
 guide leading at `k=60` and `k=10`, tying the exact guide at `k=2`, and losing to it at `k=1`.
-The third displays three intentionally distinct operations: fusing chunks, mapping and
-deduplicating each source list before parent-level fusion, and merely limiting repeated parent
-passages after chunk-level fusion. The last operation does not recompute parent scores.
+The third prints the article's chunk-level and parent-level rankings. The scripts follow the
+article's code snippets, and `tests/test_scripts.py` checks their output against the article.
 
 ## Official SDK comparison
 

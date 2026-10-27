@@ -1,38 +1,25 @@
 """Small, transparent RRF implementation used by the article examples."""
 
 from collections.abc import Hashable, Mapping, Sequence
-from dataclasses import dataclass
 
 
-@dataclass(frozen=True)
-class RankedResult:
-    """A document ID and its fused score."""
+def reciprocal_rank_fusion(result_lists, k=60):
+    fused_scores = {}
 
-    id: Hashable
-    score: float
+    for results in result_lists:
+        for rank, result in enumerate(results, start=1):
+            doc_id = result["id"]
+            contribution = 1 / (k + rank)
 
+            fused_scores[doc_id] = (
+                fused_scores.get(doc_id, 0.0) + contribution
+            )
 
-def reciprocal_rank_fusion(
-    rankings: Sequence[Sequence[Hashable]], k: int = 60
-) -> list[RankedResult]:
-    """Fuse ranked document-ID lists using ``sum(1 / (k + rank))``.
-
-    Ranks begin at one. A document absent from a ranking contributes nothing.
-    Ties retain the order in which IDs are first encountered because Python's
-    sort is stable and dictionaries preserve insertion order.
-    """
-    if k < 1:
-        raise ValueError("k must be at least 1")
-
-    scores: dict[Hashable, float] = {}
-    for ranking in rankings:
-        for rank, document_id in enumerate(ranking, start=1):
-            scores[document_id] = scores.get(document_id, 0.0) + 1.0 / (k + rank)
-
-    return [
-        RankedResult(document_id, score)
-        for document_id, score in sorted(scores.items(), key=lambda item: item[1], reverse=True)
-    ]
+    return sorted(
+        fused_scores.items(),
+        key=lambda item: item[1],
+        reverse=True,
+    )
 
 
 def group_ranking_by_parent(
@@ -53,29 +40,32 @@ def fuse_by_parent(
     rankings: Sequence[Sequence[Hashable]],
     parent_ids: Mapping[Hashable, Hashable],
     k: int = 60,
-) -> list[RankedResult]:
+) -> list[tuple[Hashable, float]]:
     """Group chunks within each source ranking before applying RRF."""
     return reciprocal_rank_fusion(
-        [group_ranking_by_parent(ranking, parent_ids) for ranking in rankings], k=k
+        [
+            [{"id": parent_id} for parent_id in group_ranking_by_parent(ranking, parent_ids)]
+            for ranking in rankings
+        ],
+        k=k,
     )
 
 
 def limit_chunks_per_parent(
-    results: Sequence[RankedResult],
+    results: Sequence[tuple[Hashable, float]],
     parent_ids: Mapping[Hashable, Hashable],
     limit: int = 1,
-) -> list[RankedResult]:
+) -> list[tuple[Hashable, float]]:
     """Limit duplicate passages after chunk-level fusion without recomputing scores."""
     if limit < 1:
         raise ValueError("limit must be at least 1")
 
     counts: dict[Hashable, int] = {}
-    limited: list[RankedResult] = []
-    for result in results:
-        parent_id = parent_ids[result.id]
+    limited: list[tuple[Hashable, float]] = []
+    for doc_id, score in results:
+        parent_id = parent_ids[doc_id]
         count = counts.get(parent_id, 0)
         if count < limit:
-            limited.append(result)
+            limited.append((doc_id, score))
             counts[parent_id] = count + 1
     return limited
-
