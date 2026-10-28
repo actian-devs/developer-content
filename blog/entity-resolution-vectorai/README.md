@@ -98,3 +98,9 @@ Written to `results/<dataset>/`:
 - `score_distribution.png`: true matches against non-matches, with the band and the best cutoff marked
 
 Cost per 1,000 records is computed over the test split: the test left records plus the full right table.
+
+## Saved results
+
+`saved-results/<dataset>/` holds the output of the runs behind the article, in the same format, so you can compare your own run with ours: the blocking sweep and scores in `summary.json`, every candidate pair with its zone and Argon's verdict in `candidates.csv`, and every Argon call with its reason, tokens and exact OpenRouter charge in `argon_verdicts.jsonl`. The verdict logs also hold the calls from the band-width runs (`--band-scale 0.5`, `1.5` and `2`).
+
+They sit outside `results/` on purpose: the harness reuses any verdicts it finds in `results/`, so copying ours there would replay them instead of calling Argon, and would count our spend against your `--budget-usd`.

@@ -1,0 +1,146 @@
+{
+  "dataset": "amazon-google",
+  "records": 4589,
+  "test_records": 4181,
+  "gold_matches": 1300,
+  "embed_model": "embeddinggemma",
+  "k": 10,
+  "hnsw_ef": 256,
+  "blocking_sweep": [
+    {
+      "k": 1,
+      "all_pairs": 4397038,
+      "candidate_pairs": 1363,
+      "reduction_ratio": 0.9996900185988841,
+      "pair_completeness": 0.6076923076923076,
+      "true_matches_kept": 790,
+      "returned": {
+        "requested": 1,
+        "mean": 1.0,
+        "min": 1,
+        "records_short": 0,
+        "records": 1363
+      }
+    },
+    {
+      "k": 3,
+      "all_pairs": 4397038,
+      "candidate_pairs": 4089,
+      "reduction_ratio": 0.9990700557966522,
+      "pair_completeness": 0.833076923076923,
+      "true_matches_kept": 1083,
+      "returned": {
+        "requested": 3,
+        "mean": 3.0,
+        "min": 3,
+        "records_short": 0,
+        "records": 1363
+      }
+    },
+    {
+      "k": 5,
+      "all_pairs": 4397038,
+      "candidate_pairs": 6815,
+      "reduction_ratio": 0.9984500929944203,
+      "pair_completeness": 0.8907692307692308,
+      "true_matches_kept": 1158,
+      "returned": {
+        "requested": 5,
+        "mean": 5.0,
+        "min": 5,
+        "records_short": 0,
+        "records": 1363
+      }
+    },
+    {
+      "k": 10,
+      "all_pairs": 4397038,
+      "candidate_pairs": 13630,
+      "reduction_ratio": 0.9969001859888407,
+      "pair_completeness": 0.9407692307692308,
+      "true_matches_kept": 1223,
+      "returned": {
+        "requested": 10,
+        "mean": 10.0,
+        "min": 10,
+        "records_short": 0,
+        "records": 1363
+      }
+    },
+    {
+      "k": 20,
+      "all_pairs": 4397038,
+      "candidate_pairs": 27260,
+      "reduction_ratio": 0.9938003719776813,
+      "pair_completeness": 0.9646153846153847,
+      "true_matches_kept": 1254,
+      "returned": {
+        "requested": 20,
+        "mean": 20.0,
+        "min": 20,
+        "records_short": 0,
+        "records": 1363
+      }
+    }
+  ],
+  "dev_share": 0.3,
+  "global_cutoff": 0.74317467212677,
+  "global_cutoff_all_candidates": {
+    "precision": 0.4171833480956599,
+    "recall": 0.5244988864142539,
+    "f1": 0.46472619634928464,
+    "true_positives": 471,
+    "predicted": 1129,
+    "gold": 898
+  },
+  "best_threshold": 0.5016254782676697,
+  "threshold_only": {
+    "precision": 0.5806111696522656,
+    "recall": 0.6135857461024499,
+    "f1": 0.5966432051976177,
+    "true_positives": 551,
+    "predicted": 949,
+    "gold": 898
+  },
+  "band": {
+    "lower": 0.5016254782676697,
+    "upper": 0.9623711119161378,
+    "scale": 1.0,
+    "near_tie_rank": 3,
+    "near_tie_gap": 0.03,
+    "pairs": 1338,
+    "share_of_candidates": 0.14010471204188482,
+    "auto_match": 0,
+    "recall_ceiling": 0.7271714922048997,
+    "threshold_errors": 697,
+    "threshold_errors_in_band": 500
+  },
+  "with_argon": {
+    "precision": 0.6837513631406761,
+    "recall": 0.6982182628062361,
+    "f1": 0.6909090909090908,
+    "true_positives": 627,
+    "predicted": 917,
+    "gold": 898
+  },
+  "argon": {
+    "model": "gemini-4-argon",
+    "backend": "openrouter",
+    "thinking_level": "LOW",
+    "pairs": 1338,
+    "correct": 1022,
+    "tokens_in": 843278,
+    "tokens_out": 73099,
+    "price_per_1m": {
+      "input": 2.0,
+      "output": 10.0
+    },
+    "cost_usd": 2.417546000000001,
+    "cost_per_1k_test_records_usd": 0.5782219564697443
+  },
+  "timings_s": {
+    "embed_s": 0.06,
+    "block_s": 55.84,
+    "argon_s": 5278.11
+  }
+}
