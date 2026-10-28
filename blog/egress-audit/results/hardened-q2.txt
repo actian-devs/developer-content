@@ -1,0 +1,30 @@
+ Container vectorai Running 
+ Container ollama Running 
+ Container phoenix Running 
+ Container dns-sinkhole Running 
+ Container egress-audit-app-run-7c4edfb1ce31 Creating 
+ Container egress-audit-app-run-7c4edfb1ce31 Created 
+2026-10-17 21:39:55,554 INFO sentence_transformers.base.model: Loading SentenceTransformer model from BAAI/bge-small-en-v1.5.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]🔭 OpenTelemetry Tracing Details 🔭
+|  Phoenix Project: egress-audit
+|  Span Processor: SimpleSpanProcessor
+|  Collector Endpoint: http://phoenix:6006/v1/traces
+|  Transport: HTTP + protobuf
+|  Transport Headers: {}
+|  
+|  Using a default SpanProcessor. `add_span_processor` will overwrite this default.
+|  
+|  ⚠️ WARNING: It is strongly advised to use a BatchSpanProcessor in production environments.
+|  
+|  `register` has set this TracerProvider as the global OpenTelemetry default.
+|  To disable this behavior, call `register` with `set_global_tracer_provider=False`.
+
+Loading weights:  22%|██▏       | 44/199 [00:00<00:00, 436.06it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1105.03it/s]
+2026-10-17 21:39:56,090 INFO sentence_transformers.base.model: Loaded 1 prompt with these keys: ['query']
+2026-10-17 21:39:56,094 WARNING llama_index.core.readers.file.base: `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-10-17 21:39:56,097 WARNING llama_index.core.readers.file.base: `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-10-17 21:39:56,098 WARNING llama_index.core.readers.file.base: `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-10-17 21:39:56,099 INFO rag: Loaded 3 documents from docs
+2026-10-17 21:39:57,308 INFO rag: Indexed documents into collection 'egress_audit'
+2026-10-17 21:40:41,094 INFO httpx: HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+Adult patient records are retained for 10 years after the patient's last visit.
