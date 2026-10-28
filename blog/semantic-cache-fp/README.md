@@ -7,7 +7,7 @@ Code for the seven tests in *Stop Trusting Your Cache Hit Rate. 7 Tests Show Why
 Python 3.10 to 3.12 and [uv](https://docs.astral.sh/uv/) (`curl -LsSf https://astral.sh/uv/install.sh | sh`, or `brew install uv`). uv downloads a matching Python if you don't have one.
 
 ```bash
-docker compose up -d                      # VectorAI DB on localhost:6574, Local UI on localhost:6575
+docker-compose up -d                      # VectorAI DB on localhost:6574, Local UI on localhost:6575
 uv sync                                   # creates .venv and installs everything in pyproject.toml
 ```
 
