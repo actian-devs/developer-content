@@ -1,0 +1,146 @@
+{
+  "dataset": "abt-buy",
+  "records": 2173,
+  "test_records": 1849,
+  "gold_matches": 1097,
+  "embed_model": "embeddinggemma",
+  "k": 10,
+  "hnsw_ef": 256,
+  "blocking_sweep": [
+    {
+      "k": 1,
+      "all_pairs": 1180452,
+      "candidate_pairs": 1081,
+      "reduction_ratio": 0.9990842490842491,
+      "pair_completeness": 0.8185961713764813,
+      "true_matches_kept": 898,
+      "returned": {
+        "requested": 1,
+        "mean": 1.0,
+        "min": 1,
+        "records_short": 0,
+        "records": 1081
+      }
+    },
+    {
+      "k": 3,
+      "all_pairs": 1180452,
+      "candidate_pairs": 3243,
+      "reduction_ratio": 0.9972527472527473,
+      "pair_completeness": 0.9453053783044667,
+      "true_matches_kept": 1037,
+      "returned": {
+        "requested": 3,
+        "mean": 3.0,
+        "min": 3,
+        "records_short": 0,
+        "records": 1081
+      }
+    },
+    {
+      "k": 5,
+      "all_pairs": 1180452,
+      "candidate_pairs": 5405,
+      "reduction_ratio": 0.9954212454212454,
+      "pair_completeness": 0.9699179580674567,
+      "true_matches_kept": 1064,
+      "returned": {
+        "requested": 5,
+        "mean": 5.0,
+        "min": 5,
+        "records_short": 0,
+        "records": 1081
+      }
+    },
+    {
+      "k": 10,
+      "all_pairs": 1180452,
+      "candidate_pairs": 10810,
+      "reduction_ratio": 0.9908424908424909,
+      "pair_completeness": 0.9899726526891522,
+      "true_matches_kept": 1086,
+      "returned": {
+        "requested": 10,
+        "mean": 10.0,
+        "min": 10,
+        "records_short": 0,
+        "records": 1081
+      }
+    },
+    {
+      "k": 20,
+      "all_pairs": 1180452,
+      "candidate_pairs": 21620,
+      "reduction_ratio": 0.9816849816849816,
+      "pair_completeness": 0.9972652689152234,
+      "true_matches_kept": 1094,
+      "returned": {
+        "requested": 20,
+        "mean": 20.0,
+        "min": 20,
+        "records_short": 0,
+        "records": 1081
+      }
+    }
+  ],
+  "dev_share": 0.3,
+  "global_cutoff": 0.7672220468521118,
+  "global_cutoff_all_candidates": {
+    "precision": 0.5734375,
+    "recall": 0.4784876140808344,
+    "f1": 0.5216773276474769,
+    "true_positives": 367,
+    "predicted": 640,
+    "gold": 767
+  },
+  "best_threshold": 0.5617809295654297,
+  "threshold_only": {
+    "precision": 0.8196286472148541,
+    "recall": 0.8057366362451108,
+    "f1": 0.8126232741617357,
+    "true_positives": 618,
+    "predicted": 754,
+    "gold": 767
+  },
+  "band": {
+    "lower": 0.5617809295654297,
+    "upper": 0.8405251502990723,
+    "scale": 1.0,
+    "near_tie_rank": 3,
+    "near_tie_gap": 0.03,
+    "pairs": 1001,
+    "share_of_candidates": 0.1322324966974901,
+    "auto_match": 77,
+    "recall_ceiling": 0.8970013037809648,
+    "threshold_errors": 279,
+    "threshold_errors_in_band": 206
+  },
+  "with_argon": {
+    "precision": 0.9984591679506933,
+    "recall": 0.8448500651890483,
+    "f1": 0.9152542372881356,
+    "true_positives": 648,
+    "predicted": 649,
+    "gold": 767
+  },
+  "argon": {
+    "model": "gemini-4-argon",
+    "backend": "openrouter",
+    "thinking_level": "LOW",
+    "pairs": 1001,
+    "correct": 960,
+    "tokens_in": 397210,
+    "tokens_out": 61368,
+    "price_per_1m": {
+      "input": 2.0,
+      "output": 10.0
+    },
+    "cost_usd": 1.408099999999999,
+    "cost_per_1k_test_records_usd": 0.7615467820443478
+  },
+  "timings_s": {
+    "embed_s": 0.42,
+    "block_s": 37.13,
+    "argon_s": 0.03
+  }
+}
