@@ -29,7 +29,7 @@ uv run python make_table.py
 
 The first run downloads Banking77 and caches embeddings in `data/`. Each script takes a few minutes on a laptop.
 
-### Test 5 needs a GPU
+### decider 4b needs a GPU
 
 Colab and most GPU notebooks cannot run Docker, so test 5 runs in two steps:
 
