@@ -3,18 +3,976 @@
     "query_modality": "text",
     "query": "Which neural processor accelerates AI models on the Raspberry Pi AI HAT?",
     "target_modality": "manual_text",
-    "relevant": ["pi-ai-hat-plus"]
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Why can running AI inference locally help keep data private?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which Raspberry Pi computer is the AI HAT designed to attach to?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Why do Raspberry Pi audio boards normally work plug and play with Raspberry Pi OS?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which connector attaches a Raspberry Pi audio HAT to the computer?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What should I inspect when the Raspberry Pi does not detect an audio HAT?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which GPIO pin is connected to the Codec Zero's built-in programmable button?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What happens in the chatter box example after a short button press?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How long must the button be held to erase the chatter box recordings?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which GPIO pins are used for I2C and I2S by Raspberry Pi audio boards?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What input voltage and current supply is recommended for the DigiAMP Plus?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What wire gauge range fits the Codec Zero speaker terminal?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which Raspberry Pi audio boards support playback up to 192 kilohertz?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which audio HAT includes a built-in microphone and supports 96 kilohertz audio?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How many passive speakers can the DigiAMP Plus drive according to the audio board overview?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which command-line package and program are used to flash Raspberry Pi audio HAT firmware?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What must be done to the EEPROM write-protect link before programming?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What troubleshooting step is recommended if an audio HAT firmware update fails?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the difference between passive and active motors in the Build HAT .NET guide?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What are the default power limit and bias values for a newly created motor?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What speed range can be set on a passive train motor?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which property reports whether a passive button sensor is pressed?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What unit does the WeDo distance sensor use for its distance reading?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the maximum range of the Build HAT colour and distance sensor?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which audio codec chip is built into the Raspberry Pi Codec Zero?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-codec-zero"
+    ]
   },
   {
     "query_modality": "text",
     "query": "What sample-rate range does Codec Zero support?",
     "target_modality": "manual_text",
-    "relevant": ["pi-codec-zero"]
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What speaker output power does Codec Zero provide?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which DAC chip does the Raspberry Pi DAC Pro use?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What connector pins carry the DAC Pro's balanced left and right outputs?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How is the Raspberry Pi DAC Pro powered when installed?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How many passive speakers can DigiAMP Plus connect, and what is their maximum power?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
   },
   {
     "query_modality": "text",
     "query": "What external DC voltage range does DigiAMP Plus require?",
     "target_modality": "manual_text",
-    "relevant": ["pi-digiamp-plus"]
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What power supply setup is recommended when using DigiAMP Plus with Raspberry Pi 4 or later?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the main difference between the RP2040 and RP2350 microcontrollers?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which programming languages can be used to develop for Raspberry Pi microcontrollers?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which Raspberry Pi microcontroller supports Arm TrustZone security?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What are the two common ways to use a Raspberry Pi computer?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What storage device is most commonly used as Raspberry Pi boot media?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How much storage does Raspberry Pi OS Lite need at minimum according to the setup guide?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which application is recommended for writing a Raspberry Pi operating system image?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What setup options can Raspberry Pi Imager preconfigure before first boot?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which Imager option helps prevent accidentally erasing the computer's system drive?",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which neural processor accelerates AI models on the Raspberry Pi AI HAT?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which neural processor accelerates AI models on the Raspberry Pi AI HAT?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-ai-hat-plus/video/pi-ai-hat-plus-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-ai-hat-plus/queries/pi-ai-hat-plus-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-ai-hat-plus/queries/pi-ai-hat-plus-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-ai-hat-plus/photos/ai-hat-plus-hero.jpg",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-ai-hat-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Why do Raspberry Pi audio boards normally work plug and play with Raspberry Pi OS?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Why do Raspberry Pi audio boards normally work plug and play with Raspberry Pi OS?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-audio-configuration/video/pi-audio-configuration-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-configuration/queries/pi-audio-configuration-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-configuration/queries/pi-audio-configuration-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-audio-configuration/photos/gui.png",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-configuration"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which command-line package and program are used to flash Raspberry Pi audio HAT firmware?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which command-line package and program are used to flash Raspberry Pi audio HAT firmware?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-audio-firmware/video/pi-audio-firmware-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-firmware/queries/pi-audio-firmware-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-firmware/queries/pi-audio-firmware-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-audio-firmware/photos/write_protect_tabs.jpg",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-firmware"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which GPIO pin is connected to the Codec Zero's built-in programmable button?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which GPIO pin is connected to the Codec Zero's built-in programmable button?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-audio-getting-started/video/pi-audio-getting-started-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-getting-started/queries/pi-audio-getting-started-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-getting-started/queries/pi-audio-getting-started-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-audio-getting-started/photos/Chatter_Box.jpg",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-getting-started"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which GPIO pins are used for I2C and I2S by Raspberry Pi audio boards?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which GPIO pins are used for I2C and I2S by Raspberry Pi audio boards?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-audio-hardware-info/video/pi-audio-hardware-info-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-hardware-info/queries/pi-audio-hardware-info-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-hardware-info/queries/pi-audio-hardware-info-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-audio-hardware-info/photos/all_audio_boards_gpio_pinouts.png",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-hardware-info"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which Raspberry Pi audio boards support playback up to 192 kilohertz?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which Raspberry Pi audio boards support playback up to 192 kilohertz?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-audio-overview/video/pi-audio-overview-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-overview/queries/pi-audio-overview-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-audio-overview/queries/pi-audio-overview-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-audio-overview"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the difference between passive and active motors in the Build HAT .NET guide?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the difference between passive and active motors in the Build HAT .NET guide?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-build-hat-motors/video/pi-build-hat-motors-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-build-hat-motors/queries/pi-build-hat-motors-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-build-hat-motors/queries/pi-build-hat-motors-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-build-hat-motors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which property reports whether a passive button sensor is pressed?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which property reports whether a passive button sensor is pressed?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-build-hat-sensors/video/pi-build-hat-sensors-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-build-hat-sensors/queries/pi-build-hat-sensors-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-build-hat-sensors/queries/pi-build-hat-sensors-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-build-hat-sensors"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which audio codec chip is built into the Raspberry Pi Codec Zero?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which audio codec chip is built into the Raspberry Pi Codec Zero?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-codec-zero/video/pi-codec-zero-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-codec-zero/queries/pi-codec-zero-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-codec-zero/queries/pi-codec-zero-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-codec-zero/photos/Codec_Zero_Board_Diagram.jpg",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-codec-zero"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What are the two common ways to use a Raspberry Pi computer?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What are the two common ways to use a Raspberry Pi computer?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-computer-setup/video/pi-computer-setup-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-computer-setup/queries/pi-computer-setup-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-computer-setup/queries/pi-computer-setup-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-computer-setup/photos/microSD.png",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-computer-setup"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which DAC chip does the Raspberry Pi DAC Pro use?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which DAC chip does the Raspberry Pi DAC Pro use?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-dac-pro/video/pi-dac-pro-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-dac-pro/queries/pi-dac-pro-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-dac-pro/queries/pi-dac-pro-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-dac-pro/photos/DAC_Pro_Board_Diagram.jpg",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-dac-pro"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How many passive speakers can DigiAMP Plus connect, and what is their maximum power?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "How many passive speakers can DigiAMP Plus connect, and what is their maximum power?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-digiamp-plus/video/pi-digiamp-plus-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-digiamp-plus/queries/pi-digiamp-plus-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-digiamp-plus/queries/pi-digiamp-plus-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-digiamp-plus/photos/DigiAMP+_Board_Diagram.jpg",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-digiamp-plus"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which application is recommended for writing a Raspberry Pi operating system image?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "Which application is recommended for writing a Raspberry Pi operating system image?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-install-os/video/pi-install-os-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-install-os/queries/pi-install-os-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-install-os/queries/pi-install-os-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "photo",
+    "query": "public_data/pi-install-os/photos/device-tab.png",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-install-os"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the main difference between the RP2040 and RP2350 microcontrollers?",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "text",
+    "query": "What is the main difference between the RP2040 and RP2350 microcontrollers?",
+    "target_modality": "video",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "video",
+    "query": "public_data/pi-microcontrollers/video/pi-microcontrollers-page.mp4",
+    "target_modality": "manual_page",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-microcontrollers/queries/pi-microcontrollers-question.wav",
+    "target_modality": "manual_text",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
+  },
+  {
+    "query_modality": "voice",
+    "query": "public_data/pi-microcontrollers/queries/pi-microcontrollers-question.wav",
+    "target_modality": "voice",
+    "relevant": [
+      "pi-microcontrollers"
+    ]
   }
 ]
