@@ -1,0 +1,11 @@
+{
+  "title": "Raspberry Pi audio board getting started",
+  "repository": "https://github.com/raspberrypi/documentation",
+  "revision": "7376533ab86ea07acc77ef6a9f3c3e57fcff833d",
+  "source_path": "documentation/asciidoc/accessories/audio/getting_started.adoc",
+  "source_url": "https://github.com/raspberrypi/documentation/blob/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/audio/getting_started.adoc",
+  "license": "CC BY-SA 4.0",
+  "image_path": "images/Chatter_Box.jpg",
+  "image_url": "https://raw.githubusercontent.com/raspberrypi/documentation/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/audio/images/Chatter_Box.jpg",
+  "image_local_path": "public_data/pi-audio-getting-started/photos/Chatter_Box.jpg"
+}

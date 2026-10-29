@@ -1,0 +1,11 @@
+{
+  "title": "Raspberry Pi audio board hardware information",
+  "repository": "https://github.com/raspberrypi/documentation",
+  "revision": "7376533ab86ea07acc77ef6a9f3c3e57fcff833d",
+  "source_path": "documentation/asciidoc/accessories/audio/hardware-info.adoc",
+  "source_url": "https://github.com/raspberrypi/documentation/blob/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/audio/hardware-info.adoc",
+  "license": "CC BY-SA 4.0",
+  "image_path": "images/all_audio_boards_gpio_pinouts.png",
+  "image_url": "https://raw.githubusercontent.com/raspberrypi/documentation/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/audio/images/all_audio_boards_gpio_pinouts.png",
+  "image_local_path": "public_data/pi-audio-hardware-info/photos/all_audio_boards_gpio_pinouts.png"
+}

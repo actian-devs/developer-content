@@ -1,0 +1,11 @@
+{
+  "title": "Raspberry Pi DigiAMP+",
+  "repository": "https://github.com/raspberrypi/documentation",
+  "revision": "7376533ab86ea07acc77ef6a9f3c3e57fcff833d",
+  "source_path": "documentation/asciidoc/accessories/audio/digiamp_plus.adoc",
+  "source_url": "https://github.com/raspberrypi/documentation/blob/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/audio/digiamp_plus.adoc",
+  "license": "CC BY-SA 4.0",
+  "image_path": "images/DigiAMP+_Board_Diagram.jpg",
+  "image_url": "https://raw.githubusercontent.com/raspberrypi/documentation/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/audio/images/DigiAMP%2B_Board_Diagram.jpg",
+  "image_local_path": "public_data/pi-digiamp-plus/photos/DigiAMP+_Board_Diagram.jpg"
+}

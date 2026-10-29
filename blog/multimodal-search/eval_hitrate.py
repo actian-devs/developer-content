@@ -15,7 +15,11 @@ def embed_for(model, rec):
     qm = rec["query_modality"]
     if qm == "text":
         return embed_query(model, rec["query"])
-    return embed_media(model, {"photo": "image", "voice": "audio"}[qm], rec["query"])
+    return embed_media(
+        model,
+        {"photo": "image", "voice": "audio", "video": "video"}[qm],
+        rec["query"],
+    )
 
 
 def main() -> None:

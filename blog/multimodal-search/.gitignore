@@ -1,1 +1,17 @@
-queries.json
+# Private, locally supplied sample data; do not publish personal documents/media.
+/data/
+/filter_text/
+/queries.json
+/queries/photos/
+/queries/voice/
+
+# Locally generated embeddings and benchmark outputs.
+/embeddings.npy
+/meta.json
+/filter_embeddings.npy
+/filter_meta.json
+/hitrate.csv
+/smoke.png
+/vectorai_data/
+/.venv/
+/__pycache__/

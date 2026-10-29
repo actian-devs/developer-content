@@ -2,9 +2,9 @@ services:
   vectorai:
     image: actian/vectorai:latest
     ports:
-      - "6583:6573"   # REST API
-      - "6584:6574"   # gRPC API, used by the Python SDK
-      - "6585:6575"   # local web UI
+      - "6573:6573"   # REST API
+      - "6574:6574"   # gRPC API, used by the Python SDK
+      - "6575:6575"   # local web UI
     volumes:
       - ./vectorai_data:/var/lib/actian-vectorai
     environment:

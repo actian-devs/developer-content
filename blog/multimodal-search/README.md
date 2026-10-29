@@ -1,86 +1,76 @@
 # EmbeddingGemma 2 multimodal search on VectorAI DB
 
-Companion repo for the article "How Does EmbeddingGemma 2 Perform on Multimodal Search?". It embeds manuals, part photos, video and voice notes into one VectorAI DB collection, measures hit rate per modality, compares VectorAI DB with FAISS under a selective filter, and compares EmbeddingGemma 2 with ColPali on manual pages.
+Reproducible benchmarks for the article “How Does EmbeddingGemma 2 Perform on Multimodal Search?”. The included public sample is sourced from pinned Raspberry Pi documentation and includes text, official images, generated PDF pages, and short page-based video clips. The preparation script also generates synthesized voice after eSpeak NG is installed. It replaces personal sample data; do not commit personal documents, media, or embedding caches.
 
-## Pinned versions
+## Dataset and attribution
 
-| Component | Version | Source |
-|---|---|---|
-| Model | `google/embeddinggemma-2` | [model card](https://huggingface.co/google/embeddinggemma-2). Pin the commit hash you downloaded: `.cache/huggingface/hub/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b` |
-| sentence-transformers | 6.1.0 | [developer guide](https://developers.googleblog.com/embeddinggemma-2-the-developer-guide/) requires v6.1.0 or later |
-| actian-vectorai-client | 1.0.3 | PyPI |
-| faiss-cpu | 1.15.1 | PyPI |
-| colpali-engine (optional) | 0.3.18 | PyPI. Needs transformers 5.3 or later |
-| ColPali checkpoint | `vidore/colpali-v1.3` | [model card](https://huggingface.co/vidore/colpali-v1.3) |
-| Dataset | `TODO` | Name and version of the manual, photo, video and voice set |
-| VectorAI DB image | `actian/vectorai:latest` | Actian publishes no tag list. Record the image digest you ran: `actian/vectorai@sha256:b01cbb6b407129e722fe7017d6d93afa8648729b625946cf0e546858b8edc6c0` |
+The corpus contains 14 distinct document assets from Raspberry Pi's documentation repository, pinned to commit [`7376533ab86ea07acc77ef6a9f3c3e57fcff833d`](https://github.com/raspberrypi/documentation/commit/7376533ab86ea07acc77ef6a9f3c3e57fcff833d), plus 10 selected official images. The upstream documentation is CC BY-SA 4.0. See [public_data/DATASET.md](public_data/DATASET.md) for per-asset source links and [public_data/UPSTREAM_LICENSE.md](public_data/UPSTREAM_LICENSE.md) for the upstream license.
 
-## Quickstart
+`prepare_public_media.py` derives accessible PDFs and narration from the source docs, creates three-second videos showing the first rendered PDF page, and synthesizes query recordings from the hand-authored questions. These are benchmark derivatives, not original Raspberry Pi video or human-recorded speech. The voice clips are converted to mono 16 kHz WAV. The generated media inherits attribution obligations; retain the included dataset metadata when redistributing.
 
-Full walkthrough with every file, command and expected output: [RUN-GUIDE.md](RUN-GUIDE.md).
+The prepared [`queries.json`](queries.json) contains 122 labels: 42 hand-authored text-to-manual-text labels and 80 generated multimodal labels. It covers text, photo, voice, and video queries against manual text, rendered pages, voice, and video targets. The current manifest has 136 records (49 manual-text page records, 49 rendered pages, 10 photos, 14 voice clips, and 14 videos). Ingest splits those 49 text records into 78 vectors, for 165 vectors total. Query labels point to the owning document asset. Review labels and note the generated-media limitations before publishing benchmark results.
+
+## Setup and evaluation
+
+See the complete, ordered workflow in [RUN-GUIDE.md](RUN-GUIDE.md). Quick start on Ubuntu:
 
 ```bash
-uv sync                                   # add --extra colpali for step 11
-docker compose up -d                       # VectorAI DB on localhost:6584
+uv sync
+docker compose up -d
 uv run hf download google/embeddinggemma-2
-uv run smoke_test.py                      # database + model check
-uv run make_manifest.py --data data       # writes manifest.json and pages.json
-uv run ingest.py --manifest manifest.json
+uv run smoke_test.py
+
+# Public corpus and all supported media (Ubuntu packages)
+sudo apt-get install -y espeak-ng ffmpeg fonts-dejavu-core
+uv run fetch_public_dataset.py
+uv run prepare_public_media.py
+uv run make_manifest.py
+uv run ingest.py --manifest manifest.json --recreate
+
+# Evaluate hit-rate first. The filter cache is independent from this corpus.
 uv run eval_hitrate.py --queries queries.json --k 5
-uv run hard_case.py --queries queries.json
-uv run admin.py drop field_search         # free the 5,000-vector cap for the benchmark
-uv run filter_corpus.py --source filter_text --target 5000 --chunk-words 10
-uv run filter_check.py                    # verify text and boolean payload filters
-uv run filter_compare.py --sizes 1000 2500 5000 --data-dir ./vectorai_data --hardware "<your CPU, RAM, GPU>"
-uv run ingest.py --from-cache             # restore field_search without re-embedding
-uv run colpali_compare.py                 # GPU required
-```
-
-The Community Edition is free for up to 5,000 vectors, so keep the collection and the largest `--sizes` value at or under that.
-
-## Filter benchmark
-
-Copy PDF manuals into `filter_text/`, then build a distinct text-chunk corpus for the filter benchmark:
-
-```bash
-mkdir -p filter_text
-uv run filter_corpus.py --source filter_text --target 5000 --chunk-words 10
 uv run filter_check.py
+uv run admin.py drop field_search
 uv run filter_compare.py --sizes 1000 2500 5000 --filter-share 0.01 \
-  --data-dir ./vectorai_data --hardware "<your CPU, RAM, GPU>"
+  --hardware "AMD Ryzen 5 2500U, 8 GB RAM, no CUDA GPU, float32"
+# Restore field_search before inspecting hard cases.
 uv run ingest.py --from-cache
+uv run hard_case.py --queries queries.json --k 5
 ```
 
-`filter_corpus.py` writes `filter_embeddings.npy` and `filter_meta.json`, separate from the `embeddings.npy` and `meta.json` cache used by `ingest.py`. The PDFs currently in `filter_text/` need `--chunk-words 10` to produce 5,000 chunks; with the default 300 words, they produce only 361. Choose a chunk size appropriate for your manuals, ensuring the resulting chunks are still meaningful for your benchmark. The script requires at least the requested number of non-empty PDF text chunks and does not duplicate chunks.
+The commands above use the existing `filter_embeddings.npy` and `filter_meta.json`. If either file is missing or you need to rebuild the filter cache, run `uv run filter_corpus.py --source filter_text --target 5000 --chunk-words 10` on a directory containing enough PDF text that you have permission to process. Do not publish private source PDFs or their contents. The filter cache is independent from the multimodal ingest cache. Dropping `field_search` before comparison frees collection capacity on Community Edition; restore it from the validated ingest cache afterward. If the cache does not match the current manifest, rebuild with `uv run ingest.py --manifest manifest.json --recreate` instead of `--from-cache`.
 
-`filter_check.py` tests exact text and boolean payload filters on 200 temporary vectors, waits for all vectors to be indexed, and reports any off-filter results. Run it before trusting the comparison. `filter_compare.py` prints `filter_compare v3`, compares HNSW with M=32 and efSearch=16 in FAISS and VectorAI, waits for VectorAI's indexed count to match the corpus size, and reports returned counts and off-filter results. FAISS's ID selector is approximate on HNSW; its recall is not expected to be 1.0. VectorAI index memory comes from the database's collection statistics. The comparison controls filter selectivity with `--filter-share` (1% by default).
+## Scripts
 
-The comparison cache and ingest cache are independent. `ingest.py --from-cache` now verifies that `embeddings.npy` and `meta.json` match the modalities and vector count implied by `manifest.json` before uploading. If the old `filter_corpus.py` overwrote those files, rebuild the collection with `uv run ingest.py --manifest manifest.json --recreate`; that re-embeds the manifest and refreshes the ingest cache.
+- `fetch_public_dataset.py` fetches the pinned, attributed source documents and ten official images.
+- `prepare_public_media.py` builds PDFs, page-based MP4s, narration, and query audio. Requires eSpeak NG, FFmpeg, and DejaVu Sans.
+- `make_manifest.py` creates `manifest.json` and `pages.json`; the former is used by ingest and the latter by the optional ColPali comparison.
+- `ingest.py` embeds manifest records and uploads them to `field_search`; `--from-cache` verifies that the local cache still agrees with the manifest.
+- `eval_hitrate.py` writes hit-rate results to `hitrate.csv`.
+- `hard_case.py` prints each query that misses a relevant asset in the top-k, plus ranked results and per-modality-pair failure totals.
+- `filter_check.py` checks exact text and boolean payload filtering on temporary vectors.
+- `filter_compare.py` compares FAISS HNSW post-filtering, FAISS HNSW with an ID selector, and VectorAI DB payload filtering. It reports recall, median latency, returned/off-filter counts, index memory, and VectorAI's indexed count.
+- `colpali_compare.py` is optional and requires `uv sync --extra colpali`; it compares client-side ColPali page scoring with EmbeddingGemma 2 on manual pages.
 
-## What each script reports
+## Important benchmark notes
 
-- `eval_hitrate.py`: hit rate at k per query-modality to target-modality pairing, written to `hitrate.csv`.
-- `filter_compare.py`: filtered recall at k, median latency, returned count, off-filter count and index size for FAISS HNSW post-filtering, FAISS HNSW with an `IDSelector`, and VectorAI DB with a payload filter. VectorAI index memory comes from the database's collection statistics.
-- `colpali_compare.py`: hit rate at k and bytes per page for EmbeddingGemma 2 and ColPali on manual pages.
+- Record hardware and model/runtime versions with every result. Do not mix CPU and GPU results in one table.
+- CPU inference uses float32; `embed.py` uses bfloat16 only when a CUDA GPU supports it and rejects non-finite embeddings.
+- The model card lists a shared 8,192-token context, 280 image tokens by default, video sampling at 1 frame per second with about 58 frames, and audio at 25 tokens per second with mono 16 kHz input. Ingest rejects audio longer than 327 seconds.
+- `filter_compare.py` prints `filter_compare v3`. It waits for the indexed vector count to match the requested corpus and reports off-filter results. Run `filter_check.py` before interpreting the filtering results.
+- The database filter comparison is independent from relevance hit-rate and hard-case tests. It uses synthetic vectors and payloads, whereas the relevance evaluation uses the public corpus and query labels.
+- Filter comparison datasets are not included. `filter_corpus.py` requires enough distinct text chunks for the requested vector count; a 5,000-vector run will not work with only the 14-document relevance corpus.
 
-## Diagrams
+## Pinned components
 
-`diagrams/shared-space.png` (Figure 1) and `diagrams/technician-query.png` (Figure 2), with SVG sources.
+| Component | Version / source |
+|---|---|
+| Model | `google/embeddinggemma-2`, Hugging Face snapshot `914f7f89142e33e77833254d9c9b90c3cef7303b` |
+| sentence-transformers | 6.1.0 |
+| actian-vectorai-client | 1.0.3 |
+| faiss-cpu | 1.15.1 |
+| Optional ColPali engine | 0.3.18 |
+| ColPali checkpoint | `vidore/colpali-v1.3` |
+| VectorAI DB image | `actian/vectorai:latest`, previously recorded image digest `sha256:b01cbb6b407129e722fe7017d6d93afa8648729b625946cf0e546858b8edc6c0` |
 
-## Hardware notes
-
-- bf16 needs a GPU that supports it. On CPU the script falls back to float32. The model card warns that float16 can return NaN, and `embed.py` raises if any embedding is not finite.
-- Record the hardware for every number you publish and never mix CPU and GPU runs in one table.
-
-## Input limits
-
-Taken from the model card: 8,192 tokens shared across all modalities, 280 tokens per image by default (about 29 images), 140 tokens per video frame at 1 frame per second by default (about 58 frames), 25 tokens per second of audio (about 327 seconds), mono at 16 kHz. `ingest.py` rejects audio over 327 seconds. Cut video longer than 58 seconds into clips first, for example `ffmpeg -i in.mp4 -c copy -f segment -segment_time 55 clip_%03d.mp4`.
-
-## Data
-
-The scripts read three files you supply. Their schemas are in the docstrings of `ingest.py` and `eval_hitrate.py`. `make_manifest.py` builds `manifest.json` and `pages.json` from a `data/<asset_id>/` folder layout. `queries.example.json` shows the query format. Label the query set by hand and have a second person check it. Do not label with the model under test.
-
-## Not yet verified
-
-- No script in this repo has been run against a live VectorAI DB server or a downloaded EmbeddingGemma 2 checkpoint. SDK imports, method names and filter construction were checked against `actian-vectorai-client` 1.0.3, and the FAISS calls were run on synthetic vectors.
-- `colpali_compare.py` scores pages client-side. The SDK exposes `MultiVectorConfig` with a `MaxSim` comparator, but server-side MaxSim has not been tested.
+`docker-compose.yml` currently uses the mutable `actian/vectorai:latest` tag; the digest above is the image digest recorded for the earlier run, not a digest-enforced Compose setting. To record the image actually present on your machine, run `docker image inspect actian/vectorai:latest --format '{{json .RepoDigests}}'` and update this table if it differs.

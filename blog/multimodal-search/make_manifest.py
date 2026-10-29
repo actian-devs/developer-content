@@ -13,7 +13,7 @@ FOLDERS = {"pages": ("manual_page", IMAGE), "photos": ("photo", IMAGE),
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default="data")
+    ap.add_argument("--data", default="public_data")
     ap.add_argument("--dpi", type=int, default=144, help="resolution for rendered PDF pages")
     args = ap.parse_args()
 
@@ -21,13 +21,13 @@ def main() -> None:
     if not data_dir.is_dir():
         raise SystemExit(
             f"Data directory not found: {data_dir}. Create it and add assets under "
-            "data/<asset_id>/ before generating the manifest."
+            f"{data_dir}/<asset_id>/ before generating the manifest."
         )
     asset_dirs = sorted(p for p in data_dir.iterdir() if p.is_dir())
     if not asset_dirs:
         raise SystemExit(
             f"No asset directories found in {data_dir}. Add assets under "
-            "data/<asset_id>/ before generating the manifest."
+            f"{data_dir}/<asset_id>/ before generating the manifest."
         )
 
     manifest, pages = [], []
@@ -35,20 +35,33 @@ def main() -> None:
         asset_id = asset_dir.name
 
         # PDFs: text per page, plus each page rendered to pages/<pdf>_pNNN.png
-        for pdf in sorted((asset_dir / "manual").glob("*.pdf")):
+        pdfs = sorted((asset_dir / "manual").glob("*.pdf"))
+        for pdf in pdfs:
+            source_metadata = asset_dir / "source.json"
+            source_url = (
+                json.loads(source_metadata.read_text()).get("source_url", pdf.name)
+                if source_metadata.exists()
+                else pdf.name
+            )
             (asset_dir / "pages").mkdir(exist_ok=True)
             with pymupdf.open(pdf) as doc:
                 for n, page in enumerate(doc, start=1):
                     text = page.get_text().strip()
                     if text:
                         manifest.append({"asset_id": asset_id, "modality": "manual_text",
-                                         "text": text, "source": f"{pdf.name}#p{n}"})
+                                         "text": text, "source": f"{source_url}#page={n}"})
                     page.get_pixmap(dpi=args.dpi).save(asset_dir / "pages" / f"{pdf.stem}_p{n:03d}.png")
 
         manual = asset_dir / "manual.txt"
-        if manual.exists():
+        if manual.exists() and not pdfs:
+            source_metadata = asset_dir / "source.json"
+            source = (
+                json.loads(source_metadata.read_text()).get("source_url", "manual.txt")
+                if source_metadata.exists()
+                else "manual.txt"
+            )
             manifest.append({"asset_id": asset_id, "modality": "manual_text",
-                             "text": manual.read_text(), "source": "manual.txt"})
+                             "text": manual.read_text(), "source": source})
 
         for folder, (modality, suffixes) in FOLDERS.items():
             for f in sorted((asset_dir / folder).glob("*")):

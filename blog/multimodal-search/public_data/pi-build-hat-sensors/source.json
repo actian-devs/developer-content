@@ -1,0 +1,8 @@
+{
+  "title": "Raspberry Pi Build HAT sensors for .NET",
+  "repository": "https://github.com/raspberrypi/documentation",
+  "revision": "7376533ab86ea07acc77ef6a9f3c3e57fcff833d",
+  "source_path": "documentation/asciidoc/accessories/build-hat/net-sensors.adoc",
+  "source_url": "https://github.com/raspberrypi/documentation/blob/7376533ab86ea07acc77ef6a9f3c3e57fcff833d/documentation/asciidoc/accessories/build-hat/net-sensors.adoc",
+  "license": "CC BY-SA 4.0"
+}
