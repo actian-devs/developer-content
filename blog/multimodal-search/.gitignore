@@ -10,7 +10,6 @@
 /meta.json
 /filter_embeddings.npy
 /filter_meta.json
-/hitrate.csv
 /smoke.png
 /vectorai_data/
 /.venv/

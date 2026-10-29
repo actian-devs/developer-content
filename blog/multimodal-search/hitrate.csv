@@ -1,0 +1,8 @@
+query_modality,target_modality,hit_rate_at_5,queries
+photo,manual_page,0.500,10
+text,manual_page,0.643,14
+text,manual_text,1.000,42
+text,video,0.571,14
+video,manual_page,0.143,14
+voice,manual_text,0.500,14
+voice,voice,1.000,14
