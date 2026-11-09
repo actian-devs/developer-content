@@ -1,0 +1,14 @@
+[project]
+name = "pi5-quantization-picker"
+version = "0.1.0"
+description = "Which GGUF quantization level of Phi-4 Mini, Gemma 4 and Qwen3 fits and holds up on a Raspberry Pi 5 next to VectorAI DB"
+requires-python = ">=3.11"
+dependencies = [
+    "actian-vectorai-client",  # VectorAI DB client (gRPC)
+    "huggingface-hub",         # GGUF downloads
+    "numpy",
+    "requests",                # llama-server and Ollama HTTP APIs
+]
+
+[tool.uv]
+package = false

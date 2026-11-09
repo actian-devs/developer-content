@@ -1,0 +1,24 @@
+services:
+  vectorai:
+    image: actian/vectorai:1.0.3   # multi-arch image: Docker pulls the ARM64 build on a Pi 5
+    container_name: vectorai
+    hostname: vectorai             # the licence is tied to the host identity
+    ports:
+      - "6573:6573"   # REST
+      - "6574:6574"   # gRPC (Python SDK)
+    volumes:
+      - ./data:/var/lib/actian-vectorai
+    environment:
+      - ACTIAN_VECTORAI_ACCEPT_EULA=YES
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:0.40.15
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama:/root/.ollama
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h     # keep the embedding model loaded between tests
+    restart: unless-stopped
