@@ -1,9 +1,6 @@
 """
 VectorAI DB benchmark: memory and disk at 1k, 10k and 100k vectors (float32 vs int8).
 
-NOTE: above 5,000 vectors needs the trial license (cap raised to 1M). On the
-Community Edition cap the run will stop at 5,000.
-
 One container restart per precision. Inside one collection we ingest in steps,
 measuring memory and disk at every checkpoint, then DELETE the collection.
 A straight-line fit separates the fixed cost from the cost per added vector:

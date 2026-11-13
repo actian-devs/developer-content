@@ -40,12 +40,7 @@ Developed against VectorAI DB 1.0.3 and the matching Python SDK. Other SDK versi
 
 ### Vector limits
 
-The Community Edition is capped at **5,000 vectors**. Per Actian's Community Edition page, the 30-day trial allows up to 1 million vectors. The default checkpoints (up to 100,000) need the trial limit. If your server is capped, set:
-
-```python
-CHECKPOINTS = [1000, 2500, 5000]
-ARTICLE_SIZES = [1000, 2500, 5000]
-```
+Per Actian's Community Edition page, the 30-day trial allows up to 1 million vectors. The default checkpoints (up to 100,000) need the trial limit.
 
 The script deletes each collection when it finishes, so it never holds more than the largest checkpoint.
 
