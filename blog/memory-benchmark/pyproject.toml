@@ -1,0 +1,25 @@
+[project]
+name = "semantic-cache-fp"
+version = "0.1.0"
+description = "Seven tests measuring the false-positive rate of a semantic cache on VectorAI DB"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "actian-vectorai-client",
+    "sentence-transformers",
+    "scikit-learn",
+    "numpy",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+# Test 5 only. Needs a CUDA GPU with bf16 for representative latency.
+decider = [
+    "decider-ai>=1.4.0",
+    "torch",
+    "transformers>=5",
+    # Triton kernels for Qwen3.5 linear attention; Linux + CUDA only.
+    "flash-linear-attention; sys_platform == 'linux'",
+]
+
+[tool.uv]
+package = false

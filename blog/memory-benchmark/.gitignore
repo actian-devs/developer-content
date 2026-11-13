@@ -1,0 +1,7 @@
+__pycache__
+.venv
+data
+images
+.env
+local_data
+.DS_Store
