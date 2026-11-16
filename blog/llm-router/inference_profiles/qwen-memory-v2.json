@@ -1,0 +1,25 @@
+{
+  "version": "qwen-memory-v2",
+  "server": "http://localhost:11435",
+  "server_environment": {
+    "OLLAMA_NUM_PARALLEL": 1,
+    "OLLAMA_MAX_LOADED_MODELS": 1,
+    "OLLAMA_CONTEXT_LENGTH": 2048,
+    "OLLAMA_NO_CLOUD": true
+  },
+  "settings": {
+    "local_model": "qwen3:4b-instruct",
+    "local_manifest_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+    "options": {
+      "num_ctx": 2048,
+      "num_predict": 256,
+      "temperature": 0,
+      "seed": 42,
+      "num_thread": 6,
+      "num_batch": 32,
+      "num_gpu": 99
+    }
+  },
+  "prompt_and_schema": "Unchanged extraction-v1.1.0",
+  "safeguards": "Unchanged 1.5 GiB preflight; 512 MiB sustained five seconds stop"
+}

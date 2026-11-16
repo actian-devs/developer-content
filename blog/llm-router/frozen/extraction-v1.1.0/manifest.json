@@ -1,0 +1,14 @@
+{
+  "version": "extraction-v1.1.0",
+  "files": {
+    "annotation-guide.md": "72462c0775b22ae78ad068f0fad8da4229dc778a7e58ae0048b71e27e9885fc6",
+    "attempt-record.schema.json": "e541723884d1d6b4511659e8a1bb97902d45719351800ece6a8055f25c87ca0e",
+    "inference-settings.json": "5d52e2878d62a579b4bf19cada4542eaf2e1c4e59139dc6da38bbf5f5af70117",
+    "prompt.txt": "ce293af33dbff18292d56fa22ce97b7416fd5e6524f53a35feb3122e86d68023",
+    "README.md": "66bb83cabcd212f587043d0ba37e44ffb86ca174bdd5f11d4ec25fcc11a7aa5a",
+    "requirements.lock.txt": "0c2e347d343cf9fe862bbeb58e2682ac30864ecfdc731d27a1a51b508c2971ed",
+    "runtime_validator.py": "daa2f80c504459801660a5cf6aa7d4e5ca798f7de88f7b6ff79c3038fd993a16",
+    "schema.json": "0728aa615cdc788402126a135d67ea8306cc31c7ef1b2efaff78f6884a762f06"
+  },
+  "change_policy": "Create a new version for subsequent changes."
+}

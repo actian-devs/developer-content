@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vectorai-llm-router:attempt-record:v1.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "attempt_id",
+    "message_id",
+    "contract_version",
+    "runtime_check_pass",
+    "reference_correct",
+    "record_context"
+  ],
+  "properties": {
+    "attempt_id": {
+      "type": "string"
+    },
+    "message_id": {
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "extraction-v1.1.0"
+    },
+    "runtime_check_pass": {
+      "type": "boolean",
+      "description": "Schema and limited internal consistency only, not semantic correctness."
+    },
+    "reference_correct": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Offline comparison only; absent from live routing inputs and eligible retrieval payloads."
+    },
+    "record_context": {
+      "enum": [
+        "live",
+        "offline_scored"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_context": {
+            "const": "live"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reference_correct": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+[
+  {
+    "id": "S-001",
+    "reference": {
+      "category": "refund",
+      "order_id": "ORD-252257",
+      "requested_action": "refund",
+      "urgency": "urgent",
+      "needs_clarification": false
+    },
+    "rationale": "The customer requests repayment of a duplicate capture on the explicit order; no missing target. Current urgency is now explicitly requested in the message; other reference fields are unchanged after AI-assisted review.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-002",
+    "reference": {
+      "category": "refund",
+      "order_id": "ORD-125335",
+      "requested_action": "refund",
+      "urgency": "urgent",
+      "needs_clarification": false
+    },
+    "rationale": "The customer requests repayment of a duplicate capture on the explicit order; no missing target. Current urgency is now explicitly requested in the message; other reference fields are unchanged after AI-assisted review.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-003",
+    "reference": {
+      "category": "refund",
+      "order_id": "ORD-360762",
+      "requested_action": "refund",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The identifiable order includes an unperformed paid service and an explicit money-back request.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-004",
+    "reference": {
+      "category": "refund",
+      "order_id": "ORD-454867",
+      "requested_action": "refund",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The identifiable order includes an unperformed paid service and an explicit money-back request.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-005",
+    "reference": {
+      "category": "refund",
+      "order_id": "ORD-894268",
+      "requested_action": "refund",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The latest instruction requests money back on a known order instead of the earlier store-credit preference.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-006",
+    "reference": {
+      "category": "refund",
+      "order_id": "ORD-424522",
+      "requested_action": "refund",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The latest instruction requests money back on a known order instead of the earlier store-credit preference.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-007",
+    "reference": {
+      "category": "refund",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "A bank transaction reference is not an order identifier; refund category is clear but the order target is missing.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-008",
+    "reference": {
+      "category": "refund",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "A bank transaction reference is not an order identifier; refund category is clear but the order target is missing.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-009",
+    "reference": {
+      "category": "cancellation",
+      "order_id": "ORD-573158",
+      "requested_action": "cancel",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A known hamper order is explicitly withdrawn; the occasion does not imply urgency.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-010",
+    "reference": {
+      "category": "cancellation",
+      "order_id": "ORD-470025",
+      "requested_action": "cancel",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A known hamper order is explicitly withdrawn; the occasion does not imply urgency.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-011",
+    "reference": {
+      "category": "cancellation",
+      "order_id": "ORD-250010",
+      "requested_action": "cancel",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A historical tracking request is superseded by the current cancellation instruction.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-012",
+    "reference": {
+      "category": "cancellation",
+      "order_id": "ORD-540703",
+      "requested_action": "cancel",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A historical tracking request is superseded by the current cancellation instruction.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-013",
+    "reference": {
+      "category": "cancellation",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Two event orders are plausible cancellation targets and neither is selected; category remains cancellation.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-014",
+    "reference": {
+      "category": "cancellation",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Two event orders are plausible cancellation targets and neither is selected; category remains cancellation.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-015",
+    "reference": {
+      "category": "cancellation",
+      "order_id": "ORD-335484",
+      "requested_action": "cancel",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The speaker explicitly corrects an earlier reference and identifies the order to cancel.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-016",
+    "reference": {
+      "category": "cancellation",
+      "order_id": "ORD-344279",
+      "requested_action": "cancel",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The speaker explicitly corrects an earlier reference and identifies the order to cancel.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-017",
+    "reference": {
+      "category": "delivery",
+      "order_id": "ORD-972178",
+      "requested_action": "track",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A known order needs a tracking investigation at customs; elapsed time alone is not explicit urgency.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-018",
+    "reference": {
+      "category": "delivery",
+      "order_id": "ORD-652291",
+      "requested_action": "track",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A known order needs a tracking investigation at customs; elapsed time alone is not explicit urgency.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-019",
+    "reference": {
+      "category": "delivery",
+      "order_id": "ORD-772211",
+      "requested_action": "track",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The personal order is background; the gift order is uniquely identified as the tracking target.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-020",
+    "reference": {
+      "category": "delivery",
+      "order_id": "ORD-986938",
+      "requested_action": "track",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The personal order is background; the gift order is uniquely identified as the tracking target.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-021",
+    "reference": {
+      "category": "delivery",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Tracking is requested but no order identifier is available in the message-only context.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-022",
+    "reference": {
+      "category": "delivery",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Tracking is requested but no order identifier is available in the message-only context.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-023",
+    "reference": {
+      "category": "delivery",
+      "order_id": "ORD-145364",
+      "requested_action": "track",
+      "urgency": "urgent",
+      "needs_clarification": false
+    },
+    "rationale": "A quoted delivery status is not an instruction; the current explicit urgent tracking request controls.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-024",
+    "reference": {
+      "category": "delivery",
+      "order_id": "ORD-233125",
+      "requested_action": "track",
+      "urgency": "urgent",
+      "needs_clarification": false
+    },
+    "rationale": "A quoted delivery status is not an instruction; the current explicit urgent tracking request controls.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-025",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-683038",
+      "requested_action": "change_address",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The order and explicit replacement street/city destination are supplied.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-026",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-189079",
+      "requested_action": "change_address",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The order and explicit replacement street/city destination are supplied.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-027",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-962688",
+      "requested_action": "replace",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A same-item replacement is explicitly requested on a known order; classify as order_change, not refund.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-028",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-459404",
+      "requested_action": "replace",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A same-item replacement is explicitly requested on a known order; classify as order_change, not refund.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-029",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-541086",
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "The known order remains present, but the proposed destination exists only in an unavailable attachment.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-030",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-562495",
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "The known order remains present, but the proposed destination exists only in an unavailable attachment.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-031",
+    "reference": {
+      "category": "order_change",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Replacement is intended, but the customer cannot map the damaged item to either order.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-032",
+    "reference": {
+      "category": "order_change",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Replacement is intended, but the customer cannot map the damaged item to either order.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-033",
+    "reference": {
+      "category": "other",
+      "order_id": "ORD-459575",
+      "requested_action": "other",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The customer clearly asks for a tax document, an unsupported but unambiguous action with a known order.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-034",
+    "reference": {
+      "category": "other",
+      "order_id": "ORD-658728",
+      "requested_action": "other",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "The customer clearly asks for a tax document, an unsupported but unambiguous action with a known order.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-035",
+    "reference": {
+      "category": "other",
+      "order_id": null,
+      "requested_action": "other",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "This is a general product-information request, not an order operation, so no order ID is required.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-036",
+    "reference": {
+      "category": "other",
+      "order_id": null,
+      "requested_action": "other",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "This is a general product-information request, not an order operation, so no order ID is required.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-037",
+    "reference": {
+      "category": "other",
+      "order_id": "ORD-781315",
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Refund versus cancellation spans categories and neither is chosen; retain the known order but use other.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-038",
+    "reference": {
+      "category": "other",
+      "order_id": "ORD-696958",
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Refund versus cancellation spans categories and neither is chosen; retain the known order but use other.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-039",
+    "reference": {
+      "category": "other",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Neither a current action nor an order is identifiable from a reference to unavailable contents.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "S-040",
+    "reference": {
+      "category": "other",
+      "order_id": null,
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "Neither a current action nor an order is identifiable from a reference to unavailable contents.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  }
+]

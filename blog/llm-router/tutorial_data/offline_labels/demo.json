@@ -1,0 +1,66 @@
+[
+  {
+    "id": "D-001",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-320939",
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "A known trophy order needs an engraving-text change, but the replacement text is missing; known ID remains.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "D-002",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-320939",
+      "requested_action": "clarify",
+      "urgency": "normal",
+      "needs_clarification": true
+    },
+    "rationale": "A known trophy order needs an engraving-text change, but the replacement text is missing; known ID remains.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "D-003",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-320939",
+      "requested_action": "other",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A known trophy order has explicit new engraving text, a clear unsupported amendment action.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  },
+  {
+    "id": "D-004",
+    "reference": {
+      "category": "order_change",
+      "order_id": "ORD-320939",
+      "requested_action": "other",
+      "urgency": "normal",
+      "needs_clarification": false
+    },
+    "rationale": "A known trophy order has explicit new engraving text, a clear unsupported amendment action.",
+    "synthetic": true,
+    "author": "Codex",
+    "review_status": "draft_ai_assisted_review_pending_independent_human_review",
+    "review_method": "AI-assisted author review by Codex; no human approval",
+    "human_approved": false
+  }
+]

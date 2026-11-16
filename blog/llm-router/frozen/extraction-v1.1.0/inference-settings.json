@@ -1,0 +1,42 @@
+{
+  "version": "support-inference-settings-v1.1.0",
+  "local_model": "qwen3:4b-instruct",
+  "local_manifest_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+  "embedding_model": "embeddinggemma:latest",
+  "embedding_manifest_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+  "embedding_dimension": 768,
+  "options": {
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "temperature": 0,
+    "seed": 42,
+    "num_thread": 6
+  },
+  "think": false,
+  "format": "schema.json",
+  "concurrency": 1,
+  "keep_alive": "30s",
+  "unload_after_each_request": true,
+  "unload_opposing_model_before_switch": true,
+  "timeout_seconds": 120,
+  "memory_policy": {
+    "min_start_gib": 1.5,
+    "severe_mib": 512,
+    "sustained_seconds": 5,
+    "sample_interval_seconds": 0.5,
+    "stop_further_requests_after_current_bounded_request": true
+  },
+  "allow_paid_inference": false,
+  "openai_model": "gpt-5.4-2026-03-05",
+  "proposed_total_experiment_ceiling_usd": 3,
+  "spend_limiter_implemented": false,
+  "python": "3.12.10",
+  "ollama_server_observed": "0.40.16",
+  "selection_note": "Known working local development settings, not a guarantee of accuracy or peak-memory safety.",
+  "contract_version": "extraction-v1.1.0",
+  "prompt_id": "support-extraction-prompt-v1.1.0",
+  "schema_id": "support-extraction-schema-v1.1.0",
+  "annotation_guide_id": "support-annotation-guide-v1.1.0",
+  "prompt_sha256": "ce293af33dbff18292d56fa22ce97b7416fd5e6524f53a35feb3122e86d68023",
+  "contract_inference_tested": false
+}

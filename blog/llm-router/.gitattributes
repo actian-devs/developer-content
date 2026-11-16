@@ -1,0 +1,3 @@
+# Preserve exact bytes required by the frozen contract manifest.
+frozen/** -text whitespace=cr-at-eol
+inference_profiles/** -text whitespace=cr-at-eol

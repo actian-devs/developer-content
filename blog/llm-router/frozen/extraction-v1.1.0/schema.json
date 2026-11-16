@@ -1,0 +1,62 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "enum": [
+        "refund",
+        "cancellation",
+        "delivery",
+        "order_change",
+        "other"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "order_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Order Id"
+    },
+    "requested_action": {
+      "enum": [
+        "refund",
+        "cancel",
+        "track",
+        "change_address",
+        "replace",
+        "clarify",
+        "other"
+      ],
+      "title": "Requested Action",
+      "type": "string"
+    },
+    "urgency": {
+      "enum": [
+        "normal",
+        "urgent"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    },
+    "needs_clarification": {
+      "title": "Needs Clarification",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "category",
+    "order_id",
+    "requested_action",
+    "urgency",
+    "needs_clarification"
+  ],
+  "title": "Extraction",
+  "type": "object",
+  "$id": "urn:vectorai-llm-router:support-extraction-schema:v1.1.0"
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "S-001",
+    "message": "My card statement has two settled debits for order ORD-252257. Please send the duplicate payment back. Please treat this request as urgent."
+  },
+  {
+    "id": "S-002",
+    "message": "There should be one payment on ORD-125335, yet the bank shows a second capture. I want that extra charge refunded. Please handle this request ASAP."
+  },
+  {
+    "id": "S-003",
+    "message": "The assembler never attended the appointment included in order ORD-360762. Return the assembly fee, please."
+  },
+  {
+    "id": "S-004",
+    "message": "Furniture order ORD-454867 included paid setup, but nobody came to set it up. Could you reimburse that service charge?"
+  },
+  {
+    "id": "S-005",
+    "message": "For ORD-894268, I first asked for store credit for the missed coupon. On second thought, refund the discount difference to my card."
+  },
+  {
+    "id": "S-006",
+    "message": "About the coupon adjustment on ORD-424522: ignore my preference for a voucher. Please repay the overcharge instead."
+  },
+  {
+    "id": "S-007",
+    "message": "Bank transfer TX-661 went through twice. I need the extra payment back, but I cannot find any order number."
+  },
+  {
+    "id": "S-008",
+    "message": "I paid by transfer, reference TX-982, and want the duplicate transfer reimbursed. The order receipt is missing."
+  },
+  {
+    "id": "S-009",
+    "message": "The birthday gathering was called off, so we no longer need hamper order ORD-573158. Stop that order."
+  },
+  {
+    "id": "S-010",
+    "message": "Our birthday plans changed. Please withdraw the hamper purchase ORD-470025 altogether."
+  },
+  {
+    "id": "S-011",
+    "message": "Yesterday I wrote, \"Where has ORD-250010 got to?\" Today I want the order cancelled, not a location update."
+  },
+  {
+    "id": "S-012",
+    "message": "My old ticket says \"track ORD-540703\". That was yesterday; my current request is to stop this purchase."
+  },
+  {
+    "id": "S-013",
+    "message": "There are deposits against event orders ORD-134088 and ORD-572264. One event was abandoned, but I cannot recall which deposit belongs to it. Cancel the abandoned event order."
+  },
+  {
+    "id": "S-014",
+    "message": "We booked two events, references ORD-619917 and ORD-149341. Please withdraw the one for the event we dropped; I do not know which reference that is."
+  },
+  {
+    "id": "S-015",
+    "message": "Withdraw ORD-778608. I transposed my notes: the purchase to withdraw is actually ORD-335484; leave ORD-778608 alone."
+  },
+  {
+    "id": "S-016",
+    "message": "I gave you ORD-902940 by mistake. The cancellation should be filed against ORD-344279, and only ORD-344279."
+  },
+  {
+    "id": "S-017",
+    "message": "The customs scan for ORD-972178 has not moved in eight days. Can you trace its present location?"
+  },
+  {
+    "id": "S-018",
+    "message": "My imported parcel on ORD-652291 appears stuck at customs. I am asking for a tracking update on where it is now."
+  },
+  {
+    "id": "S-019",
+    "message": "My own purchase ORD-987992 reached me. The gift shipment ORD-772211 has not reached my sister; trace the gift shipment."
+  },
+  {
+    "id": "S-020",
+    "message": "Two purchases: ORD-182268 for me is complete, ORD-986938 for my sister is still travelling. Find out where ORD-986938 is, please."
+  },
+  {
+    "id": "S-021",
+    "message": "I lost the paper receipt from the counter purchase. Can you locate the delivery? I have no order number with me."
+  },
+  {
+    "id": "S-022",
+    "message": "The shop promised a delivery, but my receipt is gone and I do not have its order reference. I need a parcel location update."
+  },
+  {
+    "id": "S-023",
+    "message": "The courier email says \"ORD-145364: handed to resident\". Nobody here accepted it. Urgent: investigate the parcel location."
+  },
+  {
+    "id": "S-024",
+    "message": "Your notice reads \"delivered\" against ORD-233125, but our building has no parcel. Please trace it ASAP."
+  },
+  {
+    "id": "S-025",
+    "message": "I moved after placing ORD-683038. Redirect it to 24 Palm Avenue, Ibadan, instead of the address on the purchase."
+  },
+  {
+    "id": "S-026",
+    "message": "Use 67 Creek Street, Uyo as the new delivery destination for order ORD-189079; the old home is vacant."
+  },
+  {
+    "id": "S-027",
+    "message": "The handle snapped off the mug in ORD-962688. Send another of the very same mug; I do not want money back."
+  },
+  {
+    "id": "S-028",
+    "message": "Could you replace the cracked cup from ORD-459404 with an identical cup? I am keeping the purchase, just need an intact one."
+  },
+  {
+    "id": "S-029",
+    "message": "For ORD-541086, change the shipping address to the one in the attached PDF. The PDF text is not included here."
+  },
+  {
+    "id": "S-030",
+    "message": "Please redirect ORD-562495; the replacement destination is in an attachment I forgot to include in this message."
+  },
+  {
+    "id": "S-031",
+    "message": "Orders ORD-700441 and ORD-604166 contained identical bowls. One bowl broke, and the cartons got mixed up. Replace the broken bowl; I cannot tell which order it came from."
+  },
+  {
+    "id": "S-032",
+    "message": "We bought the same bowl twice, on ORD-420212 and ORD-248775. I need a replacement for the damaged one, but do not know its order reference."
+  },
+  {
+    "id": "S-033",
+    "message": "Our accountant needs a VAT invoice for ORD-459575. Please email that document."
+  },
+  {
+    "id": "S-034",
+    "message": "Could you issue the tax invoice showing our VAT amount for purchase ORD-658728?"
+  },
+  {
+    "id": "S-035",
+    "message": "Before I buy an engraved pen, which font choices can your engraver handle?"
+  },
+  {
+    "id": "S-036",
+    "message": "I am comparing engraving styles for pens. Can you explain which lettering fonts are available?"
+  },
+  {
+    "id": "S-037",
+    "message": "For ORD-781315, I have not chosen between asking for a refund and cancelling the remaining order. I need help deciding which request to make."
+  },
+  {
+    "id": "S-038",
+    "message": "I am unsure what I want done with ORD-696958: money back or stopping the purchase. I have not selected either option."
+  },
+  {
+    "id": "S-039",
+    "message": "Can you sort out the issue in my screenshot? There is no screenshot attached, and I have not described the issue."
+  },
+  {
+    "id": "S-040",
+    "message": "Help with the thing shown in the file I meant to send. I have not uploaded the file or said what went wrong."
+  }
+]

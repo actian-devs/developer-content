@@ -1,0 +1,6 @@
+actian-vectorai-client==1.0.2
+openai==2.43.0
+ollama==0.6.1
+pydantic==2.12.5
+python-dotenv==1.2.2
+psutil>=7,<8
