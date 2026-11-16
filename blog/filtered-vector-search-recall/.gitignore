@@ -2,3 +2,7 @@
 __pycache__/
 vectorai_data/
 # RUN-GUIDE.md
+catalog.npz
+catalog.json
+recall.csv
+probe.csv
