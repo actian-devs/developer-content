@@ -1,0 +1,10 @@
+migration_work/
+*.egg-info/
+__pycache__/
+.env
+local_data/
+.pytest_cache/
+.DS_Store
+chroma_data
+chroma_demo
+.venv

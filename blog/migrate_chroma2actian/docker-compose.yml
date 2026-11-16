@@ -1,0 +1,17 @@
+# Actian VectorAI DB (single container). Ports per the Actian Docker guide:
+#   6573 REST   6574 gRPC (used by this tool)   6575 local UI
+services:
+  vectorai:
+    image: actian/vectorai:latest
+    container_name: vectorai
+    platform: linux/amd64 # for MacOs. 
+    ports:
+      - "6573:6573" # REST
+      - "6574:6574" # GRPC
+      - "6575:6575" # Web UI
+    volumes:
+      - ./local_data:/var/lib/actian-vectorai   # persist data on the host
+    environment:
+      # Setting this to YES means YOU accept Actian's EULA. Read it first.
+      ACTIAN_VECTORAI_ACCEPT_EULA: "YES"
+    restart: unless-stopped
