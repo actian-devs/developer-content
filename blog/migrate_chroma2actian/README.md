@@ -59,13 +59,13 @@ Exit codes: `0` ok · `1` check failed / runtime failure · `2` usage or precond
 ```bash
 
 # Local
-python export_chroma.py --source local --chroma-path ./chroma_demo --all-collections
+uv run python export_chroma.py --source local --chroma-path ./chroma_demo --all-collections
 # self-hosted server (add --chroma-token and --chroma-ssl if yours needs them)
-python export_chroma.py --source http --chroma-host localhost --chroma-port 8000 --collection support_tickets_demo
+uv run python export_chroma.py --source http --chroma-host localhost --chroma-port 8000 --collection support_tickets_demo
 
 # Chroma Cloud
 export CHROMA_API_KEY=... CHROMA_TENANT=... CHROMA_DATABASE=...
-python export_chroma.py --source cloud --all-collections
+uv run python export_chroma.py --source cloud --all-collections
 
 ## Runbook (what to do in production)
 
