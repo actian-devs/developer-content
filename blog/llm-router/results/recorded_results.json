@@ -1,0 +1,1978 @@
+{
+  "format_version": "llm-router-recorded-results-v1",
+  "dataset": "synthetic-draft-v1.2.0",
+  "contract": "extraction-v1.1.0",
+  "local_profile": "qwen-memory-v2",
+  "local_model": "qwen3:4b-instruct",
+  "local_model_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+  "routing_policy": "semantic-exploratory-0.5-v1.0.0",
+  "validator": "runtime-validator-v2.0.0",
+  "similarity_min": 0.5,
+  "minimum_distinct_messages": 5,
+  "historical_match_threshold": 0.8,
+  "cost_unit": "integer micro-USD",
+  "correctness": "Recorded offline exact agreement with synthetic draft references; booleans, not independently verifiable semantic correctness",
+  "cloud_missing_reason": {
+    "E-001": "No usable response; original request remains unresolved, not assumed free"
+  },
+  "evaluation": [
+    {
+      "id": "E-001",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": false,
+        "api_cost_microusd": 0
+      },
+      "cloud": null,
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-002",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2905
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-003",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2898
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-004",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2885
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-005",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2908
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-006",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": false,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2890
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-007",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2873
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-008",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2878
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-009",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2913
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-010",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2908
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-011",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2923
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-012",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2940
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-013",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2898
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-014",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2890
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-015",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2893
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-016",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2895
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-017",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2895
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-018",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2885
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-019",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2925
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-020",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2915
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-021",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2918
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-022",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2918
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-023",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2913
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-024",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-025",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2913
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-026",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2905
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-027",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2880
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-028",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2883
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-029",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-030",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2905
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-031",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2915
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-032",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2928
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-033",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2918
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-034",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2920
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-035",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2930
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-036",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2935
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-037",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2883
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-038",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2885
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-039",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2918
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-040",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2913
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-041",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2888
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "local"
+      }
+    },
+    {
+      "id": "E-042",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2890
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-043",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2898
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "local"
+      }
+    },
+    {
+      "id": "E-044",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2898
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-045",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-046",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-047",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2893
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-048",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2890
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-049",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2933
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-050",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2933
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-051",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-052",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2893
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-053",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2868
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-054",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": false,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2880
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-055",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": false,
+        "runtime_check_pass": false,
+        "api_cost_microusd": 2873
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-056",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2908
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-057",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2918
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-058",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2928
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-059",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-060",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2898
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-061",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2928
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-062",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2928
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-063",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2933
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-064",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2935
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-065",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2928
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-066",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2938
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-067",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2943
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-068",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2945
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-069",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2950
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-070",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2958
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-071",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2943
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-072",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2935
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-073",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2925
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-074",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2943
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-075",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2920
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-076",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2923
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-077",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2910
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-078",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2918
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-079",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2930
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-080",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2923
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-081",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2885
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-082",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2905
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-083",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2858
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-084",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2853
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-085",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2845
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-086",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2833
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-087",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2838
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-088",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2843
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-089",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": false,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2948
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-090",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2938
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-091",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2853
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-092",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2855
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-093",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2870
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-094",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2870
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-095",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2853
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-096",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2860
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-097",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2900
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-098",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2898
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-099",
+      "local": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2910
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    },
+    {
+      "id": "E-100",
+      "local": {
+        "draft_reference_match": false,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 0
+      },
+      "cloud": {
+        "draft_reference_match": true,
+        "runtime_check_pass": true,
+        "api_cost_microusd": 2915
+      },
+      "checkpoint_choice": {
+        "10": "cloud",
+        "20": "cloud",
+        "40": "cloud"
+      }
+    }
+  ],
+  "cloud_seeding": [
+    {
+      "id": "S-001",
+      "api_cost_microusd": 2913
+    },
+    {
+      "id": "S-002",
+      "api_cost_microusd": 2920
+    },
+    {
+      "id": "S-003",
+      "api_cost_microusd": 2893
+    },
+    {
+      "id": "S-004",
+      "api_cost_microusd": 2903
+    },
+    {
+      "id": "S-005",
+      "api_cost_microusd": 2913
+    },
+    {
+      "id": "S-006",
+      "api_cost_microusd": 2900
+    },
+    {
+      "id": "S-007",
+      "api_cost_microusd": 2870
+    },
+    {
+      "id": "S-008",
+      "api_cost_microusd": 2870
+    },
+    {
+      "id": "S-009",
+      "api_cost_microusd": 2913
+    },
+    {
+      "id": "S-010",
+      "api_cost_microusd": 2895
+    },
+    {
+      "id": "S-011",
+      "api_cost_microusd": 2920
+    },
+    {
+      "id": "S-012",
+      "api_cost_microusd": 2885
+    },
+    {
+      "id": "S-013",
+      "api_cost_microusd": 2918
+    },
+    {
+      "id": "S-014",
+      "api_cost_microusd": 2913
+    },
+    {
+      "id": "S-015",
+      "api_cost_microusd": 2930
+    },
+    {
+      "id": "S-016",
+      "api_cost_microusd": 2925
+    },
+    {
+      "id": "S-017",
+      "api_cost_microusd": 2895
+    },
+    {
+      "id": "S-018",
+      "api_cost_microusd": 2905
+    },
+    {
+      "id": "S-019",
+      "api_cost_microusd": 2910
+    },
+    {
+      "id": "S-020",
+      "api_cost_microusd": 2925
+    },
+    {
+      "id": "S-021",
+      "api_cost_microusd": 2870
+    },
+    {
+      "id": "S-022",
+      "api_cost_microusd": 2878
+    },
+    {
+      "id": "S-023",
+      "api_cost_microusd": 2908
+    },
+    {
+      "id": "S-024",
+      "api_cost_microusd": 2903
+    },
+    {
+      "id": "S-025",
+      "api_cost_microusd": 2940
+    },
+    {
+      "id": "S-026",
+      "api_cost_microusd": 2935
+    },
+    {
+      "id": "S-027",
+      "api_cost_microusd": 2923
+    },
+    {
+      "id": "S-028",
+      "api_cost_microusd": 2925
+    },
+    {
+      "id": "S-029",
+      "api_cost_microusd": 2935
+    },
+    {
+      "id": "S-030",
+      "api_cost_microusd": 2925
+    },
+    {
+      "id": "S-031",
+      "api_cost_microusd": 2923
+    },
+    {
+      "id": "S-032",
+      "api_cost_microusd": 2913
+    },
+    {
+      "id": "S-033",
+      "api_cost_microusd": 2883
+    },
+    {
+      "id": "S-034",
+      "api_cost_microusd": 2883
+    },
+    {
+      "id": "S-035",
+      "api_cost_microusd": 2835
+    },
+    {
+      "id": "S-036",
+      "api_cost_microusd": 2838
+    },
+    {
+      "id": "S-037",
+      "api_cost_microusd": 2930
+    },
+    {
+      "id": "S-038",
+      "api_cost_microusd": 2923
+    },
+    {
+      "id": "S-039",
+      "api_cost_microusd": 2870
+    },
+    {
+      "id": "S-040",
+      "api_cost_microusd": 2873
+    }
+  ]
+}
