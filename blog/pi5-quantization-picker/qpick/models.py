@@ -1,8 +1,8 @@
 """The models and quantization levels under test, as GGUF files on Hugging Face.
 
 The model variants follow the Phi-4 Mini vs Gemma 4 vs Qwen3 comparison on the same board:
-Phi-4 Mini (3.8B), Gemma 4 E2B and E4B, and Qwen3-4B. All files come from Unsloth's
-GGUF repos, so every model is quantized by the same tool chain.
+Phi-4 Mini (3.8B), Gemma 4 E2B and E4B, and Qwen3-4B. The files come from Unsloth's GGUF
+repos, except Phi-4 Mini at Q4_0, which Unsloth doesn't publish (see SOURCE_OVERRIDES below).
 """
 from dataclasses import dataclass
 
@@ -41,6 +41,17 @@ def model_file(model: Model, level: str) -> str:
     if model.key == "phi4-mini" and level == "Q8_0":
         return "Phi-4-mini-instruct.Q8_0.gguf"
     return model.file(level)
+
+
+# Unsloth publishes no Q4_0 file for Phi-4 Mini, so that one level comes from bartowski's repo instead
+SOURCE_OVERRIDES = {
+    ("phi4-mini", "Q4_0"): ("bartowski/microsoft_Phi-4-mini-instruct-GGUF", "microsoft_Phi-4-mini-instruct-Q4_0.gguf"),
+}
+
+
+def model_source(model: Model, level: str) -> tuple[str, str]:
+    """The Hugging Face repo and file name to download for one model at one level."""
+    return SOURCE_OVERRIDES.get((model.key, level), (model.repo, model_file(model, level)))
 
 
 def by_key(key: str) -> Model:
