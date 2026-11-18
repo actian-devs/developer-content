@@ -19,7 +19,7 @@ from huggingface_hub import hf_hub_download   # downloads one model file from Hu
 
 from qpick import corpus, prompts, stack        # the catalog, the 40 prompts, and VectorAI DB + embeddings
 from qpick.memory import GIB, Sampler, meminfo  # the memory sampler that runs in the background
-from qpick.models import LEVELS, MODELS, by_key, model_file   # which models and levels to test
+from qpick.models import LEVELS, MODELS, by_key, model_source   # which models and levels to test, and where each file lives
 from qpick.server import LlamaServer             # starts and talks to llama.cpp's server
 
 # ── Test settings: the same for every model and level, so the comparison is fair ──
@@ -84,10 +84,14 @@ def run_level(model, level, args, tasks, recs, out_path):
     """Test one model at one quantization level, from download to saved result."""
 
     # 1. Download the GGUF file for this level and note how big it is
-    file = model_file(model, level)
+    repo, file = model_source(model, level)
     t0 = time.monotonic()
-    path = Path(hf_hub_download(model.repo, file, local_dir=args.models_dir))
-    result = {"model": model.name, "key": model.key, "level": level, "file": file, "repo": model.repo,
+    try:
+        path = Path(hf_hub_download(repo, file, local_dir=args.models_dir))
+    except Exception as e:   # a missing file or a dropped connection: skip this level, a rerun tries it again
+        print(f"  {model.name} {level}: download failed ({type(e).__name__}), skipping; rerun to try again")
+        return
+    result = {"model": model.name, "key": model.key, "level": level, "file": file, "repo": repo,
               "file_gib": round(path.stat().st_size / GIB, 3), "download_s": round(time.monotonic() - t0, 1),
               "ctx": args.ctx, "board": board(), "thermals_before": thermals()}
 
