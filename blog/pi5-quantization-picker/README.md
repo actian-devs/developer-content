@@ -2,7 +2,7 @@
 
 Test harness for *Best Quantization for Phi-4, Gemma 4, and Qwen3 on a Pi 5*. It measures, on one Raspberry Pi 5, which GGUF quantization level of each model fits in memory next to a running retrieval stack, and how well each level answers a fixed set of prompts.
 
-- **Models:** Phi-4 Mini (3.8B), Gemma 4 E2B, Gemma 4 E4B and Qwen3-4B (thinking off), all from Unsloth's GGUF repos on Hugging Face
+- **Models:** Phi-4 Mini (3.8B), Gemma 4 E2B, Gemma 4 E4B and Qwen3-4B (thinking off), from Unsloth's GGUF repos on Hugging Face (Phi-4 Mini at Q4_0, which Unsloth doesn't publish, comes from bartowski's repo)
 - **Levels:** Q3_K_M, Q4_0, Q4_K_M, Q5_K_M, Q6_K, Q8_0
 - **Runtime:** llama.cpp `llama-server`, built on the Pi, CPU only, 4 threads, 4,096-token context
 - **Retrieval stack, running during every test:** VectorAI DB 1.0.3 holding a 4,000-chunk catalog in an HNSW index, and Ollama serving `nomic-embed-text`
