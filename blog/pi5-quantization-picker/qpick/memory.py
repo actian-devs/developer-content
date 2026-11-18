@@ -10,24 +10,27 @@ import threading
 import time
 from pathlib import Path
 
-GIB = 1024 ** 3
+GIB = 1024 ** 3   # bytes in one GiB
 
 
 def meminfo() -> dict:
+    """Read the board's total RAM, RAM in use, and swap in use from Linux."""
     info = {}
     for line in Path("/proc/meminfo").read_text().splitlines():
         key, val = line.split(":", 1)
         info[key] = int(val.split()[0]) * 1024   # kB to bytes
+    # "Used" is what is not available to new programs, which is what decides whether a model fits
     return {"total": info["MemTotal"], "used": info["MemTotal"] - info["MemAvailable"],
             "swap_used": info["SwapTotal"] - info["SwapFree"], "swap_total": info["SwapTotal"]}
 
 
 def rss(pid: int) -> int:
+    """The memory one process holds in RAM right now (its resident set size)."""
     try:
         for line in Path(f"/proc/{pid}/status").read_text().splitlines():
             if line.startswith("VmRSS:"):
                 return int(line.split()[1]) * 1024
-    except FileNotFoundError:
+    except FileNotFoundError:   # the process has already exited
         pass
     return 0
 
@@ -36,11 +39,13 @@ def container_cgroups(names: list[str]) -> dict[str, Path]:
     """memory.current for each running container, under the systemd or cgroupfs layout."""
     out = {}
     for name in names:
+        # Ask Docker for the container's full ID, which names its folder in /sys/fs/cgroup
         try:
             cid = subprocess.run(["docker", "inspect", "-f", "{{.Id}}", name], capture_output=True, text=True,
                                  check=True).stdout.strip()
         except (subprocess.CalledProcessError, FileNotFoundError):
             continue
+        # The file lives in one of two places, depending on how Docker is set up
         for p in (Path(f"/sys/fs/cgroup/system.slice/docker-{cid}.scope/memory.current"),
                   Path(f"/sys/fs/cgroup/docker/{cid}/memory.current")):
             if p.exists():
@@ -55,12 +60,14 @@ class Sampler:
     def __init__(self, pid: int | None = None, containers: list[str] = ("vectorai", "ollama"), interval: float = 0.25):
         self.pid, self.interval = pid, interval
         self.cgroups = container_cgroups(list(containers))
+        # Only the highest value of each counter is kept: the peak is what decides whether a model fits
         self.peak = {"used": 0, "swap_used": 0, "llm_rss": 0, **{c: 0 for c in self.cgroups}}
-        self.start_swap = meminfo()["swap_used"]
+        self.start_swap = meminfo()["swap_used"]   # swap already in use before the test starts
         self._stop = threading.Event()
         self._thread = threading.Thread(target=self._run, daemon=True)
 
     def sample(self) -> dict:
+        """Take one reading of every counter."""
         m = meminfo()
         s = {"used": m["used"], "swap_used": m["swap_used"], "llm_rss": rss(self.pid) if self.pid else 0}
         for name, path in self.cgroups.items():
@@ -71,11 +78,13 @@ class Sampler:
         return s
 
     def _run(self):
+        """The loop the background thread runs: read every counter, keep the peaks, wait, repeat."""
         while not self._stop.is_set():
             for k, v in self.sample().items():
                 self.peak[k] = max(self.peak[k], v)
             time.sleep(self.interval)
 
+    # "with Sampler(...) as mem:" starts the thread on entry and stops it on exit
     def __enter__(self):
         self._thread.start()
         return self
@@ -85,5 +94,6 @@ class Sampler:
         self._thread.join()
 
     def report(self) -> dict:
+        """The peaks in GiB, plus how much swap grew during the test."""
         return {**{f"peak_{k}_gib": round(v / GIB, 3) for k, v in self.peak.items()},
                 "swap_growth_gib": round(max(0, self.peak["swap_used"] - self.start_swap) / GIB, 3)}

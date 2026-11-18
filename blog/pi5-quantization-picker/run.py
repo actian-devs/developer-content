@@ -15,13 +15,16 @@ import subprocess
 import time
 from pathlib import Path
 
-from huggingface_hub import hf_hub_download
+from huggingface_hub import hf_hub_download   # downloads one model file from Hugging Face
 
-from qpick import corpus, prompts, stack
-from qpick.memory import GIB, Sampler, meminfo
-from qpick.models import LEVELS, MODELS, by_key, model_file
-from qpick.server import LlamaServer
+from qpick import corpus, prompts, stack        # the catalog, the 40 prompts, and VectorAI DB + embeddings
+from qpick.memory import GIB, Sampler, meminfo  # the memory sampler that runs in the background
+from qpick.models import LEVELS, MODELS, by_key, model_file   # which models and levels to test
+from qpick.server import LlamaServer             # starts and talks to llama.cpp's server
 
+# ── Test settings: the same for every model and level, so the comparison is fair ──
+
+# The longest answer each kind of prompt may produce, in tokens. Short caps keep each answer quick.
 MAX_TOKENS = {"rag": 96, "json": 160, "instruction": 96}
 SWAP_LIMIT_GIB = 0.25    # more swap growth than this and the level does not fit next to the stack
 PROMPT_TIMEOUT = 180     # seconds; a swap-bound model blows past this
@@ -29,6 +32,7 @@ MAX_TIMEOUTS = 3         # stop a level after this many timed-out prompts
 
 
 def _cmd(*args) -> str | None:
+    """Run a shell command and return what it prints, or None if the command is missing or fails."""
     try:
         return subprocess.run(args, capture_output=True, text=True, timeout=30).stdout.strip() or None
     except (OSError, subprocess.SubprocessError):
@@ -36,25 +40,29 @@ def _cmd(*args) -> str | None:
 
 
 def board() -> dict:
-    model = Path("/proc/device-tree/model")
-    osr = Path("/etc/os-release")
+    """Describe the test board, so every result file says exactly what it ran on."""
+    model = Path("/proc/device-tree/model")       # the Pi writes its model name here
+    osr = Path("/etc/os-release")                 # the OS name and version
     os_name = next((ln.split("=", 1)[1].strip('"') for ln in osr.read_text().splitlines()
                     if ln.startswith("PRETTY_NAME=")), None) if osr.exists() else platform.platform()
     return {"board": model.read_text().strip("\x00") if model.exists() else platform.node(),
             "ram_gib": round(meminfo()["total"] / GIB, 2), "swap_total_gib": round(meminfo()["swap_total"] / GIB, 2),
             "swap_devices": _cmd("swapon", "--show", "--noheadings"),   # swapfile or zram
             "os": os_name, "kernel": platform.release(),
+            # which drive the OS boots from, and which drive this folder (and the models) sit on
             "root_device": _cmd("findmnt", "-no", "SOURCE", "/"), "repo_device": _cmd("findmnt", "-no", "SOURCE", "-T", ".")}
 
 
 def thermals() -> dict:
     """Pi temperature and throttle flags (0x0 means it never throttled or ran under-voltage)."""
-    temp = _cmd("vcgencmd", "measure_temp")
+    temp = _cmd("vcgencmd", "measure_temp")       # vcgencmd is the Pi's own hardware tool
     return {"temp": temp.split("=")[-1] if temp else None, "throttled": _cmd("vcgencmd", "get_throttled")}
 
 
 def task_list(recs, retrieved, rag_qs):
+    """Put the 40 prompts in one list: 20 RAG, then 10 JSON, then 10 instructions."""
     tasks = []
+    # Each RAG prompt carries the question plus the 3 catalog entries VectorAI DB retrieved for it
     for q, hit in zip(rag_qs, retrieved):
         tasks.append({"kind": "rag", "q": q["q"], "expect": q["expect"], "retrieved_ids": hit["ids"],
                       "messages": prompts.rag_prompt(q["q"], hit["chunks"])})
@@ -64,33 +72,43 @@ def task_list(recs, retrieved, rag_qs):
 
 
 def score(task, answer, recs):
+    """Pass or fail one answer, using the check that matches its kind of prompt."""
     if task["kind"] == "rag":
-        return prompts.check_rag(answer, task["expect"])
+        return prompts.check_rag(answer, task["expect"])          # must contain the record's exact values
     if task["kind"] == "json":
-        return prompts.check_json(answer, recs[task["rec"]])
-    return prompts.check_instruction(answer, task["idx"])
+        return prompts.check_json(answer, recs[task["rec"]])      # must parse and match the record
+    return prompts.check_instruction(answer, task["idx"])         # must follow the instruction
 
 
 def run_level(model, level, args, tasks, recs, out_path):
+    """Test one model at one quantization level, from download to saved result."""
+
+    # 1. Download the GGUF file for this level and note how big it is
     file = model_file(model, level)
     t0 = time.monotonic()
     path = Path(hf_hub_download(model.repo, file, local_dir=args.models_dir))
     result = {"model": model.name, "key": model.key, "level": level, "file": file, "repo": model.repo,
               "file_gib": round(path.stat().st_size / GIB, 3), "download_s": round(time.monotonic() - t0, 1),
               "ctx": args.ctx, "board": board(), "thermals_before": thermals()}
+
+    # 2. Prepare llama-server for this file; its log goes next to the result file
     log = out_path.with_suffix(".server.log")
     server = LlamaServer(args.llama_server, path, ctx=args.ctx, threads=args.threads, log=log)
     stack.warm_embedder()   # keep the embedding model loaded; Ollama unloads idle models
     server.start()
     answers, timeouts = [], 0
+
+    # 3. Record memory in the background for as long as the model loads and answers
     with Sampler(pid=server.proc.pid) as mem:
+        # 4. Wait for the model to finish loading; this fails if the board runs out of memory
         t0 = time.monotonic()
         loaded = server.wait_ready(args.load_timeout)
         result["load_s"] = round(time.monotonic() - t0, 1)
         result["loaded"] = loaded
         if loaded:
+            # 5. Send the 40 prompts one at a time and score each answer
             for task in tasks:
-                if not server.alive():
+                if not server.alive():           # the server died part-way, usually out of memory
                     break
                 t1 = time.monotonic()
                 try:
@@ -99,22 +117,29 @@ def run_level(model, level, args, tasks, recs, out_path):
                 except Exception as e:   # a timeout or a server that died mid-answer
                     answer, ok, error = "", False, type(e).__name__
                     timeouts += error in ("ReadTimeout", "Timeout")
+                # keep the prompt, the answer and the verdict, so any answer can be shown later
                 answers.append({k: task[k] for k in ("kind", "q", "expect", "rec", "idx") if k in task} |
                                {"answer": answer, "pass": ok, "error": error, "seconds": round(time.monotonic() - t1, 1)})
-                if timeouts >= MAX_TIMEOUTS:
+                if timeouts >= MAX_TIMEOUTS:     # the board is thrashing swap; stop this level
                     break
+
+    # 6. Stop the server and collect the memory peaks the sampler recorded
     result["survived"] = server.alive()
     result["thermals_after"] = thermals()
     server.stop()
     result["memory"] = mem.report()
     result["timeouts"] = timeouts
     result["answers"] = answers
+
+    # 7. Count the passes for each kind of prompt and the overall quality score
     done = len(answers) == len(tasks) and all(a["error"] is None for a in answers)
     for kind in ("rag", "json", "instruction"):
         sub = [a for a in answers if a["kind"] == kind]
         result[f"{kind}_pass"] = sum(a["pass"] for a in sub)
         result[f"{kind}_total"] = sum(t["kind"] == kind for t in tasks)
     result["quality"] = round(sum(a["pass"] for a in answers) / len(tasks), 3) if done else None
+
+    # 8. Decide the fit result from whether it loaded, finished, and how much it swapped
     if not loaded:
         result["fit"] = "fails to load"
     elif not done:
@@ -123,6 +148,8 @@ def run_level(model, level, args, tasks, recs, out_path):
         result["fit"] = "swaps"
     else:
         result["fit"] = "fits"
+
+    # 9. Save the result, delete the model file to free disk space, and print a one-line summary
     out_path.write_text(json.dumps(result, indent=1))
     if not args.keep:
         path.unlink(missing_ok=True)
@@ -132,28 +159,32 @@ def run_level(model, level, args, tasks, recs, out_path):
 
 
 def main():
+    # ── Command-line options; the defaults are what the article's run uses ──
     ap = argparse.ArgumentParser()
     ap.add_argument("--models", nargs="+", default=[m.key for m in MODELS])
     ap.add_argument("--levels", nargs="+", default=LEVELS)
     ap.add_argument("--llama-server", type=Path, default=Path("llama.cpp/build/bin/llama-server"))
     ap.add_argument("--models-dir", type=Path, default=Path("models"))
-    ap.add_argument("--ctx", type=int, default=4096)
-    ap.add_argument("--threads", type=int, default=4)
+    ap.add_argument("--ctx", type=int, default=4096)         # context window in tokens
+    ap.add_argument("--threads", type=int, default=4)        # the Pi 5 has 4 CPU cores
     ap.add_argument("--load-timeout", type=float, default=900)
     ap.add_argument("--keep", action="store_true", help="keep each GGUF file after testing it")
     ap.add_argument("--redo", action="store_true", help="rerun levels that already have results")
     args = ap.parse_args()
 
+    # ── Set up the retrieval stack once, before any model is tested ──
     cache = Path("results/cache")
-    recs = corpus.records()
-    rag_qs = corpus.rag_questions(recs)
+    recs = corpus.records()                    # the 4,000 fictional catalog entries
+    rag_qs = corpus.rag_questions(recs)        # the 20 questions about them
     print(f"Indexing {len(recs)} catalog chunks in VectorAI DB...")
-    stack.build_index(recs, cache)
-    retrieved = stack.retrieve([q["q"] for q in rag_qs], cache)
+    stack.build_index(recs, cache)             # embed the catalog and load it into VectorAI DB
+    retrieved = stack.retrieve([q["q"] for q in rag_qs], cache)   # top 3 entries for each question, once
+    # how many answerable questions got the right entry back (4 of the 20 have no right entry)
     hit = sum(q["rec"] in r["ids"] for q, r in zip(rag_qs, retrieved) if q["rec"] is not None)
     print(f"Retrieval: the right chunk is in the top {stack.TOP_K} for {hit}/16 answerable questions")
     tasks = task_list(recs, retrieved, rag_qs)
 
+    # ── Measure the board with only VectorAI DB and the embedding model running ──
     with Sampler() as idle:
         time.sleep(3)
     versions = {"llama_server": _cmd(str(args.llama_server), "--version"),
@@ -163,6 +194,7 @@ def main():
                                                  "retrieval_top3_hits": f"{hit}/16", **idle.report()}, indent=1))
     print(f"Stack idle: board uses {idle.report()['peak_used_gib']} GiB before any LLM loads")
 
+    # ── Test every model at every level; a level that already has a result file is skipped ──
     for key in args.models:
         model = by_key(key)
         for level in args.levels:

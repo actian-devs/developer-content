@@ -6,6 +6,7 @@ GGUF repos, so every model is quantized by the same tool chain.
 """
 from dataclasses import dataclass
 
+# The six levels tested, from smallest file to largest.
 # Q4_0 is the plain 4-bit format; the K-quants (Q3_K_M to Q6_K) mix precisions across layers.
 LEVELS = ["Q3_K_M", "Q4_0", "Q4_K_M", "Q5_K_M", "Q6_K", "Q8_0"]
 
@@ -19,9 +20,11 @@ class Model:
     template_kwargs: dict | None = None   # extra chat-template arguments sent with every request
 
     def file(self, level: str) -> str:
+        """The file name for one level, e.g. Qwen3-4B-Q4_K_M.gguf."""
         return self.pattern.format(level=level)
 
 
+# The four models under test
 MODELS = [
     Model("phi4-mini", "Phi-4 Mini", "unsloth/Phi-4-mini-instruct-GGUF", "Phi-4-mini-instruct-{level}.gguf"),
     Model("gemma4-e2b", "Gemma 4 E2B", "unsloth/gemma-4-E2B-it-GGUF", "gemma-4-E2B-it-{level}.gguf"),
@@ -40,6 +43,7 @@ def model_file(model: Model, level: str) -> str:
 
 
 def by_key(key: str) -> Model:
+    """Find a model by its short name, as typed after --models."""
     for m in MODELS:
         if m.key == key:
             return m

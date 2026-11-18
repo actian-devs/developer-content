@@ -6,9 +6,10 @@ against the record. The catalog is generated from a fixed seed, so every run bui
 """
 import random
 
-SEED = 7
+SEED = 7           # a fixed seed: the same "random" catalog comes out on every run and every machine
 N_RECORDS = 4000   # stays under VectorAI DB Community Edition's 5,000-vector cap
 
+# The building blocks for product names, e.g. "Halcyon 40 servo bracket"
 ADJ = ["Halcyon", "Brisk", "Cobalt", "Juniper", "Tundra", "Vesper", "Marlow", "Quill", "Saffron", "Orrin",
        "Talon", "Wren", "Corvid", "Ember", "Larkspur", "Nimbus", "Pellet", "Rowan", "Sable", "Thistle"]
 NOUN = ["servo bracket", "gear housing", "sensor mount", "drive coupling", "cable gland", "motor plate",
@@ -17,11 +18,12 @@ PLANT = ["Leeds", "Porto", "Gdansk", "Tampere", "Lyon", "Brno", "Cork", "Graz"]
 
 
 def records() -> list[dict]:
+    """Make the 4,000 catalog entries, each with a unique name and made-up facts."""
     rng = random.Random(SEED)
     seen, out = set(), []
     while len(out) < N_RECORDS:
         name = f"{rng.choice(ADJ)} {rng.randint(10, 99)} {rng.choice(NOUN)}"
-        if name in seen:
+        if name in seen:          # every product name must be unique, or a question would have two answers
             continue
         seen.add(name)
         rec = {
@@ -34,6 +36,7 @@ def records() -> list[dict]:
             "warranty_months": rng.choice([6, 12, 18, 24, 36, 48]),
             "plant": rng.choice(PLANT),
         }
+        # The text that gets embedded, stored in VectorAI DB, and shown to the model
         rec["text"] = (f"The {name} (part {rec['part']}) carries a maximum load of {rec['load_kg']} kg and "
                        f"runs from {rec['temp_min']} to {rec['temp_max']} °C. It ships with a "
                        f"{rec['warranty_months']}-month warranty from the {rec['plant']} plant.")
@@ -44,8 +47,9 @@ def records() -> list[dict]:
 def rag_questions(recs: list[dict]) -> list[dict]:
     """20 questions: 12 single-fact, 4 two-fact, 4 about products that are not in the catalog."""
     rng = random.Random(SEED + 1)
-    picks = rng.sample(recs, 16)
+    picks = rng.sample(recs, 16)   # 16 catalog entries to ask about
     qs = []
+    # "expect" holds the exact values a correct answer must contain
     for r in picks[:4]:
         qs.append({"q": f"What is the maximum load of the {r['name']}?", "rec": r["id"], "expect": [f"{r['load_kg']}"]})
     for r in picks[4:8]:
@@ -53,6 +57,7 @@ def rag_questions(recs: list[dict]) -> list[dict]:
                    "expect": [str(r["warranty_months"])]})
     for r in picks[8:12]:
         qs.append({"q": f"Which plant ships the {r['name']}?", "rec": r["id"], "expect": [r["plant"]]})
+    # two facts in one question: both must be in the answer
     for r in picks[12:16]:
         qs.append({"q": f"What is the part number of the {r['name']}, and what is its highest operating temperature?",
                    "rec": r["id"], "expect": [r["part"], str(r["temp_max"])]})
