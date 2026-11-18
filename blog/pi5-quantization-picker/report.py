@@ -28,6 +28,7 @@ def pct(x):
 
 
 def main():
+    """Turn the result files into the four tables the article uses, and save them with a CSV of every number."""
     rows = load()
     lines = []
 

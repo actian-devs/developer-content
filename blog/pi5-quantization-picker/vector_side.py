@@ -57,6 +57,7 @@ def variant_args(kind: str, n: int, dim: int) -> dict:
 
 
 def main():
+    """Build the catalog under each index type, record its memory and recall, then put the catalog back."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--scalar", action="store_true", help="also test IVF with scalar quantization")
     args = ap.parse_args()

@@ -159,6 +159,7 @@ def run_level(model, level, args, tasks, recs, out_path):
 
 
 def main():
+    """Read the options, set up the retrieval stack once, measure it alone, then test every model and level."""
     # ── Command-line options; the defaults are what the article's run uses ──
     ap = argparse.ArgumentParser()
     ap.add_argument("--models", nargs="+", default=[m.key for m in MODELS])

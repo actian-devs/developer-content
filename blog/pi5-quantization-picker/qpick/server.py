@@ -12,7 +12,10 @@ THINK = re.compile(r"<think>.*?</think>", re.S)   # a model's hidden reasoning b
 
 
 class LlamaServer:
+    """One running copy of llama-server with one model loaded: start it, send it prompts, stop it."""
+
     def __init__(self, binary: Path, model: Path, ctx: int = 4096, threads: int = 4, log: Path | None = None):
+        """Build the command line for one model file; the server is not started until start() is called."""
         # The command line: the model file, a 4,096-token context, 4 CPU threads, and no GPU layers.
         # --jinja makes the server use each model's own chat template.
         self.cmd = [str(binary), "-m", str(model), "-c", str(ctx), "-t", str(threads), "-ngl", "0",

@@ -13,6 +13,7 @@ LEVELS = ["Q3_K_M", "Q4_0", "Q4_K_M", "Q5_K_M", "Q6_K", "Q8_0"]
 
 @dataclass(frozen=True)
 class Model:
+    """One model under test: its names, where its GGUF files live, and any special chat settings."""
     key: str            # short name used in result paths
     name: str           # name used in the article
     repo: str           # Hugging Face repo

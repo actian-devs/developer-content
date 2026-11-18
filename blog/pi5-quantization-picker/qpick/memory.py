@@ -58,6 +58,7 @@ class Sampler:
     """Background thread recording the peak of every counter, every `interval` seconds."""
 
     def __init__(self, pid: int | None = None, containers: list[str] = ("vectorai", "ollama"), interval: float = 0.25):
+        """Set up a sampler for one process (pid) and the named containers; nothing is read until it starts."""
         self.pid, self.interval = pid, interval
         self.cgroups = container_cgroups(list(containers))
         # Only the highest value of each counter is kept: the peak is what decides whether a model fits
@@ -86,10 +87,12 @@ class Sampler:
 
     # "with Sampler(...) as mem:" starts the thread on entry and stops it on exit
     def __enter__(self):
+        """Start sampling when the `with` block begins."""
         self._thread.start()
         return self
 
     def __exit__(self, *exc):
+        """Stop sampling when the `with` block ends, and wait for the last reading."""
         self._stop.set()
         self._thread.join()
 
