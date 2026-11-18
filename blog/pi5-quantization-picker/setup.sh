@@ -32,7 +32,11 @@ if [ ! -x llama.cpp/build/bin/llama-server ]; then
     if [ ! -d llama.cpp ]; then
         git clone --depth 1 --branch "$LLAMA_CPP_TAG" https://github.com/ggml-org/llama.cpp.git
     fi
-    cmake -S llama.cpp -B llama.cpp/build -DGGML_NATIVE=ON -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release
+    # Skip llama.cpp's web chat UI: the test only uses the server's HTTP API, and building the UI
+    # fails on the Pi. Clear any half-built UI left by an earlier failed run first.
+    rm -rf -- llama.cpp/build/tools/ui
+    cmake -S llama.cpp -B llama.cpp/build -DGGML_NATIVE=ON -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release \
+        -DLLAMA_BUILD_UI=OFF -DLLAMA_USE_PREBUILT_UI=OFF
     # build only llama-server, the program that loads a model and answers over HTTP (about 15 to 20 minutes)
     cmake --build llama.cpp/build --config Release -j 4 --target llama-server
 fi
