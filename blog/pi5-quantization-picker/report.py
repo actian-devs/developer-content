@@ -12,6 +12,7 @@ QUALITY_SLACK = 0.05   # a level within 5 points of the model's best score count
 
 
 def load():
+    """Read every result file the test run wrote, one per model and level."""
     rows = {}
     for m in MODELS:
         for level in LEVELS:
@@ -22,12 +23,16 @@ def load():
 
 
 def pct(x):
+    """Show a score like 0.85 as 85%, or n/a for a level that did not finish."""
     return "n/a" if x is None else f"{x:.0%}"
 
 
 def main():
+    """Turn the result files into the four tables the article uses, and save them with a CSV of every number."""
     rows = load()
     lines = []
+
+    # ── Table 1: how the board's RAM was shared before any LLM loaded (the memory-bar figure) ──
     idle_path = Path("results/cache/idle.json")
     if idle_path.exists():
         idle = json.loads(idle_path.read_text())
@@ -42,18 +47,23 @@ def main():
                   f"| Ollama with nomic-embed-text | {oll:.2f} |",
                   f"| Total in use | {idle['peak_used_gib']:.2f} |",
                   f"| Left for the LLM | {idle['board']['ram_gib'] - idle['peak_used_gib']:.2f} |", ""]
+
+    # ── Table 2: what fits, one row per model and level ──
     lines += ["## What fits", "", "| Model | Level | File size (GiB) | Peak RAM used, whole board (GiB) | Swap growth (GiB) | Result |",
              "| --- | --- | --- | --- | --- | --- |"]
     for (key, level), r in rows.items():
         mem = r["memory"]
         lines.append(f"| {r['model']} | {level} | {r['file_gib']:.2f} | {mem['peak_used_gib']:.2f} | "
                      f"{mem['swap_growth_gib']:.2f} | {r['fit']} |")
+
+    # ── Table 3: what holds up, the scores for each kind of prompt ──
     lines += ["", "## What holds up", "", "| Model | Level | RAG (of 20) | JSON (of 10) | Instructions (of 10) | Overall |",
               "| --- | --- | --- | --- | --- | --- |"]
     for (key, level), r in rows.items():
         lines.append(f"| {r['model']} | {level} | {r['rag_pass']} | {r['json_pass']} | {r['instruction_pass']} | "
                      f"{pct(r['quality'])} |")
 
+    # ── Table 4: the picker, one recommended level and one fallback per model ──
     lines += ["", "## Picker (draft, from the rule below)", "",
               f"Pick = the highest level that fits and scores within {QUALITY_SLACK:.0%} of the model's best "
               "fitting score. Fallback = the next fitting level below it.", "",
@@ -67,12 +77,13 @@ def main():
         if not fit:
             lines.append(f"| {m.name} | none fits | | |")
             continue
-        best = max(r["quality"] for _, r in fit)
-        ok = [(lv, r) for lv, r in fit if r["quality"] >= best - QUALITY_SLACK]
-        pick_lv, pick = ok[-1]
-        lower = [lv for lv, _ in fit if LEVELS.index(lv) < LEVELS.index(pick_lv)]
+        best = max(r["quality"] for _, r in fit)                               # the model's best fitting score
+        ok = [(lv, r) for lv, r in fit if r["quality"] >= best - QUALITY_SLACK]  # levels close enough to it
+        pick_lv, pick = ok[-1]                                                  # the highest of those is the pick
+        lower = [lv for lv, _ in fit if LEVELS.index(lv) < LEVELS.index(pick_lv)]   # fitting levels below the pick
         lines.append(f"| {m.name} | {pick_lv} | {lower[-1] if lower else 'none'} | {pct(pick['quality'])} |")
 
+    # ── Save the tables as Markdown, and every number as a CSV spreadsheet ──
     text = "\n".join(lines)
     print(text)
     Path("results/tables.md").write_text(text + "\n")

@@ -28,6 +28,7 @@ COL = "vq_test"
 
 
 def restart_vectorai():
+    """Restart the VectorAI DB container and wait until it answers again."""
     subprocess.run(["docker", "restart", "vectorai"], check=True, capture_output=True)
     deadline = time.monotonic() + 120
     while time.monotonic() < deadline:
@@ -41,33 +42,38 @@ def restart_vectorai():
 
 
 def variant_args(kind: str, n: int, dim: int) -> dict:
-    if kind == "hnsw":
+    """The collection settings for each index type being compared."""
+    if kind == "hnsw":                     # the default graph index, no extra settings
         return {}
-    ivf = IvfConfigDiff.for_collection_size(n)
-    if kind == "ivf_flat":
+    ivf = IvfConfigDiff.for_collection_size(n)   # IVF cluster count sized to the collection
+    if kind == "ivf_flat":                 # IVF clusters, vectors stored in full
         return {"index_type": IndexType.INDEX_TYPE_IVF_FLAT, "ivf_config": ivf}
     if kind == "ivf_pq":   # 96 subvectors x 8 bits = 96 bytes per vector, against 3,072 bytes of float32
         return {"index_type": IndexType.INDEX_TYPE_IVF_PQ, "ivf_config": ivf,
                 "extra_params_json": json.dumps({"pq_m": dim // 8, "pq_bits": 8})}
-    if kind == "ivf_sq":
+    if kind == "ivf_sq":                   # IVF clusters with scalar quantization
         return {"index_type": IndexType.INDEX_TYPE_IVF_SQ, "ivf_config": ivf}
     raise ValueError(kind)
 
 
 def main():
+    """Build the catalog under each index type, record its memory and recall, then put the catalog back."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--scalar", action="store_true", help="also test IVF with scalar quantization")
     args = ap.parse_args()
 
+    # ── Load the catalog vectors run.py saved, and embed the 16 answerable RAG questions ──
     cache = Path("results/cache")
     recs = corpus.records()
     vectors = np.load(cache / f"catalog-{stack.EMBED_MODEL}-{len(recs)}.npy")
     rag_qs = [q for q in corpus.rag_questions(recs) if q["rec"] is not None]
     qv = stack.embed([q["q"] for q in rag_qs], "search_query")
+    # ── The exact answer to compare against: the true 10 nearest neighbors of 200 sample vectors ──
     rng = np.random.default_rng(0)
     probe = vectors[rng.choice(len(vectors), 200, replace=False)]
     exact = np.argsort(-(probe @ vectors.T), axis=1)[:, :10]
 
+    # ── Build the catalog under each index type in turn and measure it ──
     kinds = ["hnsw", "ivf_flat", "ivf_pq"] + (["ivf_sq"] if args.scalar else [])
     out = []
     for kind in kinds:
