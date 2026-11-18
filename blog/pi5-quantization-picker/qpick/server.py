@@ -17,8 +17,10 @@ class LlamaServer:
     def __init__(self, binary: Path, model: Path, ctx: int = 4096, threads: int = 4, log: Path | None = None):
         """Build the command line for one model file; the server is not started until start() is called."""
         # The command line: the model file, a 4,096-token context, 4 CPU threads, and no GPU layers.
+        # -np 1 gives the server one request slot. Left on auto, it opens 4 slots and reserves memory
+        # for 4 x 4,096 tokens of context, which more than doubles a small model's footprint.
         # --jinja makes the server use each model's own chat template.
-        self.cmd = [str(binary), "-m", str(model), "-c", str(ctx), "-t", str(threads), "-ngl", "0",
+        self.cmd = [str(binary), "-m", str(model), "-c", str(ctx), "-np", "1", "-t", str(threads), "-ngl", "0",
                     "--host", "127.0.0.1", "--port", str(PORT), "--jinja"]
         self.log = log
         self.proc = None
