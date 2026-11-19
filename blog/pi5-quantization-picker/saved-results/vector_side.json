@@ -1,0 +1,29 @@
+[
+ {
+  "index": "hnsw",
+  "vectors": 4000,
+  "index_memory_mib": 0.0,
+  "storage_mib": 0.0,
+  "container_growth_mib": 86.2,
+  "recall_at_10": 1.0,
+  "rag_top3_hits": "16/16"
+ },
+ {
+  "index": "ivf_flat",
+  "vectors": 4000,
+  "index_memory_mib": 0.0,
+  "storage_mib": 0.0,
+  "container_growth_mib": 83.7,
+  "recall_at_10": 0.988,
+  "rag_top3_hits": "14/16"
+ },
+ {
+  "index": "ivf_pq",
+  "vectors": 4000,
+  "index_memory_mib": 0.0,
+  "storage_mib": 0.0,
+  "container_growth_mib": 67.4,
+  "recall_at_10": 0.835,
+  "rag_top3_hits": "13/16"
+ }
+]

@@ -1,0 +1,426 @@
+{
+ "model": "Phi-4 Mini",
+ "key": "phi4-mini",
+ "level": "Q8_0",
+ "file": "Phi-4-mini-instruct.Q8_0.gguf",
+ "repo": "unsloth/Phi-4-mini-instruct-GGUF",
+ "file_gib": 3.804,
+ "download_s": 444.5,
+ "ctx": 4096,
+ "board": {
+  "board": "Raspberry Pi 5 Model B Rev 1.1",
+  "ram_gib": 7.87,
+  "swap_total_gib": 2.0,
+  "swap_devices": "/dev/zram0 partition 2G 773.8M 100",
+  "os": "Debian GNU/Linux 13 (trixie)",
+  "kernel": "6.18.50+rpt-rpi-2712",
+  "root_device": "/dev/mmcblk0p2",
+  "repo_device": "/dev/mmcblk0p2"
+ },
+ "thermals_before": {
+  "temp": "51.6'C",
+  "throttled": "throttled=0xf0000"
+ },
+ "load_s": 28.6,
+ "loaded": true,
+ "survived": true,
+ "thermals_after": {
+  "temp": "71.4'C",
+  "throttled": "throttled=0xf0000"
+ },
+ "memory": {
+  "peak_used_gib": 6.681,
+  "peak_swap_used_gib": 1.457,
+  "peak_llm_rss_gib": 6.014,
+  "peak_vectorai_gib": 0.079,
+  "peak_ollama_gib": 0.255,
+  "swap_growth_gib": 0.71
+ },
+ "timeouts": 0,
+ "answers": [
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Cobalt 41 clamp collar?",
+   "expect": [
+    "29.4"
+   ],
+   "answer": "The maximum load of the Cobalt 41 clamp collar is 29.4 kg.",
+   "pass": true,
+   "error": null,
+   "seconds": 22.7
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Halcyon 36 servo bracket?",
+   "expect": [
+    "16.0"
+   ],
+   "answer": "The Halcyon 36 servo bracket carries a maximum load of 16.0 kg.",
+   "pass": true,
+   "error": null,
+   "seconds": 20.1
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Quill 32 relay board?",
+   "expect": [
+    "9.2"
+   ],
+   "answer": "The Quill 32 relay board carries a maximum load of 9.2 kg.",
+   "pass": true,
+   "error": null,
+   "seconds": 19.1
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Ember 78 bearing block?",
+   "expect": [
+    "35.4"
+   ],
+   "answer": "The maximum load of the Ember 78 bearing block is 35.4 kg.",
+   "pass": true,
+   "error": null,
+   "seconds": 18.4
+  },
+  {
+   "kind": "rag",
+   "q": "How long is the warranty on the Tundra 73 hinge arm?",
+   "expect": [
+    "18"
+   ],
+   "answer": "The Tundra 73 hinge arm ships with an 18-month warranty.",
+   "pass": true,
+   "error": null,
+   "seconds": 18.9
+  },
+  {
+   "kind": "rag",
+   "q": "How long is the warranty on the Nimbus 80 clamp collar?",
+   "expect": [
+    "6"
+   ],
+   "answer": "The Nimbus 80 clamp collar ships with a 6-month warranty.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.3
+  },
+  {
+   "kind": "rag",
+   "q": "How long is the warranty on the Saffron 22 fan shroud?",
+   "expect": [
+    "18"
+   ],
+   "answer": "The Saffron 22 fan shroud ships with an 18-month warranty.",
+   "pass": true,
+   "error": null,
+   "seconds": 19.3
+  },
+  {
+   "kind": "rag",
+   "q": "How long is the warranty on the Wren 45 relay board?",
+   "expect": [
+    "36"
+   ],
+   "answer": "The Wren 45 relay board ships with a 36-month warranty.",
+   "pass": true,
+   "error": null,
+   "seconds": 18.5
+  },
+  {
+   "kind": "rag",
+   "q": "Which plant ships the Orrin 29 cable gland?",
+   "expect": [
+    "Porto"
+   ],
+   "answer": "The Orrin 29 cable gland ships from the Porto plant.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.2
+  },
+  {
+   "kind": "rag",
+   "q": "Which plant ships the Orrin 20 hinge arm?",
+   "expect": [
+    "Porto"
+   ],
+   "answer": "The Orrin 20 hinge arm ships from the Porto plant.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.0
+  },
+  {
+   "kind": "rag",
+   "q": "Which plant ships the Thistle 90 fan shroud?",
+   "expect": [
+    "Brno"
+   ],
+   "answer": "The Thistle 90 fan shroud ships from the Brno plant.",
+   "pass": true,
+   "error": null,
+   "seconds": 18.3
+  },
+  {
+   "kind": "rag",
+   "q": "Which plant ships the Brisk 32 gear housing?",
+   "expect": [
+    "Tampere"
+   ],
+   "answer": "The Tampere plant ships the Brisk 32 gear housing.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.5
+  },
+  {
+   "kind": "rag",
+   "q": "What is the part number of the Quill 95 bearing block, and what is its highest operating temperature?",
+   "expect": [
+    "NR-5G4-183",
+    "70"
+   ],
+   "answer": "The part number of the Quill 95 bearing block is NR-5G4-183, and its highest operating temperature is 70 \u00b0C.",
+   "pass": true,
+   "error": null,
+   "seconds": 24.7
+  },
+  {
+   "kind": "rag",
+   "q": "What is the part number of the Thistle 73 relay board, and what is its highest operating temperature?",
+   "expect": [
+    "NR-9J4-367",
+    "70"
+   ],
+   "answer": "The part number of the Thistle 73 relay board is NR-9J4-367, and its highest operating temperature is 70 \u00b0C.",
+   "pass": true,
+   "error": null,
+   "seconds": 24.1
+  },
+  {
+   "kind": "rag",
+   "q": "What is the part number of the Brisk 89 sensor mount, and what is its highest operating temperature?",
+   "expect": [
+    "NR-6K5-905",
+    "85"
+   ],
+   "answer": "The part number of the Brisk 89 sensor mount is NR-6K5-905, and its highest operating temperature is 85 \u00b0C.",
+   "pass": true,
+   "error": null,
+   "seconds": 24.2
+  },
+  {
+   "kind": "rag",
+   "q": "What is the part number of the Pellet 24 gear housing, and what is its highest operating temperature?",
+   "expect": [
+    "NR-3A8-229",
+    "60"
+   ],
+   "answer": "The part number of the Pellet 24 gear housing is NR-3A8-229, and its highest operating temperature is 60 \u00b0C.",
+   "pass": true,
+   "error": null,
+   "seconds": 24.3
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Halcyon 68 fan shroud?",
+   "expect": null,
+   "answer": "The Halcyon 68 fan shroud is not in the catalog.",
+   "pass": true,
+   "error": null,
+   "seconds": 19.1
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Larkspur 59 fan shroud?",
+   "expect": null,
+   "answer": "The Larkspur 59 fan shroud is not in the catalog.",
+   "pass": true,
+   "error": null,
+   "seconds": 18.7
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Sable 34 bearing block?",
+   "expect": null,
+   "answer": "The Sable 34 bearing block is not in the catalog.",
+   "pass": true,
+   "error": null,
+   "seconds": 16.9
+  },
+  {
+   "kind": "rag",
+   "q": "What is the maximum load of the Halcyon 99 cable gland?",
+   "expect": null,
+   "answer": "The Halcyon 99 cable gland is not in the catalog.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.9
+  },
+  {
+   "kind": "json",
+   "rec": 1896,
+   "answer": "```json\n{\n  \"name\": \"Halcyon 70 gear housing (part NR-7B2-500)\",\n  \"part_number\": \"NR-7B2-500\",\n  \"max_load_kg\": 1.7,\n  \"warranty_months\": 48,\n  \"plant\": \"Leeds\"\n}\n```",
+   "pass": false,
+   "error": null,
+   "seconds": 34.2
+  },
+  {
+   "kind": "json",
+   "rec": 2511,
+   "answer": "```json\n{\n  \"name\": \"Quill 52 sensor mount\",\n  \"part_number\": \"NR-6D7-750\",\n  \"max_load_kg\": 59.7,\n  \"warranty_months\": 36,\n  \"plant\": \"Brno\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 26.5
+  },
+  {
+   "kind": "json",
+   "rec": 1529,
+   "answer": "```json\n{\n  \"name\": \"Sable 80 motor plate (part NR-9K2-561)\",\n  \"part_number\": \"NR-9K2-561\",\n  \"max_load_kg\": 51.2,\n  \"warranty_months\": 36,\n  \"plant\": \"Porto\"\n}\n```",
+   "pass": false,
+   "error": null,
+   "seconds": 29.6
+  },
+  {
+   "kind": "json",
+   "rec": 1094,
+   "answer": "```json\n{\n  \"name\": \"Sable 11 relay board (part NR-4G9-557)\",\n  \"part_number\": \"NR-4G9-557\",\n  \"max_load_kg\": 16.9,\n  \"warranty_months\": 18,\n  \"plant\": \"Tampere\"\n}\n```",
+   "pass": false,
+   "error": null,
+   "seconds": 30.2
+  },
+  {
+   "kind": "json",
+   "rec": 567,
+   "answer": "```json\n{\n  \"name\": \"Saffron 18 sensor mount\",\n  \"part_number\": \"NR-9A1-733\",\n  \"max_load_kg\": 53.5,\n  \"warranty_months\": 48,\n  \"plant\": \"Graz\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 26.8
+  },
+  {
+   "kind": "json",
+   "rec": 762,
+   "answer": "```json\n{\n  \"name\": \"Vesper 82 bearing block\",\n  \"part_number\": \"NR-8D7-900\",\n  \"max_load_kg\": 28.4,\n  \"warranty_months\": 24,\n  \"plant\": \"Cork\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 26.3
+  },
+  {
+   "kind": "json",
+   "rec": 3549,
+   "answer": "```json\n{\n  \"name\": \"Corvid 96 bearing block\",\n  \"part_number\": \"NR-3C8-706\",\n  \"max_load_kg\": 44.4,\n  \"warranty_months\": 12,\n  \"plant\": \"Lyon\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 26.3
+  },
+  {
+   "kind": "json",
+   "rec": 2771,
+   "answer": "```json\n{\n  \"name\": \"Nimbus 90 pulley hub\",\n  \"part_number\": \"NR-2G1-257\",\n  \"max_load_kg\": 15.7,\n  \"warranty_months\": 6,\n  \"plant\": \"Brno\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 25.9
+  },
+  {
+   "kind": "json",
+   "rec": 26,
+   "answer": "```json\n{\n  \"name\": \"Larkspur 94 hinge arm\",\n  \"part_number\": \"NR-9G9-233\",\n  \"max_load_kg\": 32.1,\n  \"warranty_months\": 6,\n  \"plant\": \"Graz\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 26.9
+  },
+  {
+   "kind": "json",
+   "rec": 1385,
+   "answer": "```json\n{\n  \"name\": \"Halcyon 32 fan shroud\",\n  \"part_number\": \"NR-8G9-734\",\n  \"max_load_kg\": 15.1,\n  \"warranty_months\": 24,\n  \"plant\": \"Graz\"\n}\n```",
+   "pass": true,
+   "error": null,
+   "seconds": 27.2
+  },
+  {
+   "kind": "instruction",
+   "idx": 0,
+   "answer": "- Reduces the risk of overheating and potential hardware damage.\n- Improves the overall performance and stability of the Raspberry Pi 5.\n- Extends the lifespan of the device by maintaining optimal operating temperatures.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.2
+  },
+  {
+   "kind": "instruction",
+   "idx": 1,
+   "answer": "A vector database stores high-dimensional data points for similarity searches and machine learning applications.",
+   "pass": true,
+   "error": null,
+   "seconds": 7.3
+  },
+  {
+   "kind": "instruction",
+   "idx": 2,
+   "answer": "small language models run on edge devices to reduce latency, save bandwidth, and enhance privacy by processing data locally instead of sending it to the cloud. this approach also helps in situations where internet connectivity is limited or unreliable.",
+   "pass": true,
+   "error": null,
+   "seconds": 17.3
+  },
+  {
+   "kind": "instruction",
+   "idx": 3,
+   "answer": "Yes",
+   "pass": true,
+   "error": null,
+   "seconds": 2.3
+  },
+  {
+   "kind": "instruction",
+   "idx": 4,
+   "answer": "NVMe storage offers rapid data access and high throughput.",
+   "pass": false,
+   "error": null,
+   "seconds": 5.7
+  },
+  {
+   "kind": "instruction",
+   "idx": 5,
+   "answer": "391",
+   "pass": true,
+   "error": null,
+   "seconds": 2.3
+  },
+  {
+   "kind": "instruction",
+   "idx": 6,
+   "answer": "Red, Orange, Yellow",
+   "pass": false,
+   "error": null,
+   "seconds": 3.5
+  },
+  {
+   "kind": "instruction",
+   "idx": 7,
+   "answer": "Which Raspberry Pi model do you own?",
+   "pass": true,
+   "error": null,
+   "seconds": 4.9
+  },
+  {
+   "kind": "instruction",
+   "idx": 8,
+   "answer": "NR-7F2-418",
+   "pass": true,
+   "error": null,
+   "seconds": 4.5
+  },
+  {
+   "kind": "instruction",
+   "idx": 9,
+   "answer": "RETIAVELR",
+   "pass": false,
+   "error": null,
+   "seconds": 3.2
+  }
+ ],
+ "rag_pass": 20,
+ "rag_total": 20,
+ "json_pass": 7,
+ "json_total": 10,
+ "instruction_pass": 7,
+ "instruction_total": 10,
+ "quality": 0.85,
+ "fit": "swaps"
+}

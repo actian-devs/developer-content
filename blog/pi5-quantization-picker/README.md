@@ -1,39 +1,72 @@
 # Which Quantization Level Fits a Raspberry Pi 5?
 
-Test harness for *Best Quantization for Phi-4, Gemma 4, and Qwen3 on a Pi 5*. It measures, on one Raspberry Pi 5, which GGUF quantization level of each model fits in memory next to a running retrieval stack, and how well each level answers a fixed set of prompts.
+This repo measures which GGUF quantization level of four small language models fits on a Raspberry Pi 5 with 8 GB of RAM, while a retrieval stack (VectorAI DB and an embedding model) runs on the same board, and how well each level answers a fixed set of prompts. It is the test harness behind the article *Best Quantization for Phi-4, Gemma 4, and Qwen3 on a Pi 5*, and `saved-results/` holds the run the article reports.
 
-- **Models:** Phi-4 Mini (3.8B), Gemma 4 E2B, Gemma 4 E4B and Qwen3-4B (thinking off), from Unsloth's GGUF repos on Hugging Face (Phi-4 Mini at Q4_0, which Unsloth doesn't publish, comes from bartowski's repo)
-- **Levels:** Q3_K_M, Q4_0, Q4_K_M, Q5_K_M, Q6_K, Q8_0
-- **Runtime:** llama.cpp `llama-server`, built on the Pi, CPU only, 4 threads, 4,096-token context
-- **Retrieval stack, running during every test:** VectorAI DB 1.0.3 holding a 4,000-chunk catalog in an HNSW index, and Ollama serving `nomic-embed-text`
+## The short answer
 
-## What it measures
+On an 8 GB Pi 5 with VectorAI DB and `nomic-embed-text` running:
 
-For each model and level, `run.py`:
+| Model | Pick | Fallback | Why |
+| --- | --- | --- | --- |
+| Phi-4 Mini | Q6_K | Q5_K_M | Q8_0 pushes the board into swap; Q6_K fits, at the edge of the limit |
+| Gemma 4 E2B | Q8_0 | Q6_K | every level fits with almost no swap; Q8_0 scored 39 of 40 |
+| Gemma 4 E4B | Q5_K_M | Q4_K_M | Q6_K and Q8_0 push the board more than 1.5 GiB into swap without scoring higher |
+| Qwen3-4B | Q6_K | Q5_K_M | Q8_0 pushes the board 1.7 GiB into swap and scores the same |
 
-1. downloads the GGUF file,
-2. starts `llama-server` with the embedding model and VectorAI DB already loaded,
-3. samples memory every 0.25 seconds while the model loads and answers: whole-board RAM in use (MemTotal minus MemAvailable), swap growth, the `llama-server` process, and each container,
-4. runs 40 prompts and scores each answer with an automatic check,
-5. stops the server and deletes the file (keep it with `--keep`).
+Three findings from the run:
 
-A level **fits** when it loads, answers all 40 prompts, and grows swap by no more than 0.25 GiB. It is **swaps** when it finishes but pushes the board into swap, **swap-bound** when prompts time out (180 seconds each, three strikes), and **fails to load** when the process dies or never becomes ready.
+- **File size doesn't predict fit.** A 3.8 GiB Phi-4 Mini Q8_0 file pushed the board into swap, while a 5.1 GiB Gemma 4 E4B Q5_K_M file fit.
+- **Quality barely changes with the level.** Every level of every model answered all 20 retrieval questions correctly, and overall scores stayed between 34 and 39 of 40.
+- **The retrieval stack is small.** Before any model loads, VectorAI DB uses 0.15 GiB and the embedding model 0.26 GiB, leaving 6.57 GiB for the LLM.
+
+The full tables are in [`saved-results/tables.md`](saved-results/tables.md).
+
+## What the harness does
+
+For each of 24 combinations (4 models x 6 levels), `run.py`:
+
+1. downloads the GGUF file from Hugging Face,
+2. starts llama.cpp's `llama-server` with VectorAI DB and the embedding model already loaded,
+3. samples memory every 0.25 seconds while the model loads and answers: whole-board RAM in use, swap, the `llama-server` process, and each Docker container,
+4. sends 40 prompts and scores every answer with an automatic check,
+5. saves the result and deletes the model file, so only one file is on disk at a time.
+
+**Models:** Phi-4 Mini (3.8B), Gemma 4 E2B, Gemma 4 E4B and Qwen3-4B, from Unsloth's GGUF repositories. Unsloth doesn't publish Phi-4 Mini at Q4_0, so that one file comes from bartowski's repository.
+
+**Levels:** Q3_K_M, Q4_0, Q4_K_M, Q5_K_M, Q6_K and Q8_0.
+
+**Server settings, the same for every level:** llama.cpp v0.9.0 built on the Pi, CPU only, 4 threads, one request slot, a 4,096-token context, and thinking mode off.
+
+### When a level fits
+
+| Result | Meaning |
+| --- | --- |
+| fits | loads, answers all 40 prompts, and grows swap by no more than 0.25 GiB |
+| swaps | answers all 40 prompts but grows swap by more than 0.25 GiB |
+| swap-bound | answers time out (180 seconds each, three strikes) |
+| fails to load | the server dies or never becomes ready |
+
+Peak RAM is MemTotal minus MemAvailable, the memory Linux could not give back. llama.cpp maps the model file into memory, and file pages Linux can reload count as available, so a model can peak below its own file size.
 
 ### The prompt set
 
-The answers are checked by code, not by a judge model, so a score is reproducible.
+Answers are checked by code, not by a judge model, so every score can be reproduced.
 
 | Kind | Prompts | Check |
 | --- | --- | --- |
-| RAG | 20 | Answer from the top 3 chunks VectorAI DB returns. 12 single-fact questions, 4 two-fact questions, 4 about products not in the catalog (the right answer says so). The answer must contain the record's exact values. |
-| JSON | 10 | Extract a catalog entry into JSON with five named keys and types. Must parse, have exactly those keys, and match the record. |
-| Instructions | 10 | Short, checkable instructions: exactly three bullets, at most 15 words, lowercase only, a reversed word in capitals, and so on. |
+| RAG | 20 | VectorAI DB returns the top 3 entries from a 4,000-entry parts catalog. 16 questions have an answer in the catalog and must contain its exact values. 4 ask about products that aren't there, and the answer must say so. |
+| JSON | 10 | Extract a catalog entry into JSON with five named keys. It must parse, have exactly those keys and types, and match the entry. |
+| Instructions | 10 | Short, checkable instructions, such as exactly three bullet points, at most 15 words, or lowercase only. |
 
-The catalog is fictional and generated from a fixed seed (`qpick/corpus.py`), so no model can answer from memory, and every run builds the same one. Retrieval runs once and is cached, so every model and level answers from exactly the same chunks.
+The catalog is fictional and generated from a fixed seed, so no model can answer from what it learned in training and every run builds the same one. Retrieval runs once, so every model and level answers from the same retrieved entries.
 
-## Run it on the Pi
+### The vector side
 
-Use a Pi 5 with active cooling, and run from the NVMe drive: the files are 2 to 8 GB each, and the run downloads about 90 GB in total (one file at a time, deleted after each test).
+`vector_side.py` builds the same catalog as an HNSW index, an IVF index, and an IVF index with product quantization, and records how much memory each adds to the VectorAI DB container and its recall against an exact search. `--scalar` adds IVF with scalar quantization.
+
+## Run it on a Pi 5
+
+You need a Raspberry Pi 5 (8 GB) with active cooling, Raspberry Pi OS 64-bit, and about 15 GB of free disk. No API keys or accounts.
 
 ```bash
 git clone https://github.com/actian-devs/developer-content.git
@@ -42,18 +75,18 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-`setup.sh` installs Docker and uv, builds llama.cpp (tag `v0.9.0`) for the Pi's Cortex-A76 cores, starts VectorAI DB and Ollama, and pulls `nomic-embed-text`. If it installs Docker, log out and back in, then run it again.
+`setup.sh` installs Docker and uv, builds llama.cpp v0.9.0 for the Pi's Cortex-A76 cores (about 15 to 20 minutes), starts VectorAI DB 1.0.3 and Ollama, and pulls `nomic-embed-text`. If it installs Docker, log out and back in and run it again. If your shell doesn't find `uv` afterwards, run `source $HOME/.local/bin/env`.
 
-Then run the whole matrix (several hours; it resumes where it stopped if interrupted):
+Try one level first (about 15 minutes):
+
+```bash
+uv run run.py --models qwen3-4b --levels Q4_K_M
+```
+
+Then the full run, which takes several hours. Run it inside `tmux` so it survives a dropped connection; if it stops, run the same command again and it continues where it left off:
 
 ```bash
 uv run run.py
-```
-
-One model or a few levels at a time:
-
-```bash
-uv run run.py --models gemma4-e4b --levels Q4_K_M Q5_K_M
 ```
 
 Then the vector-side test and the tables:
@@ -63,19 +96,43 @@ uv run vector_side.py
 uv run report.py
 ```
 
-`vector_side.py` builds the same catalog under HNSW, IVF, and IVF with product quantization, and reports VectorAI DB's index memory and the recall cost. Add `--scalar` to include IVF with scalar quantization.
+Options: `--models` and `--levels` pick a subset, `--redo` reruns levels that already have results, and `--keep` keeps each model file after its test.
+
+## Files
+
+| Path | What it does |
+| --- | --- |
+| `setup.sh` | Prepares a fresh Pi: Docker, uv, llama.cpp, VectorAI DB, Ollama, the embedding model |
+| `docker-compose.yml` | VectorAI DB 1.0.3 and Ollama 0.40.15, without memory caps so the readings are real |
+| `run.py` | The main test: every model at every level, from download to saved result |
+| `vector_side.py` | Index memory and recall for HNSW, IVF and IVF with product quantization |
+| `report.py` | Builds the fit, quality and picker tables from the result files |
+| `qpick/models.py` | The models, levels and Hugging Face file for each |
+| `qpick/corpus.py` | The fictional catalog and the 20 RAG questions |
+| `qpick/prompts.py` | The 40 prompts and the check for each |
+| `qpick/stack.py` | Embeds the catalog with Ollama, loads it into VectorAI DB, retrieves for each question |
+| `qpick/server.py` | Starts `llama-server` for one file, sends prompts, stops it |
+| `qpick/memory.py` | The background sampler that records peak memory |
+| `saved-results/` | The run behind the article (see below) |
 
 ## Output
 
-- `results/<model>/<level>.json`: memory peaks, fit result, every prompt with its answer and pass or fail
-- `results/<model>/<level>.server.log`: the `llama-server` log for that level
-- `results/cache/idle.json`: board memory with only the retrieval stack running, plus the board, OS, swap setup, storage, and llama.cpp, VectorAI DB and Ollama versions
-- each level's JSON also records the Pi's temperature and throttle flags before and after the test
-- `results/vector_side.json`: index memory and recall for each VectorAI DB index type
-- `results/tables.md` and `results/summary.csv`: the fit, quality and picker tables
+A run writes to `results/`:
+
+- `results/<model>/<level>.json`: the board, file size, memory peaks, fit result, Pi temperature before and after, and every prompt with its answer and pass or fail
+- `results/cache/idle.json`: memory with only the retrieval stack running, the board, the swap setup, and the VectorAI DB and Ollama versions
+- `results/vector_side.json`: the vector-side results
+- `results/tables.md` and `results/summary.csv`: the tables, from `report.py`
+
+## Saved results
+
+`saved-results/` holds the run the article reports, in the same format: every per-level result with all 40 answers, the idle stack reading, the retrieved entries, the vector-side results, and the tables. Compare your own run with it. It sits outside `results/` so your run never mixes with it.
+
+That run used a Raspberry Pi 5 Model B with 8 GB of RAM, booting and storing everything on a microSD card, with 2 GiB of zram swap, the official Active Cooler and 27 W power supply, on Raspberry Pi OS (Debian 13, kernel 6.18).
 
 ## Notes
 
-- **Community Edition limit.** VectorAI DB Community Edition caps the server at 5,000 vectors, which is why the catalog has 4,000 chunks. That is a licence limit, not a limit of the board.
-- **Swap.** The fit result depends on the board's swap setup; `results/cache/idle.json` records the swap size the run saw.
-- **Speed.** The results record how long each answer took so that swap-bound levels show up, but the harness is not a speed benchmark.
+- **Community Edition limit.** VectorAI DB Community Edition caps a server at 5,000 vectors, which is why the catalog has 4,000 entries. That is a licence limit, not a limit of the board.
+- **Swap.** Fit results depend on the board's swap setup; `idle.json` records the one each run saw.
+- **One run.** With 40 prompts, one answer is 2.5 points, so a gap of one or two answers between levels is within what a single run can show.
+- **Not a speed benchmark.** Each answer's time is recorded only so that swap-bound levels show up.
