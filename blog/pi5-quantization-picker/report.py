@@ -8,7 +8,8 @@ from pathlib import Path
 
 from qpick.models import LEVELS, MODELS
 
-QUALITY_SLACK = 0.05   # a level within 5 points of the model's best score counts as holding up
+SWAP_LIMIT_GIB = 0.25  # the fit limit run.py uses
+HEADROOM_GIB = 0.10    # a pick must stay this far under the limit, so one more process doesn't tip it into swap
 
 
 def load():
@@ -64,24 +65,28 @@ def main():
                      f"{pct(r['quality'])} |")
 
     # ── Table 4: the picker, one recommended level and one fallback per model ──
-    lines += ["", "## Picker (draft, from the rule below)", "",
-              f"Pick = the highest level that fits and scores within {QUALITY_SLACK:.0%} of the model's best "
-              "fitting score. Fallback = the next fitting level below it.", "",
+    lines += ["", "## Picker", "",
+              f"Pick = the highest level that matches the model's best score and grows swap by no more than "
+              f"{SWAP_LIMIT_GIB - HEADROOM_GIB:.2f} GiB ({HEADROOM_GIB:.2f} GiB under the fit limit). "
+              "Fallback = the next level down that does the same, or failing that the next level down with that headroom.", "",
               "| Model | Pick | Fallback | Score at pick |", "| --- | --- | --- | --- |"]
     for m in MODELS:
-        fit = [(lv, rows[(m.key, lv)]) for lv in LEVELS
-               if (m.key, lv) in rows and rows[(m.key, lv)]["fit"] == "fits" and rows[(m.key, lv)]["quality"] is not None]
         if not any(k == m.key for k, _ in rows):
             lines.append(f"| {m.name} | not run yet | | |")
             continue
-        if not fit:
-            lines.append(f"| {m.name} | none fits | | |")
+        # levels that fit with headroom to spare, smallest file first
+        roomy = [(lv, rows[(m.key, lv)]) for lv in LEVELS
+                 if (m.key, lv) in rows and rows[(m.key, lv)]["fit"] == "fits"
+                 and rows[(m.key, lv)]["quality"] is not None
+                 and rows[(m.key, lv)]["memory"]["swap_growth_gib"] <= SWAP_LIMIT_GIB - HEADROOM_GIB]
+        if not roomy:
+            lines.append(f"| {m.name} | none fits with headroom | | |")
             continue
-        best = max(r["quality"] for _, r in fit)                               # the model's best fitting score
-        ok = [(lv, r) for lv, r in fit if r["quality"] >= best - QUALITY_SLACK]  # levels close enough to it
-        pick_lv, pick = ok[-1]                                                  # the highest of those is the pick
-        lower = [lv for lv, _ in fit if LEVELS.index(lv) < LEVELS.index(pick_lv)]   # fitting levels below the pick
-        lines.append(f"| {m.name} | {pick_lv} | {lower[-1] if lower else 'none'} | {pct(pick['quality'])} |")
+        best = max(r["quality"] for _, r in roomy)                   # the model's best score among those levels
+        top = [lv for lv, r in roomy if r["quality"] == best]        # every level that reaches it
+        pick_lv = top[-1]                                            # the highest of those is the pick
+        below = [lv for lv in top[:-1]] or [lv for lv, _ in roomy if LEVELS.index(lv) < LEVELS.index(pick_lv)]
+        lines.append(f"| {m.name} | {pick_lv} | {below[-1] if below else 'none'} | {pct(best)} |")
 
     # ── Save the tables as Markdown, and every number as a CSV spreadsheet ──
     text = "\n".join(lines)

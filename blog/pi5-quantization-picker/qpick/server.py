@@ -16,13 +16,13 @@ class LlamaServer:
 
     def __init__(self, binary: Path, model: Path, ctx: int = 4096, threads: int = 4, log: Path | None = None):
         """Build the command line for one model file; the server is not started until start() is called."""
-        # The command line: the model file, a 4,096-token context, 4 CPU threads, and no GPU layers.
-        # -np 1 gives the server one request slot. Left on auto, it opens 4 slots and reserves memory
-        # for 4 x 4,096 tokens of context, which more than doubles a small model's footprint.
-        # --jinja makes the server use each model's own chat template.
-        # --reasoning off turns thinking mode off for every model. Left on auto, the server switches thinking
-        # on for any model whose template supports it (Gemma 4 does), and the model spends its whole answer
-        # budget thinking, so the reply comes back empty.
+        # The command line, the same for every model and level:
+        #   -c 4096          a 4,096-token context window
+        #   -np 1            one request slot, so the server reserves memory for a single context;
+        #                    the test sends one prompt at a time, like one person chatting
+        #   -t 4, -ngl 0     4 CPU threads, no GPU layers (the Pi 5 runs on its CPU)
+        #   --jinja          use each model's own chat template
+        #   --reasoning off  thinking mode off for every model, so each one answers directly
         self.cmd = [str(binary), "-m", str(model), "-c", str(ctx), "-np", "1", "-t", str(threads), "-ngl", "0",
                     "--host", "127.0.0.1", "--port", str(PORT), "--jinja", "--reasoning", "off"]
         self.log = log

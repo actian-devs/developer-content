@@ -1,7 +1,7 @@
 #!/bin/bash
 # setup.sh: a fresh Raspberry Pi 5 to a ready test bench
-# OS: Raspberry Pi OS 64-bit (Debian 13 trixie). Run from the repo folder on the NVMe drive:
-# the models (up to 8 GB each) and the vector data are written here.
+# OS: Raspberry Pi OS 64-bit (Debian 13 trixie). Run from the repo folder: the models (up to
+# 8 GB each, one at a time) and the vector data are written here, so it needs about 15 GB free.
 # Safe to run again: every step skips what is already done.
 set -e   # stop at the first command that fails
 
@@ -28,12 +28,12 @@ uv sync   # installs the exact package versions pinned in uv.lock
 
 # ── 4. llama.cpp, built for the Pi 5's Cortex-A76 cores (GGML_NATIVE picks up NEON and dotprod) ──
 if [ ! -x llama.cpp/build/bin/llama-server ]; then
-    # clone only once; a rerun after a failed build reuses the folder instead of failing on it
+    # clone once; a rerun reuses the folder
     if [ ! -d llama.cpp ]; then
         git clone --depth 1 --branch "$LLAMA_CPP_TAG" https://github.com/ggml-org/llama.cpp.git
     fi
-    # Skip llama.cpp's web chat UI: the test only uses the server's HTTP API, and building the UI
-    # fails on the Pi. Clear any half-built UI left by an earlier failed run first.
+    # Build the server without its web chat UI: the test only talks to the server's HTTP API.
+    # Remove any earlier UI build output so the setting takes effect on a rerun.
     rm -rf -- llama.cpp/build/tools/ui
     cmake -S llama.cpp -B llama.cpp/build -DGGML_NATIVE=ON -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release \
         -DLLAMA_BUILD_UI=OFF -DLLAMA_USE_PREBUILT_UI=OFF

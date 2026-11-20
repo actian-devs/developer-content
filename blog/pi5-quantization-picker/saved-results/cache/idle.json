@@ -1,0 +1,28 @@
+{
+ "board": {
+  "board": "Raspberry Pi 5 Model B Rev 1.1",
+  "ram_gib": 7.87,
+  "swap_total_gib": 2.0,
+  "swap_devices": "/dev/zram0 partition 2G 449.5M 100",
+  "os": "Debian GNU/Linux 13 (trixie)",
+  "kernel": "6.18.50+rpt-rpi-2712",
+  "root_device": "/dev/mmcblk0p2",
+  "repo_device": "/dev/mmcblk0p2"
+ },
+ "versions": {
+  "llama_server": null,
+  "docker_images": "vectorai actian/vectorai:1.0.3\nollama ollama/ollama:0.40.15",
+  "ollama": "ollama version is 0.40.15"
+ },
+ "thermals": {
+  "temp": "47.7'C",
+  "throttled": "throttled=0xf0000"
+ },
+ "retrieval_top3_hits": "16/16",
+ "peak_used_gib": 1.296,
+ "peak_swap_used_gib": 0.439,
+ "peak_llm_rss_gib": 0.0,
+ "peak_vectorai_gib": 0.153,
+ "peak_ollama_gib": 0.256,
+ "swap_growth_gib": 0.0
+}
