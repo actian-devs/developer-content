@@ -8,10 +8,12 @@ On an 8 GB Pi 5 with VectorAI DB and `nomic-embed-text` running:
 
 | Model | Pick | Fallback | Why |
 | --- | --- | --- | --- |
-| Phi-4 Mini | Q6_K | Q5_K_M | Q8_0 pushes the board into swap; Q6_K fits, at the edge of the limit |
-| Gemma 4 E2B | Q8_0 | Q6_K | every level fits with almost no swap; Q8_0 scored 39 of 40 |
-| Gemma 4 E4B | Q5_K_M | Q4_K_M | Q6_K and Q8_0 push the board more than 1.5 GiB into swap without scoring higher |
-| Qwen3-4B | Q6_K | Q5_K_M | Q8_0 pushes the board 1.7 GiB into swap and scores the same |
+| Phi-4 Mini | Q4_0 | Q3_K_M | both scored 37 of 40, the model's best; Q4_K_M to Q6_K scored 35, and Q6_K sits at the swap limit |
+| Gemma 4 E2B | Q8_0 | Q5_K_M | every level fits with almost no swap; both scored 39 of 40 |
+| Gemma 4 E4B | Q5_K_M | Q4_K_M | both scored 39 of 40; Q6_K and Q8_0 push the board more than 1.5 GiB into swap without scoring higher |
+| Qwen3-4B | Q5_K_M | Q4_0 | five levels tied at 37 of 40; Q6_K sits 0.03 GiB under the swap limit and Q8_0 grows swap by 1.69 GiB |
+
+The rule: pick the highest level that matches the model's best score and stays at least 0.1 GiB under the 0.25 GiB swap limit, so one more process on the board doesn't tip it into swap.
 
 Three findings from the run:
 
@@ -106,7 +108,7 @@ Options: `--models` and `--levels` pick a subset, `--redo` reruns levels that al
 | `docker-compose.yml` | VectorAI DB 1.0.3 and Ollama 0.40.15, without memory caps so the readings are real |
 | `run.py` | The main test: every model at every level, from download to saved result |
 | `vector_side.py` | Index memory and recall for HNSW, IVF and IVF with product quantization |
-| `report.py` | Builds the fit, quality and picker tables from the result files |
+| `report.py` | Builds the fit, quality and picker tables from the result files, using the picker rule above |
 | `qpick/models.py` | The models, levels and Hugging Face file for each |
 | `qpick/corpus.py` | The fictional catalog and the 20 RAG questions |
 | `qpick/prompts.py` | The 40 prompts and the check for each |
@@ -135,4 +137,5 @@ That run used a Raspberry Pi 5 Model B with 8 GB of RAM, booting and storing eve
 - **Community Edition limit.** VectorAI DB Community Edition caps a server at 5,000 vectors, which is why the catalog has 4,000 entries. That is a licence limit, not a limit of the board.
 - **Swap.** Fit results depend on the board's swap setup; `idle.json` records the one each run saw.
 - **One run.** With 40 prompts, one answer is 2.5 points, so a gap of one or two answers between levels is within what a single run can show.
-- **Not a speed benchmark.** Each answer's time is recorded only so that swap-bound levels show up.
+- **Not a speed benchmark.** Each answer's time is recorded only so that swap-bound levels show up. The test board's throttle flags (`thermals_before` and `thermals_after` in each result) show it throttled at some point during the run, which affects speed but not memory use or answers.
+- **Context length.** Every level ran with a 4,096-token context. A longer context needs more memory, so the fit results only hold at 4,096.

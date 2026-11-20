@@ -68,13 +68,13 @@ Board: Raspberry Pi 5 Model B Rev 1.1, 7.87 GiB RAM, swap 2.0 GiB. Retrieval: ri
 | Qwen3-4B | Q6_K | 20 | 10 | 7 | 92% |
 | Qwen3-4B | Q8_0 | 20 | 10 | 7 | 92% |
 
-## Picker (draft, from the rule below)
+## Picker
 
-Pick = the highest level that fits and scores within 5% of the model's best fitting score. Fallback = the next fitting level below it.
+Pick = the highest level that matches the model's best score and grows swap by no more than 0.15 GiB (0.10 GiB under the fit limit). Fallback = the next level down that does the same, or failing that the next level down with that headroom.
 
 | Model | Pick | Fallback | Score at pick |
 | --- | --- | --- | --- |
-| Phi-4 Mini | Q6_K | Q5_K_M | 88% |
-| Gemma 4 E2B | Q8_0 | Q6_K | 98% |
+| Phi-4 Mini | Q4_0 | Q3_K_M | 92% |
+| Gemma 4 E2B | Q8_0 | Q5_K_M | 98% |
 | Gemma 4 E4B | Q5_K_M | Q4_K_M | 98% |
-| Qwen3-4B | Q6_K | Q5_K_M | 92% |
+| Qwen3-4B | Q5_K_M | Q4_0 | 92% |
