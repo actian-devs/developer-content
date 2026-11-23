@@ -1,6 +1,6 @@
 """The models and quantization levels under test, as GGUF files on Hugging Face.
 
-The model variants follow the Phi-4 Mini vs Gemma 4 vs Qwen3 comparison on the same board:
+The model variants match the Phi-4 Mini vs Gemma 4 vs Qwen3 comparison article:
 Phi-4 Mini (3.8B), Gemma 4 E2B and E4B, and Qwen3-4B. The files come from Unsloth's GGUF
 repos, except Phi-4 Mini at Q4_0, which Unsloth doesn't publish (see SOURCE_OVERRIDES below).
 """
