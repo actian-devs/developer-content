@@ -104,11 +104,14 @@ wget -P models https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/g
 llama.cpp/build/bin/llama-server -m models/gemma-4-E2B-it-Q8_0.gguf -c 4096 -np 1 -t 4 -ngl 0 --jinja --reasoning off
 ```
 
-Wait for this line:
+Wait for these lines (each starts with a timestamp):
 
 ```text
-main: server is listening on http://127.0.0.1:8080 - starting the main loop
+srv  server_run_i: model loaded
+srv  server_on_li: listening on http://127.0.0.1:8080
 ```
+
+Once a question comes in, the server also logs `print_timing` lines with tokens per second. Keep pane A's log out of the shot or scrolled up while you film the answer.
 
 In a third pane, from the same folder, ask the question:
 
@@ -226,4 +229,5 @@ Pick = the highest level that matches the model's best score and grows swap by n
 
 - No tokens-per-second figures, and no comparisons with other sites' Pi speeds.
 - No VectorAI DB speed or latency claims.
+- Keep `llama-server`'s `print_timing` lines, which show tokens per second, off screen.
 - The board throttled at some point during the saved run, so quote memory and quality, not timings. The load times in step 3 are the one exception, and only to show the cost of swap.
