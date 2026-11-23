@@ -108,7 +108,7 @@ Options: `--models` and `--levels` pick a subset, `--redo` reruns levels that al
 | `docker-compose.yml` | VectorAI DB 1.0.3 and Ollama 0.40.15, without memory caps so the readings are real |
 | `run.py` | The main test: every model at every level, from download to saved result |
 | `vector_side.py` | Index memory and recall for HNSW, IVF and IVF with product quantization |
-| `demo.py` | Asks one catalog question end to end, VectorAI DB retrieving and `llama-server` answering, for the video |
+| `demo.py` | Asks one catalog question end to end, VectorAI DB retrieving and a running `llama-server` answering |
 | `report.py` | Builds the fit, quality and picker tables from the result files, using the picker rule above |
 | `qpick/models.py` | The models, levels and Hugging Face file for each |
 | `qpick/corpus.py` | The fictional catalog and the 20 RAG questions |
@@ -117,7 +117,6 @@ Options: `--models` and `--levels` pick a subset, `--redo` reruns levels that al
 | `qpick/server.py` | Starts `llama-server` for one file, sends prompts, stops it |
 | `qpick/memory.py` | The background sampler that records peak memory |
 | `saved-results/` | The run behind the article (see below) |
-| `RECORDING.md` | Step-by-step guide for recording the demo video |
 
 ## Output
 

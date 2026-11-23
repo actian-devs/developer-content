@@ -1,6 +1,6 @@
 """Ask one catalog question end to end: VectorAI DB retrieves the top 3 entries, llama-server answers.
 
-Start llama-server with one of the picks first (see RECORDING.md), then:
+Start llama-server with one of the picks first, then:
 
   uv run demo.py
   uv run demo.py "Which plant makes the Halcyon 70 gear housing?"
