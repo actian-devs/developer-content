@@ -32,31 +32,44 @@ Disk is measured with `du -sk` on the container's mounted data directories.
 
 ## Requirements
 
-- Python 3.10+
-- Docker, with the VectorAI DB container running
-- `pip install actian-vectorai numpy`
+- Docker with Compose v2 (`docker compose`)
+- [uv](https://docs.astral.sh/uv/), which installs Python 3.12 and the dependencies (`actian-vectorai-client`, `numpy`) on first run
+- A VectorAI DB Community Edition trial license key
 
-Developed against VectorAI DB 1.0.3 and the matching Python SDK. Other SDK versions may differ. For example, `VectorParams` rejected `on_disk` and `datatype` in this version, so the script doesn't pass them.
+Developed against VectorAI DB 1.0.3 and the matching Python SDK. `docker-compose.yml` pins the image tag, so your run uses the same version as the published results. Other versions may differ. For example, `VectorParams` rejected `on_disk` and `datatype` in 1.0.3, so the script doesn't pass them.
 
-### Vector limits
+The image is multi-architecture (amd64 and arm64). Docker pulls the native build for your machine. Don't force `platform: linux/amd64` on Apple Silicon: emulation changes memory readings.
 
-Per Actian's Community Edition page, the 30-day trial allows up to 1 million vectors. The default checkpoints (up to 100,000) need the trial limit.
+### License key and vector limits
+
+Without a license key, the Community Edition stops near 5,000 vectors, so the 10,000 and 100,000 checkpoints won't run. Per Actian's Community Edition page, the 30-day trial allows up to 1 million vectors.
+
+1. [Sign up for the Community Edition trial](https://www.actian.com/databases/vectorai-db/community-edition/). The license key arrives by email.
+2. Start the container (see [Usage](#usage)).
+3. Apply the key in the License Manager at http://localhost:6575, or with the `curl` call to `/api/actian/licenses/add` described on the [license activation page](https://docs.vectoraidb.actian.com/home/getting-started/license-activation).
 
 The script deletes each collection when it finishes, so it never holds more than the largest checkpoint.
 
 ## Usage
 
 ```bash
-pip install actian-vectorai numpy
+git clone https://github.com/actian-devs/developer-content.git
+cd developer-content/blog/memory-benchmark
 
-# find the container name and its data mounts
-docker ps
-docker inspect <container> --format '{{json .Mounts}}'
+# start VectorAI DB in the background, then apply your license key
+docker compose up -d
 
-CONTAINER=<container> python bench_model.py
+# run the benchmark (the container is named vectorai by default)
+uv run bench.py
 
 # macOS: keep the machine awake during long runs
-caffeinate -i env CONTAINER=<container> python bench_model.py
+caffeinate -i uv run bench.py
+```
+
+If you run the database outside this compose file, set `CONTAINER` to its name. Use `docker ps` to find the name and `docker inspect <container> --format '{{json .Mounts}}'` to find its data mounts:
+
+```bash
+CONTAINER=<container> uv run bench.py
 ```
 
 ### Configuration
@@ -68,7 +81,7 @@ caffeinate -i env CONTAINER=<container> python bench_model.py
 | `DATA_DIR` | auto-detect | Container-side data path for the disk measurement. Empty means every mount destination is measured. |
 | `DIM` | `384` | Embedding dimensions |
 
-Edit the constants at the top of `bench_model.py` to change `CHECKPOINTS`, `PRECISIONS` or `BATCH`.
+Edit the constants at the top of `bench.py` to change `CHECKPOINTS`, `PRECISIONS` or `BATCH`.
 
 ## Output
 
@@ -78,7 +91,7 @@ Edit the constants at the top of `bench_model.py` to change `CHECKPOINTS`, `PREC
 | `benchmark_model.html` | The same tables plus a chart of measured points and the fitted line |
 | `benchmark_model_results.json` | Every raw reading, saved after each precision so a failure keeps earlier results |
 
-The console prints progress, the ingest rate for each checkpoint, and the memory source.
+The console prints progress, the ingest rate for each checkpoint, and the memory source. The results from the run below are in [`published-results/`](published-results/).
 
 ## Example results (single run)
 
@@ -95,9 +108,10 @@ One run on an Apple M3 in Docker, VectorAI DB 1.0.3, 384 dimensions. Values are 
 
 Observations from this run:
 
-- An empty collection costs about 15 MiB of memory.
+- The idle, freshly restarted container used about 249 MiB. Add this to the table values to get total memory.
+- An empty collection costs about 15 MiB of memory. The table values already include it.
 - Memory added per vector falls as the collection grows, so a single straight-line slope describes the data only roughly.
-- Int8 reduced measured memory by about 1.3x, 1.6x and 2.2x at the three sizes, well short of the 4x reduction in raw vector bytes.
+- Int8 reduced measured memory by about 24%, 38% and 54% (1.3x, 1.6x and 2.2x) at the three sizes, well short of the 4x reduction in raw vector bytes.
 - Int8 saved little disk at 100,000 vectors, and the 10,000-vector disk readings look inconsistent with their neighbours. Repeat the runs before relying on the disk column.
 
 ## Comparing with a calculator
@@ -117,6 +131,7 @@ The calculator's own page describes its figures as rule-of-thumb estimates rathe
 
 - Single run per cell on one machine. Memory readings varied by roughly 3 MiB between runs in earlier tests, so repeat each cell and report the median.
 - Random Gaussian vectors, not real embeddings. Real data may index differently.
+- The payload is only an ID. Larger payloads will add memory and disk that this benchmark doesn't measure.
 - The script waits 30 seconds after each checkpoint of 50,000 or more vectors. If indexing continues beyond that, the reading is low. A longer wait, or polling until memory stabilises, is a straightforward improvement.
 - Memory and disk are measured for the whole container, so they include everything the server allocates, not only the index.
 - Docker Desktop on macOS runs containers in a VM. Check that its memory limit is large enough for your largest checkpoint, or the container may be killed mid-run.
@@ -127,6 +142,7 @@ The calculator's own page describes its figures as rule-of-thumb estimates rathe
 |---|---|
 | `du: cannot access '<path>'` | `DATA_DIR` is a host path. Use the container-side path from `docker inspect ... .Mounts` (the `Destination`). |
 | `VectorParams ... Extra inputs are not permitted` | Your SDK version doesn't accept that argument. Check the installed `VectorParams` fields. |
-| Run stops near 5,000 vectors | The server is on the Community Edition cap. Use the trial limit or lower `CHECKPOINTS`. |
+| Run stops near 5,000 vectors | No license key is applied, so the server is on the Community Edition cap. Apply your trial key (see [License key and vector limits](#license-key-and-vector-limits)) or lower `CHECKPOINTS`. |
 | `server did not come back after restart` | The container is slow to start or crashed. Check `docker logs <container>`. |
 | gRPC `fork_posix` log lines | Harmless. The script sets `GRPC_VERBOSITY=ERROR` to silence them. |
+| `uv run` installs sentence-transformers, torch or other large packages | `pyproject.toml` lists extra dependencies. The script needs only `actian-vectorai-client` and `numpy`. |
