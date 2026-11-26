@@ -5,12 +5,33 @@ Seed a local/cloud model pair, retrieve checked historical outcomes with native 
 ## Prerequisites
 
 - Python 3.12 and the packages pinned in `requirements.lock.txt`.
-- A running local [Actian VectorAI DB](https://docs.vectoraidb.actian.com/home/installation/instructions). The default gRPC address is `localhost:6674`; change `ACTIAN_VECTORAI_URL` if your server uses another local port. Setup creates a collection, not a server/container.
+- A running local [Actian VectorAI DB](https://docs.vectoraidb.actian.com/home/installation/instructions). The compatibility-tested server is **1.0.4 (commit `2d7f2df6`)** with **Python SDK 1.0.2**, pinned in both dependency files. Use the immutable Docker image below. The default gRPC address is `localhost:6674`; the isolated Docker instructions use `localhost:17674`. Setup creates a collection, not a server/container.
 - [Ollama](https://ollama.com/) with the public [`qwen3:4b-instruct`](https://ollama.com/library/qwen3:4b-instruct) tag and `embeddinggemma:latest`. This example pins Qwen digest `0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0` and EmbeddingGemma digest `85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1`. If a public tag changes, the provider refuses the mismatched digest; do not silently substitute another model.
 - An OpenAI API key and explicit permission to spend for paired cloud seeding/demo requests. The frozen cloud model is `gpt-5.4-2026-03-05`; its availability and recorded pricing assumptions must be checked before new paid use.
 - Enough memory for the models. Requests are serial; models unload between embedding and generation. Guards require 1.5 GiB available before a request and stop after five sustained seconds below 512 MiB. This is not a guaranteed memory reservation.
 
 ## Install and configure
+
+### Start a separate database
+
+Review and accept the [Actian EULA](https://docs.vectoraidb.actian.com/home/support/eula) before setting `ACTIAN_VECTORAI_ACCEPT_EULA=YES`. Choose unused container/volume names and ports; do not replace or stop an existing database. In PowerShell:
+
+```powershell
+$image='actian/vectorai@sha256:0abd6c0d6011a4379c6df69d15f06c440dc4cbb8652ced75d0608b80f83f6466'
+docker pull $image
+docker volume create llm-router-vectorai-data
+docker run --detach --name llm-router-vectorai --env ACTIAN_VECTORAI_ACCEPT_EULA=YES --publish 127.0.0.1:17673:6573 --publish 127.0.0.1:17674:6574 --publish 127.0.0.1:17675:6575 --mount type=volume,source=llm-router-vectorai-data,target=/var/lib/actian-vectorai $image
+docker logs llm-router-vectorai
+$env:ACTIAN_VECTORAI_URL='localhost:17674'
+```
+
+Wait for the gRPC server's `Ready to accept connections` message. Keep that endpoint environment variable for the commands below, or set `ACTIAN_VECTORAI_URL=localhost:17674` in your private `.env` after creating it. The named volume persists data when the container stops; these commands do not reset an existing collection. This example uses loopback plaintext gRPC without authentication and is not a remote deployment configuration.
+
+The immutable reference is a multi-platform image index; the actual compatibility test ran on `linux/amd64`. The server returned `Actian VectorAI DB 1.0.4`, commit `2d7f2df6`. With SDK 1.0.2, both native search calls must use `SearchParams(hnsw_ef=...)` and omit `exact`: this server rejects `SearchPoints.params.exact`. Filters, full-collection overfetch, completeness checks and routing thresholds remain unchanged. Native ANN search is not guaranteed exact; matching known cosine scores in this bounded test does not establish general recall.
+
+Separate compatibility verification used synthetic 768-dimensional vectors, not model embeddings: collection creation/reuse, 120 upserts/readbacks, all 40 eligible outcomes including 20 synthetic failures, exactly 20 `passed_check=true` outcomes, exclusion of 80 distractors, native cosine score/ranking checks, vector readback and overwrite refusal passed. All 27 deterministic tests passed. No models or paid APIs were called for that check. The historical experiment used server 1.0.1 / VDE 1.0.1 and SDK 1.0.2; its image has no verified currently pullable reference. Historical results were not rerun on server 1.0.4 and must not be attributed to this compatibility test.
+
+### Install the Python package dependencies
 
 From this folder:
 
@@ -90,7 +111,7 @@ This path generates its own state under `artifacts/reader-example-v1/`; it needs
 
 The [routing-loop diagram](ROUTING_LOOP.md) shows the separate native searches. `points.search` with `FilterBuilder.must` selects checked successes; another query retains failures for per-model, distinct-message rates. The existing exploratory gate is cosine minimum 0.5, five messages, at least 80% agreement, and up to ten neighbors. These are not validated reliability guarantees.
 
-On the tested server, native filtered search needed full-collection over-fetch and `hnsw_ef >= 4096`. The adapter verifies every expected ID and fails closed on incomplete results. It refuses collections above 10,000 points. Scores/ranking come from VectorAI DB, not Python cosine ranking; this is a bounded workaround, not a scalability claim.
+On the historical server, native filtered search needed full-collection over-fetch and `hnsw_ef >= 4096`. The same bounded adapter is retained for the server 1.0.4 compatibility test; that test does not establish which smaller search settings would suffice. The adapter verifies every expected ID and fails closed on incomplete results. It refuses collections above 10,000 points. Scores/ranking come from VectorAI DB, not Python cosine ranking; this is a bounded workaround, not a scalability claim.
 
 Runtime validation checks schema, clarification consistency and exact input order-ID membership, not semantic correctness. `check` separately compares saved seed/demo answers with draft references and emits bound boolean feedback/provenance. Raw attempts remain unchanged and semantically unverified without feedback. A local runtime rejection escalates once and preserves separate local/cloud UUIDs linked to the request. The provider-driven outcome loop also supports an explicit bound semantic checker; future live outcomes require reviewed feedback, not assumed cloud correctness. Four demo messages alone cannot satisfy five-neighbor support or prove learning.
 

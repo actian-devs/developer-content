@@ -21,7 +21,8 @@ class NativeRetrievalTests(unittest.TestCase):
         kwargs = store.client.points.search.call_args.kwargs
         self.assertEqual(kwargs['limit'], 500)
         self.assertEqual(kwargs['params'].hnsw_ef, 4096)
-        self.assertTrue(kwargs['params'].exact)
+        self.assertFalse(kwargs['params'].to_proto().HasField('exact'))
+        self.assertNotIn('exact', store.search_audit[0])
         self.assertFalse(hits[0]['payload']['runtime_check_pass'])
         store.client.points.get.assert_not_called()
 
@@ -34,6 +35,6 @@ class NativeRetrievalTests(unittest.TestCase):
         identifier = '00000000-0000-0000-0000-000000000001'
         proto = FilterBuilder().must(has_id([identifier])).build().to_proto()
         self.assertEqual(proto.must[0].has_id.has_id[0].uuid, identifier)
-        params = SearchParams(exact=True, hnsw_ef=4096).to_proto()
-        self.assertTrue(params.exact)
+        params = SearchParams(hnsw_ef=4096).to_proto()
+        self.assertFalse(params.HasField('exact'))
         self.assertEqual(params.hnsw_ef, 4096)

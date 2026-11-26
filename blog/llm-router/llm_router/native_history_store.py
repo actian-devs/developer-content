@@ -22,10 +22,10 @@ class NativeHistoryStore(ActianStore):
         limit=max(1,count,len(ids));ef=max(4096,limit)
         filt=FilterBuilder().must(has_id(list(eligible_ids))).build()
         rows=self.client.points.search(collection,vector,filter=filt,limit=limit,
-            params=SearchParams(exact=True,hnsw_ef=ef),with_payload=True,timeout=30)
+            params=SearchParams(hnsw_ef=ef),with_payload=True,timeout=30)
         hits=[r.model_dump(mode='json') for r in rows]
         actual=[str(h['id']) for h in hits]
-        self.search_audit.append(dict(eligible_ids=list(eligible_ids),limit=limit,hnsw_ef=ef,exact=True,returned_ids=actual))
+        self.search_audit.append(dict(eligible_ids=list(eligible_ids),limit=limit,hnsw_ef=ef,returned_ids=actual))
         if len(actual)!=len(set(actual)) or set(actual)!=ids:
             raise RuntimeError('Native filtered search incomplete or out of scope; stop without substitute ranking')
         return hits

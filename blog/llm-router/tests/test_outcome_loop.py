@@ -28,6 +28,8 @@ class OutcomeTests(unittest.TestCase):
   s.search_successes([1.]+[0.]*767,records)
   f=s.client.points.search.call_args.kwargs['filter'].to_proto()
   self.assertEqual(len(f.must),2);self.assertEqual(f.must[1].field.key,'passed_check');self.assertTrue(f.must[1].field.match.boolean)
+  params=s.client.points.search.call_args.kwargs['params'].to_proto()
+  self.assertFalse(params.HasField('exact'));self.assertEqual(params.hnsw_ef,4096)
  def test_feedback_rejects_evaluation_and_runtime_only_checks(self):
   a=dict(message_id='E-001',message='x',stage='evaluation')
   with self.assertRaises(ValueError):make_feedback(a,True,{'kind':'human_review','evidence_sha256':'fixture'},{'E-001':'x'})

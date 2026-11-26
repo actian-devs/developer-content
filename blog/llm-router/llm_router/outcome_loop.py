@@ -65,7 +65,7 @@ class OutcomeStore(NativeHistoryStore):
         if count>10000:raise ValueError('Native workaround not verified above 10000 points')
         filt=FilterBuilder().must(has_id(ids)).must(Field('passed_check').eq(True)).build()
         rows=self.client.points.search(collection,vector,filter=filt,limit=max(1,count),
-            params=SearchParams(exact=True,hnsw_ef=max(4096,count)),with_payload=True,timeout=30)
+            params=SearchParams(hnsw_ef=max(4096,count)),with_payload=True,timeout=30)
         hits=[r.model_dump(mode='json') for r in rows]
         actual=[str(h['id']) for h in hits]
         if set(actual)!=expected or len(actual)!=len(expected) or any(h['payload']['passed_check'] is not True for h in hits):
