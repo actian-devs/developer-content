@@ -108,6 +108,7 @@ Options: `--models` and `--levels` pick a subset, `--redo` reruns levels that al
 | `docker-compose.yml` | VectorAI DB 1.0.3 and Ollama 0.40.15, without memory caps so the readings are real |
 | `run.py` | The main test: every model at every level, from download to saved result |
 | `vector_side.py` | Index memory and recall for HNSW, IVF and IVF with product quantization |
+| `demo.py` | Asks one catalog question end to end, VectorAI DB retrieving and a running `llama-server` answering |
 | `report.py` | Builds the fit, quality and picker tables from the result files, using the picker rule above |
 | `qpick/models.py` | The models, levels and Hugging Face file for each |
 | `qpick/corpus.py` | The fictional catalog and the 20 RAG questions |
@@ -134,7 +135,7 @@ That run used a Raspberry Pi 5 Model B with 8 GB of RAM, booting and storing eve
 
 ## Notes
 
-- **Community Edition limit.** VectorAI DB Community Edition caps a server at 5,000 vectors, which is why the catalog has 4,000 entries. That is a licence limit, not a limit of the board.
+- **Licence key.** To run VectorAI DB with your own licence key, such as one from the [30-day full-featured free trial](https://www.actian.com/databases/vectorai-db/), follow the [install guide](https://docs.vectoraidb.actian.com/home/installation/instructions).
 - **Swap.** Fit results depend on the board's swap setup; `idle.json` records the one each run saw.
 - **One run.** With 40 prompts, one answer is 2.5 points, so a gap of one or two answers between levels is within what a single run can show.
 - **Not a speed benchmark.** Each answer's time is recorded only so that swap-bound levels show up. The test board's throttle flags (`thermals_before` and `thermals_after` in each result) show it throttled at some point during the run, which affects speed but not memory use or answers.

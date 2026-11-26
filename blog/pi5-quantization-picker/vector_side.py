@@ -5,9 +5,9 @@ index_memory_bytes, the container's memory, recall@10 against an exact search, a
 right chunk reaches the top 3 for the RAG questions. Scalar quantization (IVF_SQ) runs only with
 --scalar.
 
-Community Edition caps the server at 5,000 vectors and counts deleted vectors until a restart, so
-each variant starts from a restarted container with no other collections. The catalog collection
-the main test uses is rebuilt at the end.
+Each variant starts from a restarted container with no other collections, so one index's memory
+never carries over into the next reading. The catalog collection the main test uses is rebuilt at
+the end.
 
   uv run vector_side.py
   uv run vector_side.py --scalar

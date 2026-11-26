@@ -7,7 +7,7 @@ against the record. The catalog is generated from a fixed seed, so every run bui
 import random
 
 SEED = 7           # a fixed seed: the same "random" catalog comes out on every run and every machine
-N_RECORDS = 4000   # stays under VectorAI DB Community Edition's 5,000-vector cap
+N_RECORDS = 4000   # entries in the fictional parts catalog
 
 # The building blocks for product names, e.g. "Halcyon 40 servo bracket"
 ADJ = ["Halcyon", "Brisk", "Cobalt", "Juniper", "Tundra", "Vesper", "Marlow", "Quill", "Saffron", "Orrin",
