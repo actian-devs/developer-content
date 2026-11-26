@@ -2,7 +2,7 @@
 
 Companion repo for the tutorial "Filtered Vector Search Without Losing Recall". It measures how many of the best ten results a filtered search returns, for a client-side post-filter and for the filters in Actian VectorAI DB, at five filter selectivities. You can run it as is, then point the same harness at your own data.
 
-Every number in this README comes from one run on one machine (AMD Ryzen 5 2500U, 8 GB RAM, no CUDA GPU) with `actian-vectorai-client` 1.0.3. Treat the numbers as a method to repeat, not as a benchmark. The repo measures recall and result counts only, and it reports no latency or speed figures.
+Every number in this README comes from one fresh run on one machine (AMD Ryzen 5 2500U with Radeon Vega Mobile Gfx, 7.2 GiB RAM, no CUDA GPU) with `actian-vectorai-client` 1.0.3 and VectorAI DB image digest `sha256:0abd6c0d6011a4379c6df69d15f06c440dc4cbb8652ced75d0608b80f83f6466`. Treat the numbers as a method to repeat, not as a benchmark. The repo measures recall and result counts only, and it reports no latency or speed figures.
 
 ## What the test answers
 
@@ -66,7 +66,7 @@ If you prefer to build the project file by file instead of cloning, follow [RUN-
 | `measure.py` | Runs every method at every selectivity and writes `recall.csv` and `probe.csv` |
 | `clauses.py` | Runs the combined and `min_should` filters and re-checks every payload |
 | `plot.py` | Draws recall by selectivity from `recall.csv` |
-| `results/` | The author's `recall.csv` and `probe.csv` |
+| `recall.csv`, `probe.csv` | Generated measurement output (ignored by Git) |
 | `images/` | The tutorial figures |
 | `RUN-GUIDE.md` | The same project, built from scratch |
 
@@ -148,25 +148,22 @@ Reads `recall.csv` and draws recall at 10 against selectivity for the post-filte
 
 ## Reference results
 
-These are the author's values from `results/recall.csv`, for 5,000 products and 100 queries, with recall at 10 and the average number of results returned in parentheses.
+These are values from the author's fresh run, for 5,000 products and 100 queries, with recall at 10 and the average number of results returned in parentheses.
 
 | Selectivity | Admitted | Post-filter | VectorAI DB filter | `hnsw_ef=1024` | 5x overfetch | 20x overfetch |
 |---|---|---|---|---|---|---|
-| 50% | 2,501 | 0.506 (5.1) | 0.756 (7.6) | 0.756 (7.6) | 1.000 (10.0) | 1.000 (10.0) |
-| 20% | 1,000 | 0.195 (1.9) | 0.308 (3.1) | 0.308 (3.1) | 0.966 (9.7) | 0.984 (10.0) |
-| 10% | 502 | 0.092 (0.9) | 0.146 (1.5) | 0.146 (1.5) | 0.721 (7.2) | 0.936 (10.0) |
-| 5% | 250 | 0.043 (0.4) | 0.074 (0.7) | 0.074 (0.7) | 0.356 (3.6) | 0.809 (9.8) |
-| 1% | 50 | 0.003 (0.0) | 0.008 (0.1) | 0.008 (0.1) | 0.058 (0.6) | 0.270 (2.7) |
+| 50% | 2,501 | 0.506 (5.1) | 1.000 (10.0) | 1.000 (10.0) | 1.000 (10.0) | 1.000 (10.0) |
+| 20% | 1,000 | 0.195 (1.9) | 0.983 (10.0) | 1.000 (10.0) | 0.983 (10.0) | 0.999 (10.0) |
+| 10% | 502 | 0.092 (0.9) | 0.938 (10.0) | 1.000 (10.0) | 0.938 (10.0) | 1.000 (10.0) |
+| 5% | 250 | 0.043 (0.4) | 0.815 (10.0) | 1.000 (10.0) | 0.982 (10.0) | 1.000 (10.0) |
+| 1% | 50 | 0.003 (0.0) | 0.881 (10.0) | 0.999 (10.0) | 1.000 (10.0) | 1.000 (10.0) |
 
 What the results show
 - The post-filter's recall tracks the filter's share, because it can only keep what the unfiltered top ten already holds.
-- The VectorAI DB filter returned fewer than ten results at every selectivity, and no returned product broke the filter in any row.
-- Recall times ten matches the results returned in every row (allowing for rounding), so the returned products were in the exact filtered top ten and the loss comes from products the search never returned.
-- Values of 64, 256, and 1,024 for `hnsw_ef` gave the same recall as the default in every row.
-- Overfetching recovered most of the loss down to a 5% filter.
-- The limit probe suggests the server ranks about 1.2 to 1.6 times the requested limit before it filters, for limits up to 200.
-
-These results match a search that ranks a candidate window and then filters, which is how the CrewAI memory tutorial describes VectorAI DB. They do not match the "applies filter conditions during the search" wording in the filtering documentation. The author did not inspect the server, so the candidate window is the explanation the numbers support, and Actian should confirm it.
+- The VectorAI DB filter returned exactly ten results for every one of the 100 queries at all five selectivities. A separate per-query check found zero products that violated the price filter.
+- Returning ten results did not guarantee exact top-ten recall: the default filtered-search recall was 0.983 at 20%, 0.938 at 10%, 0.815 at 5%, and 0.881 at 1%.
+- Raising `hnsw_ef` to 1,024 raised recall to at least 0.999 at every selectivity. Overfetching by 20 also reached at least 0.999.
+- In the limit probe, the first 20 queries returned the requested 10, 50, or 200 results at every selectivity. For a limit of 1,000, results were capped by the number of products admitted by the filter.
 
 ## Use your own data
 
@@ -201,7 +198,7 @@ Check three signals on every run
 | `actian-vectorai-client` | 1.0.3 |
 | `sentence-transformers` | 6.1.0 |
 | Embedding model | `sentence-transformers/all-MiniLM-L6-v2` |
-| VectorAI DB image | `actian/vectorai@sha256:b01cbb6b407129e722fe7017d6d93afa8648729b625946cf0e546858b8edc6c0`, digest TODO-image-digest |
+| VectorAI DB image | `actian/vectorai:latest`, digest `sha256:0abd6c0d6011a4379c6df69d15f06c440dc4cbb8652ced75d0608b80f83f6466` |
 
 Actian publishes no tag list for the image, so record the digest you ran with every number you publish.
 
