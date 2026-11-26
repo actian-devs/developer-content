@@ -32,8 +32,8 @@ A GPU is not required. Embedding 5,100 short texts runs on a CPU.
 ## Quick start
 
 ```bash
-git clone TODO-repo-url filtered-vector-search-recall
-cd filtered-vector-search-recall
+git clone https://github.com/actian-devs/developer-content.git
+cd developer-content/blog/filtered-vector-search-recall
 
 uv sync --extra plot                  # creates .venv and installs the pinned dependencies
 docker compose up -d                  # starts VectorAI DB on localhost:6574
@@ -66,7 +66,7 @@ If you prefer to build the project file by file instead of cloning, follow [RUN-
 | `measure.py` | Runs every method at every selectivity and writes `recall.csv` and `probe.csv` |
 | `clauses.py` | Runs the combined and `min_should` filters and re-checks every payload |
 | `plot.py` | Draws recall by selectivity from `recall.csv` |
-| `recall.csv`, `probe.csv` | Generated measurement output (ignored by Git) |
+| `recall.csv`, `probe.csv` | Generated measurement output |
 | `images/` | The tutorial figures |
 | `RUN-GUIDE.md` | The same project, built from scratch |
 
@@ -90,7 +90,7 @@ Each product has a category (10 categories), a title and description, a price, a
 
 Deletes the collection if it exists, creates it with the catalog's vector size and cosine distance, upserts the products in batches of 256, flushes, and waits until the collection is ready. Run it again any time you change the catalog. It accepts `--url` (default `localhost:6574`) and `--collection` (default `products`).
 
-The collection uses the server's default index settings. The script sets only the vector size and the distance.
+The collection uses the default HNSW index, which the indexing documentation says VectorAI DB builds automatically. The script sets only the vector size and the distance, so the HNSW settings are the server defaults.
 
 ### `measure.py`
 
@@ -148,7 +148,7 @@ Reads `recall.csv` and draws recall at 10 against selectivity for the post-filte
 
 ## Reference results
 
-These are values from the author's fresh run, for 5,000 products and 100 queries, with recall at 10 and the average number of results returned in parentheses.
+These are values from the author's run, for 5,000 products and 100 queries, with recall at 10 and the average number of results returned in parentheses.
 
 | Selectivity | Admitted | Post-filter | VectorAI DB filter | `hnsw_ef=1024` | 5x overfetch | 20x overfetch |
 |---|---|---|---|---|---|---|
@@ -206,5 +206,5 @@ Actian publishes no tag list for the image, so record the digest you ran with ev
 
 - One catalog, one embedding model, and one machine. Recall depends on your data, your filters, and your index settings.
 - Price is independent of text by design. A filter that correlates with the query changes the picture, and the Google Research tutorial on filtered vector search lists data correlation as one of the factors.
-- The collection uses default index settings, and the test did not try other index configurations.
+- The collection uses the default HNSW settings, and the test did not set `m` or `ef_construct` at collection creation.
 - The test reports no latency. Measure the cost of overfetching on your own hardware before you raise the factor.
