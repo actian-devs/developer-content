@@ -20,7 +20,7 @@ flowchart LR
 ## Install and start Actian
 
 ```bash
-pip install -e .                    # Python >= 3.10
+uv sync                             # Python >= 3.10
 docker compose up -d                # read the EULA first; see comment in docker-compose.yml
 ```
 
@@ -29,17 +29,17 @@ docker compose up -d                # read the EULA first; see comment in docker
 ```bash
 # Chroma Cloud
 export CHROMA_API_KEY=... CHROMA_TENANT=... CHROMA_DATABASE=...
-chroma2actian preflight --source cloud --collection my_docs
-chroma2actian migrate   --source cloud --collection my_docs
+uv run chroma2actian preflight --source cloud --collection my_docs
+uv run chroma2actian migrate   --source cloud --collection my_docs
 
 # Self-hosted Chroma server
-chroma2actian migrate --source http --chroma-host chroma.internal --chroma-port 8000 --chroma-token $TOKEN --collection my_docs
+uv run chroma2actian migrate --source http --chroma-host chroma.internal --chroma-port 8000 --chroma-token $TOKEN --collection my_docs
 
 # Local on-disk Chroma (copy the directory first; don't read a store another process is writing)
-chroma2actian migrate --source local --chroma-path ./chroma --collection my_docs
+uv run chroma2actian migrate --source local --chroma-path ./chroma --collection my_docs
 
 # Everything in a database, with a prefix on the target names
-chroma2actian migrate --source cloud --all-collections --target-prefix prod_
+uv run chroma2actian migrate --source cloud --all-collections --target-prefix prod_
 ```
 
 Target defaults to `localhost:6574`; override with `--actian-url host:6574`, `--actian-token`, `--actian-tls`
@@ -54,18 +54,19 @@ Target defaults to `localhost:6574`; override with `--actian-url host:6574`, `--
 
 Exit codes: `0` ok · `1` check failed / runtime failure · `2` usage or precondition · `3` interrupted (state saved; `--resume`).
 
-## Take Backup of ChromaDb
+## Back up your Chroma data
 
 ```bash
-
 # Local
 uv run python export_chroma.py --source local --chroma-path ./chroma_demo --all-collections
-# self-hosted server (add --chroma-token and --chroma-ssl if yours needs them)
+
+# Self-hosted server (add --chroma-token and --chroma-ssl if yours needs them)
 uv run python export_chroma.py --source http --chroma-host localhost --chroma-port 8000 --collection support_tickets_demo
 
 # Chroma Cloud
 export CHROMA_API_KEY=... CHROMA_TENANT=... CHROMA_DATABASE=...
 uv run python export_chroma.py --source cloud --all-collections
+```
 
 ## Runbook (what to do in production)
 
@@ -115,6 +116,6 @@ Other checks: collection dimension + metric · `count == source − skipped` · 
 
 `pytest` runs 51 tests against **real local Chroma 1.5.9** and an **in-memory Actian stand-in that uses the real SDK 1.0.3 models/exceptions and serialises every point with the SDK's `to_proto()`**. It covers resume, idempotency, splitting, retries, capacity errors and damage detection.
 
-**Not yet exercised:** a live Actian container and a live Chroma Cloud account (no access from the build environment). Run `ACTIAN_LIVE=1 pytest tests/test_live_actian.py` against your container, and rehearse against your real collection before the write pause.
+**Tested against** a live Actian VectorAI DB 1.0.3 container. **Not yet exercised:** a live Chroma Cloud account. Run `ACTIAN_LIVE=1 pytest tests/test_live_actian.py` against your container, and rehearse against your real collection before the write pause.
 
 Known limits: one pass reads by offset (cost can grow on very large collections); Chroma `where` filters are not translated; named/sparse/multi-vectors are not written; the Actian licence may cap vector count (the tool stops with a clear `CapacityError`).
