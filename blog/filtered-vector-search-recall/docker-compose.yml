@@ -1,7 +1,6 @@
 services:
   vectorai:
     image: actian/vectorai:latest
-    container_name: vectorai
     ports:
       - "6573:6573"   # REST API
       - "6574:6574"   # gRPC API, used by the Python SDK
